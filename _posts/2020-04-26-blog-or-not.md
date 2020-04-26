@@ -1,5 +1,5 @@
 ---
-title: "Test"
+title: "Blog or not"
 categories:
   - blog
 tags:
@@ -7,4 +7,4 @@ tags:
   - update
 ---
 
-Just a quick test
+Just a quick test for blog category
