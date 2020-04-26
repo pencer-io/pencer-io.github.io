@@ -59,7 +59,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : ""
+  name   : 
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Cyber Security, CTF, Pen Test, plus random stuff I want to remember."
   links:
