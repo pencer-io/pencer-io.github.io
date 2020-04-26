@@ -1,7 +1,7 @@
 ---
 title: "Test"
-# categories:
-#  - blog
+categories:
+  - blog
 tags:
   - Jekyll
   - update
