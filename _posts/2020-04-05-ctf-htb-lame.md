@@ -15,7 +15,7 @@ tags:
 
 ## Machine Information
 
-![Lame](/images/2020-04-05-21-43-26.png)
+![Lame](/assets/images/2020-04-05-21-43-26.png)
 
 This was the first machine released on the [Hack The Box](https://www.hackthebox.eu/home) platform. It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
 <!--more-->
