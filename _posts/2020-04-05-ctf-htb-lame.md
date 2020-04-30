@@ -1,5 +1,7 @@
 ---
 title: "Hack The Box - Easy - Lame"
+toc: true
+toc_sticky: true
 excerpt_separator:  <!--more-->
 categories:
   - CTF
@@ -16,7 +18,9 @@ tags:
 ![Lame](/images/2020-04-05-21-43-26.png)
 
 Retired box, available here: [HTB - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
+
 <!--more-->
+
 Check for open ports with Nmap:
 
 ```code
