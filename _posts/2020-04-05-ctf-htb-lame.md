@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Lame from Hack The Box"
+title: "Walk-through of Lame from HTB"
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -17,7 +17,7 @@ tags:
 
 ![Lame](/images/2020-04-05-21-43-26.png)
 
-This was the first machine released on the Hack The Box platform. It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
+This was the first machine released on the [Hack The Box](https://www.hackthebox.eu/home) platform. It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
 <!--more-->
 
 ### Initial Recon
