@@ -18,6 +18,7 @@ published: false
 ## Machine Information
 
 ![Beep](/assets/images/2020-05-05-22-24-23.png)
+
 This was the fifth machine released on the [Hack The Box](https://www.hackthebox.eu/home) platform. It's now retired so only available to those with VIP membership here: [HTB - 005 - Easy - Beep](https://www.hackthebox.eu/home/machines/profile/5)
 
 Machine release date: 15th March 2017
