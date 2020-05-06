@@ -1,8 +1,6 @@
 ---
 title: "Walk-through of Lame from HTB"
 teaser: /assets/images/2020-04-05-21-43-26.png
-author_profile: false
-classes: wide
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
