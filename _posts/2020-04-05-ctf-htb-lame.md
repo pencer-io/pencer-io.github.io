@@ -1,5 +1,6 @@
 ---
 title: "Walk-through of Lame from HTB"
+teaser: /assets/images/2020-04-05-21-43-26.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -9,6 +10,7 @@ tags:
   - HTB
   - CTF
   - smbclient
+  - Samba
   - Metasploit
   - Linux
 ---
@@ -17,15 +19,17 @@ tags:
 
 ![Lame](/assets/images/2020-04-05-21-43-26.png)
 
-This was the first machine released on the [Hack The Box](https://www.hackthebox.eu/home) platform. It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
+Lame is a beginner level machine, requiring only one exploit to obtain root access. Skills required are basic knowledge of Linux and enumerating ports and services. Skills learned are identifying vulnerable services and exploiting Samba.
+
+<!--more-->
+
+It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
 
 Machine release date: 14th March 2017
 
 Date I completed it: 14th July 2019
 
 Distribution used: Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/)
-
-<!--more-->
 
 ### Initial Recon
 
