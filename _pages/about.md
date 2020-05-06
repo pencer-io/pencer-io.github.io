@@ -3,7 +3,7 @@ permalink: /about/
 title: "About"
 ---
 
-## What is this blog about?
+**What is this blog about?**
 
 I've been writing up some of the things I've learnt for years in a personal OneNote. I thought it was time to start sharing some of it, not because I write anything groundbreaking, but mostly so the info isn't locked away.
 
