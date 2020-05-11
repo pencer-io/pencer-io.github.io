@@ -1,6 +1,7 @@
 ---
 title: "Walk-through of Lame from HackTheBox"
-teaser: /assets/images/2020-04-05-21-43-26.png
+header:
+  teaser: /assets/images/2020-04-05-21-43-26.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
