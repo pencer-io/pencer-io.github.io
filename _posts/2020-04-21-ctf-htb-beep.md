@@ -142,7 +142,7 @@ fanis
 
 No obvious way forward with this, so save for possible brute force later and look for another path.
 
-Going back to at Elastix, i find it's prone to LFI exploit:
+Going back to at Elastix, I find it's prone to LFI exploit:
 
 ```text
 root@kali:~/htb/beep# searchsploit elastix
