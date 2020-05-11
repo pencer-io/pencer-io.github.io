@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Lame from HTB"
+title: "Walk-through of Lame from HackTheBox"
 teaser: /assets/images/2020-04-05-21-43-26.png
 toc: true
 toc_sticky: true
@@ -23,13 +23,13 @@ Lame is a beginner level machine, requiring only one exploit to obtain root acce
 
 <!--more-->
 
-It's now retired so only available to those with VIP membership here: [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1)
-
-Machine release date: 14th March 2017
-
-Date I completed it: 14th July 2019
-
-Distribution used: Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/)
+| Details |  |
+| --- | --- |
+| Hosting Site | [HackTheBox](https://www.hackthebox.eu/) |
+| Link To Machine | [HTB - 001 - Easy - Lame](https://www.hackthebox.eu/home/machines/profile/1) |
+| Machine Release Date | 14th March 2017 |
+| Date I Completed It | 14th July 2019 |
+| Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
 ### Initial Recon
 
@@ -188,4 +188,4 @@ Switch back to Netcat terminal and should have root shell:
 uid=0(root) gid=0(root)
 ```
 
-Can now get the flags as above now.
+I can now get the user and root flags as above now.

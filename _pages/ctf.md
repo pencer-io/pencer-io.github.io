@@ -1,6 +1,6 @@
 ---
-title: "About"
-permalink: /about/
+title: "CTF"
+permalink: /CTF/
 layout: archive
 author_profile: true
 ---
