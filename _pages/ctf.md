@@ -1,14 +1,15 @@
 ---
 title: "CTF"
+toc: true
+toc_sticky: true
 permalink: /ctf/
 layout: archive
 author_profile: true
 ---
 
-## Notable Features
+## List of all CTF posts on this site
 
-- Bundled as a "theme gem" for easier install/upgrading.
-- Compatible with GitHub Pages.
-- Support for Jekyll's built-in Sass/SCSS preprocessor.
-- Nine different skins (color variations).
-- Several responsive layout options (single, archive index, search, splash, and paginated home page).
+### HackTheBox
+
+[Lame](https://pencer.io/ctf/ctf-htb-lame/)
+[Legacy](https://pencer.io/ctf/ctf-htb-legacy/)
