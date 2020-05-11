@@ -86,7 +86,10 @@ Lots of ports open, start on normal path looking at port 80.
 
 ### Gaining Access
 
-Opening website at http://10.10.10.7 on port 80 automatically redirects to port 443, try gobuster to find anything hidden:
+Opening website at http://10.10.10.7 on port 80 automatically redirects to port 443:
+![Website](/assets/images/2020-05-11-22-37-57.png)
+
+Login page for something called Elastix. Quick search for default credentials finds this [info](https://dariusfreamon.wordpress.com/2013/11/01/elastix-pbx-default-credentials/). Tried those plus other obvious ones but no luck, so try gobuster to find anything hidden:
 
 ```text
 root@kali:~/htb/beep# gobuster dir -k -u https://10.10.10.7 -w /usr/share/wordlists/dirb/big.txt
@@ -139,7 +142,7 @@ fanis
 
 No obvious way forward with this, so save for possible brute force later and look for another path.
 
-Machine also has Elastix installed, which is prone to LFI exploit:
+Going back to at Elastix, i find it's prone to LFI exploit:
 
 ```text
 root@kali:~/htb/beep# searchsploit elastix
@@ -194,11 +197,11 @@ Log in to https://10.10.10.7/vtigercrm - user **admin**, password **jEhdlekWmdjE
 
 Navigate to Settings - Company Details
 
-There is a file upload vulnerability where you can upload a jpg but it doesn't properly sanitise. So you can have shell.php.jpg, then use [Tamper Data](https://addons.mozilla.org/en-GB/firefox/addon/tamper-data-for-ff-quantum/) or Burp to intercept request and remove double extension. Should then upload as a php.
+There is a file upload vulnerability where you can upload a jpg but it doesn't properly sanitise. So you can have shell.php.jpg, then use [Tamper Data](https://addons.mozilla.org/en-GB/firefox/addon/tamper-data-for-ff-quantum/) or [Burp](https://portswigger.net/burp) (already installed on Kali) to intercept request and remove double extension. Should then upload as a php file.
 
 Have an nc -lvp 1234 waiting in a terminal and should get a reverse shell.
 
-We a re then logged in as user asterisk, and can get user flag from fanis folder.
+We are then logged in as user asterisk, and can get user flag from fanis folder.
 When checking we see /tmp, is world writeable, so CD to there.
 
 Start web server on Kali:
