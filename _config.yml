@@ -15,15 +15,17 @@
 # in the templates via {{ site.myvariable }}.
 # locale: en-GB
 title: pencer.io
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+subtitle: "Version 1.29b"
+# email:
+description: "Cyber Security, Hacking, Coding and Web. This is a blog about things that interest me, new things I've learnt and things I don't want to forget"
+repository: "pencer-io/pencer-io.github.io"
 twitter_username: pencer_io
 github_username: pencer-io
 minimal_mistakes_skin: dark
+# teaser: /assets/images/500x300.png
+logo: "/assets/images/masthead.png"
 search: true
+breadcrumbs: true
 
 # Build settings
 markdown: kramdown
@@ -33,6 +35,11 @@ permalink: /:categories/:title/
 paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/London # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "pencer-io"
 
 include:
   - _pages
@@ -61,7 +68,7 @@ plugins:
 author:
   name   : 
   avatar : "/assets/images/BlackUnicorn.png"
-  bio    : "Cyber Security, CTF, Pen Test, plus random stuff I want to remember."
+  bio    : "Cyber Security, Hacking, Coding and Web enthusiast."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -72,9 +79,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pencer-io/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+#    - label: "Instagram"
+#      icon: "fab fa-fw fa-instagram"
+#      url: "https://instagram.com/"
 
 footer:
   links:
@@ -84,9 +91,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pencer-io/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+#    - label: "Instagram"
+#      icon: "fab fa-fw fa-instagram"
+#      url: "https://instagram.com/"
 
 defaults:
   # _posts
