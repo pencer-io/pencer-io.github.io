@@ -11,8 +11,8 @@ author_profile: true
 
 ### Site: HackTheBox
 
-| Easy Machines |  |
-| --- | --- |
-| Lame | [Walk-through](https://pencer.io/ctf/ctf-htb-lame/) |
-| Beep | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
-| Legacy | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy/) |
+| Number | Name | Difficulty | Walk-through |
+| --- | --- | --- | --- |
+| 001 | Lame | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-lame/) |
+| 002 | Legacy | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy/) |
+| 005 | Beep | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
