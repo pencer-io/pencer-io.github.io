@@ -228,4 +228,4 @@ whoami
 root
 ```
 
-I can now get the user and root flags as above now.
+I can now get the user and root flags, from the paths the same as above.
