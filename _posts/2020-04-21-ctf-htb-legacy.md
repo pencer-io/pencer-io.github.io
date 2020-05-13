@@ -13,7 +13,6 @@ tags:
   - SMB
   - Metasploit
   - Windows
-
 ---
 
 ## Machine Information
@@ -21,7 +20,7 @@ tags:
 ![Legacy](/assets/images/2020-05-05-22-13-16.png)
 
 Legacy is a beginner level machine which demonstrates the potential security risks of SMB on Windows. Only one publicly available exploit is required to obtain administrator access.
-Skills learned are identifying vulnerable services and exploiting SMB.
+Skills required are basic knowledge of Windows and enumerating ports and services. Skills learned are identifying vulnerable services and exploiting SMB.
 
 <!--more-->
 

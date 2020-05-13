@@ -10,8 +10,8 @@ categories:
 tags:
   - HTB
   - CTF
-  - smbclient
-  - Metasploit
+  - gobuster
+  - LFI
   - Linux
 ---
 
@@ -20,7 +20,7 @@ tags:
 ![Beep](/assets/images/2020-05-05-22-24-23.png)
 
 Beep has a large list of running services, which can make it a bit challenging to find the
-correct entry method. Skills Learned are web-based fuzzing, identifying known exploits and exploiting local file inclusion vulnerabilities.
+correct entry method. Skills required are basic knowledge of Linux and enumerating ports and services. Skills learned are web-based fuzzing, identifying known exploits and exploiting local file inclusion vulnerabilities.
 
 <!--more-->
 
