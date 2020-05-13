@@ -7,12 +7,15 @@ layout: archive
 author_profile: true
 ---
 
-## List of all capture the flag machines I've completed
+## Capture the flag walk-throughs
 
 ### Site: HackTheBox
 
-| Number | Name | Difficulty | Walk-through |
-| --- | --- | --- | --- |
-| 001 | Lame | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-lame/) |
-| 002 | Legacy | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy/) |
-| 005 | Beep | Easy | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
+These are all retired machines, which you can only access if you have a VIP membership. More info at [HackTheBox](https://www.hackthebox.eu/home).
+
+| Number | Name | Difficulty | OS | Release Date | |
+| --- | --- | --- | --- | --- | --- |
+| 001 | Lame | Easy | Linux | 14/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-lame/) |
+| 002 | Legacy | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy/) |
+| 003 | Devel | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctt-htb-devel) |
+| 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
