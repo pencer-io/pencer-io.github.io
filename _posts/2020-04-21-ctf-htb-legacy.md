@@ -66,7 +66,7 @@ Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows,cpe:/o:mic
  |_smb2-time: Protocol negotiation failed (SMB2)
 ```
 
-## Method Using Meterpreter
+## Method using Meterpreter
 
 ### Gaining Access
 

