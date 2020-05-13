@@ -32,6 +32,8 @@ Lame is a beginner level machine, requiring only one exploit to obtain root acce
 | Date I Completed It | 14th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
+## Method using Meterpreter
+
 ### Initial Recon
 
 Check for open ports with Nmap:
@@ -163,7 +165,7 @@ user.txt
 # cat /root/root.txt
 ```
 
-## Alternative Method (without MetaSploit)
+## Alternative Method (without Meterpreter)
 
 Start a Netcat session listening on my Kali machine:
 

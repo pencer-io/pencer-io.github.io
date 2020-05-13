@@ -32,6 +32,8 @@ correct entry method. Skills required are basic knowledge of Linux and enumerati
 | Date I Completed It | 16th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
 
+## Method Using Meterpreter
+
 ### Initial Recon
 
 Check for open ports with Nmap:

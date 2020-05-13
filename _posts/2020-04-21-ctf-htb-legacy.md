@@ -66,6 +66,8 @@ Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows,cpe:/o:mic
  |_smb2-time: Protocol negotiation failed (SMB2)
 ```
 
+## Method Using Meterpreter
+
 ### Gaining Access
 
 The machine is running on Windows XP, start msfconsole and look for exploit:
