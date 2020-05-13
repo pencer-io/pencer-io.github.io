@@ -76,25 +76,22 @@ Remote system type is Windows_NT.
 
 Logged in to FTP server, only file there is **iisstart.htm**.
 
-Browse to website on port 80, shows same default iisstart page with welcome logo. So looks like web root is same location as ftp. Test it by uploading a file:
+Browse to website on port 80, shows same default iisstart page with welcome logo. So looks like web root is same location as ftp. Test it by creating a file and uploading to server:
 
 ```text
 root@kali:~/htb/devel# echo spen > test.html
-```
-
-Then upload to ftp server:
-
-```text
 ftp> put test.html
 local: test.html remote: test.html
 ```
 
 Now try opening the file in the browser:
+
 ![website](/assets/images/2020-05-13-21-22-17.png)
 
 Works, so we can open html files placed in the ftp server.
 
 Check what version of IIS is running on the webserver using Burp Repeater:
+
 ![burp](/assets/images/2020-05-13-21-28-32.png)
 
 Burp shows it has IIS 7.5 which is Server 2008R2.
