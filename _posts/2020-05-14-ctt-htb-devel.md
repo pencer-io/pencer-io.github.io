@@ -12,7 +12,7 @@ tags:
   - CTF
   - Meterpreter
   - MSFVenom
-  - 
+  - certutil
   - Windows
 ---
 
@@ -32,6 +32,8 @@ program configurations. It can be completed using publicly available exploits. S
 | Machine Release Date | 15th March 2017 |
 | Date I Completed It | 23th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
+
+## Method Using Meterpreter
 
 ### Initial Recon
 
@@ -358,9 +360,9 @@ c:\>type c:\users\babis\desktop\user.txt.txt
 c:\>type c:\users\administrator\desktop\root.txt.txt
 ```
 
-## Alternative Method (not using Metasploit)
+## Alternative Method (without Meterpreter)
 
-Brief notes on a different wat to complete the box.
+Brief notes on a different way to complete the box.
 
 Create payload as before using MSFVenom:
 
@@ -391,7 +393,7 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
  c:\windows\system32\inetsrv>
 ```
 
-Checking for exploits on this version of Windows I find this: https://www.exploit-db.com/exploits/40564. Look on searchsploit for it:
+Checking for exploits for this version of Windows I find [this](https://www.exploit-db.com/exploits/40564). Look on searchsploit for it:
 
 ```text
 root@kali:~/htb/devel# searchsploit 40564
