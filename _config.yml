@@ -99,11 +99,13 @@ defaults:
       comments: true
       share: true
       related: true
-      sidebar:
-       - text: |
-           Below is an image from Placeholder.com.
-
-           [![Test image from Placeholder](https://via.placeholder.com/100)](https://placeholder.com/)
+    sidebar:
+      - title: "Title"
+        image: http://placehold.it/350x250
+        image_alt: "image"
+        text: "Some text here."
+      - title: "Another Title"
+        text: "More text here."
   # _pages
   - scope:
       path: "_pages"
