@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Walk-through of xxx from HackTheBox"
 header:
   teaser: /assets/images/xx.png
 toc: true
@@ -31,6 +31,8 @@ Description of machine, skills needed and learnt.
 | Machine Release Date | 14th March 2017 |
 | Date I Completed It | 14th July 2019 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
+
+## Method using Meterpreter
 
 ### Initial Recon
 
