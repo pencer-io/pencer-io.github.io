@@ -1,7 +1,7 @@
 ---
 title: "Walk-through of Popcorn from HackTheBox"
 header:
-  teaser: /assets/images/xx.png
+  teaser: /assets/images/2020-05-14-20-35-43.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
