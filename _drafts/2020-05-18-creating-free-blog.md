@@ -12,10 +12,8 @@ tags:
   - Git
   - Github
   - Jekyll
-  - blog
   - markdown
-  
- published: false
+  - blog
 ---
 
 ## Overview
