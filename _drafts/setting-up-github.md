@@ -32,3 +32,5 @@ Here are a series of articles with step-by-step guides on how to set up a blog l
 6 - Writing a few example posts to understand how markdown and Jekyll works with your theme.
 7 - Creating a template for posts to speed your writing up.
 8 - Other options instead of remote theme.
+9 - SEO - Adding Google Analytics and setting up Google Search thing
+
