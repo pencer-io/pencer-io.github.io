@@ -20,3 +20,9 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 003 | Devel | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-devel) |
 | 004 | Popcorn | Medium | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-popcorn) |
 | 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
+
+### Site: TryHackMe
+| Name | Difficulty | OS | Release Date | |
+| --- | --- | --- | --- | --- |
+| Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu/) |
+
