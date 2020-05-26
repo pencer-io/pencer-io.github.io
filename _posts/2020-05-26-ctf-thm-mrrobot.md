@@ -55,13 +55,13 @@ PORT    STATE  SERVICE  VERSION
 22/tcp  closed ssh
 80/tcp  open   http     Apache httpd
 |_http-favicon: Unknown favicon MD5: D41D8CD98F00B204E9800998ECF8427E
-| http-methods: 
+| http-methods:
 |_  Supported Methods: GET HEAD POST OPTIONS
 |_http-server-header: Apache
 |_http-title: Site doesn't have a title (text/html).
 443/tcp open   ssl/http Apache httpd
 |_http-favicon: Unknown favicon MD5: D41D8CD98F00B204E9800998ECF8427E
-| http-methods: 
+| http-methods:
 |_  Supported Methods: GET HEAD POST OPTIONS
 |_http-server-header: Apache
 |_http-title: Site doesn't have a title (text/html).
@@ -155,7 +155,7 @@ Connecting to 10.10.175.84:80... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 7245381 (6.9M) [text/x-c]
 Saving to: ‘fsocity.dic’
-fsocity.dic                                                100%[=======================================================================================================================================>]   6.91M  1.90MB/s    in 5.3s    
+fsocity.dic                                                100%[=======================================================================================================================================>]   6.91M  1.90MB/s    in 5.3s
 2020-05-25 21:27:25 (1.31 MB/s) - ‘fsocity.dic’ saved [7245381/7245381]
 
 root@kali:~# wget http://10.10.175.84/key-1-of-3.txt
@@ -164,7 +164,7 @@ Connecting to 10.10.175.84:80... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 33 [text/plain]
 Saving to: ‘key-1-of-3.txt’
-key-1-of-3.txt                                             100%[=======================================================================================================================================>]      33  --.-KB/s    in 0s      
+key-1-of-3.txt                                             100%[=======================================================================================================================================>]      33  --.-KB/s    in 0s
 2020-05-25 21:27:42 (6.12 MB/s) - ‘key-1-of-3.txt’ saved [33/33]
 ```
 
@@ -181,7 +181,7 @@ We have the first key, record it. Now looking at fsocity.dic, it seems to be a l
 root@kali:~/thm/mrrobot# sort fsocity.dic | uniq > fsocity.uniq
 root@kali:~/thm/mrrobot# wc fsocity.dic
  858161  858161 7245391 fsocity.dic
-root@kali:~/thm/mrrobot# wc fsocity.uniq 
+root@kali:~/thm/mrrobot# wc fsocity.uniq
 11451 11451 96747 fsocity.uniq
 ```
 
@@ -301,7 +301,7 @@ Looks to be a password, give it a try:
 
 ```text
 daemon@linux:/$ su robot
-Password: 
+Password:
 su: Authentication failure
 ```
 
