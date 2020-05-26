@@ -26,4 +26,4 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- |
 | Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu/) |
-| Mr Robot CTF | Easy | Linux | 25/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu/) |
+| Mr Robot CTF | Easy | Linux | 25/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-mrrobot/) |
