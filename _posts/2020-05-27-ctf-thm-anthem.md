@@ -24,7 +24,7 @@ Anthem is a beginner level room which requires you to answer eight questions, an
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Mr Robot CTF](https://tryhackme.com/room/anthem) |
+| Link To Machine | [THM - Easy - Mr Anthem](https://tryhackme.com/room/anthem) |
 | Machine Release Date | 15th May 2020 |
 | Date I Completed It | 28th May 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/releases/kali-linux-2020-1-release/) |
@@ -131,7 +131,7 @@ For Task 1 question 7 we are asked for the name of the administrator. Looking ar
 
 ![article](/assets/images/2020-05-28-22-05-08.png)
 
-Googling the words from the song gets you to a Wikipedia page that reveals the name we are looking for.
+Searching the Internet for words from the song gets you to a Wikipedia page that reveals the name we are looking for.
 
 For Task 1 question 8 we are asked for the administrators email address. Reading the other article gives us the naming convention used for a different user:
 
@@ -191,7 +191,7 @@ If you do not trust the certificate the connection attempt will be aborted:
 Do you trust this certificate (yes/no)? yes
 ```
 
-Use password obtained earlier in r****s.txt file:
+Use password obtained earlier in r********s.txt file:
 
 ![win_login](/assets/images/2020-05-28-22-06-35.png)
 
