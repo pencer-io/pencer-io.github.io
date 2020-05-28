@@ -11,7 +11,6 @@ tags:
   - THM
   - CTF
   - gobuster
-  - 
   - SSH
   - FTP
   - Linux
