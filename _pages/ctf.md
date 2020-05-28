@@ -7,9 +7,7 @@ layout: archive
 author_profile: true
 ---
 
-## Capture the flag walk-throughs
-
-### Site: HackTheBox
+## Site: HackTheBox
 
 ![htb](/assets/images/2020-05-28-23-10-35.png)
 
@@ -23,7 +21,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 004 | Popcorn | Medium | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-popcorn) |
 | 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep/) |
 
-### Site: TryHackMe
+## Site: TryHackMe
 
 ![tryhackme](/assets/images/2020-05-28-23-10-58.png)
 | Name | Difficulty | OS | Release Date | |
@@ -31,4 +29,3 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu/) |
 | Mr Robot CTF | Medium | Linux | 27/011/2018 | [Walk-through](https://pencer.io/ctf/ctf-thm-mrrobot/) |
 | Anthem | Easy | Windows | 15/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-anthem/) |
-first draft
