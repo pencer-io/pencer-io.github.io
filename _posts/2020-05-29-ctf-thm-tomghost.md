@@ -25,7 +25,7 @@ Tomghost is a beginner level room based around a vulnerable Apache installation.
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Mr Anthem](https://tryhackme.com/room/tomghost) |
+| Link To Machine | [THM - Easy - Tomghost](https://tryhackme.com/room/tomghost) |
 | Machine Release Date | 27th March 2020 |
 | Date I Completed It | 29th May 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/releases/kali-linux-2020-1-release/) |

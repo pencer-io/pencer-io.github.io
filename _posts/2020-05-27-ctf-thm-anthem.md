@@ -24,7 +24,7 @@ Anthem is a beginner level room which requires you to answer eight questions, an
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Mr Anthem](https://tryhackme.com/room/anthem) |
+| Link To Machine | [THM - Easy - Anthem](https://tryhackme.com/room/anthem) |
 | Machine Release Date | 15th May 2020 |
 | Date I Completed It | 28th May 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/releases/kali-linux-2020-1-release/) |
