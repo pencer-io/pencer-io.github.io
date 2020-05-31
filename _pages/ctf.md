@@ -31,3 +31,4 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu) |
 | Mr Robot CTF | Medium | Linux | 27/011/2018 | [Walk-through](https://pencer.io/ctf/ctf-thm-mrrobot) |
 | Anthem | Easy | Windows | 15/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-anthem) |
+| Tomghost | Easy | Linux | 27/03/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-tomghost) |
