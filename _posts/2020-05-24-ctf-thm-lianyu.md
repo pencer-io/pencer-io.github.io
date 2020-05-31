@@ -54,18 +54,18 @@ Host is up (0.026s latency).
 PORT      STATE SERVICE VERSION
 21/tcp    open  ftp     vsftpd 3.0.2
 22/tcp    open  ssh     OpenSSH 6.7p1 Debian 5+deb8u8 (protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   1024 56:50:bd:11:ef:d4:ac:56:32:c3:ee:73:3e:de:87:f4 (DSA)
 |   2048 39:6f:3a:9c:b6:2d:ad:0c:d8:6d:be:77:13:07:25:d6 (RSA)
 |   256 a6:69:96:d7:6d:61:27:96:7e:bb:9f:83:60:1b:52:12 (ECDSA)
 |_  256 3f:43:76:75:a8:5a:a6:cd:33:b0:66:42:04:91:fe:a0 (ED25519)
 80/tcp    open  http    Apache httpd
-| http-methods: 
+| http-methods:
 |_  Supported Methods: GET HEAD POST OPTIONS
 |_http-server-header: Apache
 |_http-title: Purgatory
 111/tcp   open  rpcbind 2-4 (RPC #100000)
-| rpcinfo: 
+| rpcinfo:
 |   program version    port/proto  service
 |   100000  2,3,4        111/tcp   rpcbind
 |   100000  2,3,4        111/udp   rpcbind
@@ -184,7 +184,7 @@ Finds a file called green_arrow.ticket, go have a look:
 
 ![green_arrow](/assets/images/2020-05-24-10-11-21.png)
 
-Contains a code, could be a password. Make a note for later. Couldn't find anything more on the website. 
+Contains a code, could be a password. Make a note for later. Couldn't find anything more on the website.
 
 ## Gaining Access
 
@@ -303,10 +303,10 @@ total 1712
   4 -rw-r--r-- 1 root root    675 May 23 18:09  .profile
 540 -rw-r--r-- 1 root root 549924 May 23 18:06 "Queen's_Gambit.png"
 
-root@kali:~/thm/lianyu# cat .bash_history 
+root@kali:~/thm/lianyu# cat .bash_history
 Sorry I couldn't Help Other user Might help
 
-root@kali:~/thm/lianyu# cat .other_user 
+root@kali:~/thm/lianyu# cat .other_user
 Slade Wilson was 16 years old when he enlisted in the United States Army, having lied about his age. After serving a stint in Korea, he was later assigned to Camp Washington where he had been promoted to the rank of major. In the early 1960s, he met Captain Adeline Kane, who was tasked with training young soldiers in new fighting techniques in anticipation of brewing troubles taking place in Vietnam. Kane was amazed at how skilled Slade was and how quickly he adapted to modern conventions of warfare. She immediately fell in love with him and realized that he was without a doubt the most able-bodied combatant that she had ever encountered. She offered to privately train Slade in guerrilla warfare. In less than a year, Slade mastered every fighting form presented to him and was soon promoted to the rank of lieutenant colonel. Six months later, Adeline and he were married and she became pregnant with their first child. The war in Vietnam began to escalate and Slade was shipped overseas. In the war, his unit massacred a village, an event which sickened him. He was also rescued by SAS member Wintergreen, to whom he would later return the favor.
 
 Chosen for a secret experiment, the Army imbued him with enhanced physical powers in an attempt to create metahuman super-soldiers for the U.S. military. Deathstroke became a mercenary soon after the experiment when he defied orders and rescued his friend Wintergreen, who had been sent on a suicide mission by a commanding officer with a grudge.[7] However, Slade kept this career secret from his family, even though his wife was an expert military combat instructor.
@@ -359,18 +359,18 @@ Archive:  aa.jpg.out
 Have a look at the files from the zip:
 
 ```text
-root@kali:~/thm/lianyu# cat passwd.txt 
+root@kali:~/thm/lianyu# cat passwd.txt
 This is your visa to Land on Lian_Yu # Just for Fun ***
 a small Note about it
-Having spent years on the island, Oliver learned how to be resourceful and 
+Having spent years on the island, Oliver learned how to be resourceful and
 set booby traps all over the island in the common event he ran into dangerous
 people. The island is also home to many animals, including pheasants,
 wild pigs and wolves.
 
-root@kali:~/thm/lianyu# file shado 
+root@kali:~/thm/lianyu# file shado
 shado: Clarion Developer (v2 and above) memo data
 
-root@kali:~/thm/lianyu# cat shado 
+root@kali:~/thm/lianyu# cat shado
 <<hidden>>
 ```
 
@@ -382,13 +382,13 @@ More useful looking information. Nothing else of interest in the files from FTP,
 root@kali:~/thm/lianyu# ssh slade@10.10.252.197
 slade@10.10.252.197's password:
                               Way To SSH...
-                          Loading.........Done.. 
+                          Loading.........Done..
                    Connecting To Lian_Yu  Happy Hacking
 
-██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██████╗ 
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██████╗
 ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝╚════██╗
 ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗   █████╔╝
-██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██╔═══╝ 
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██╔═══╝
 ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗███████╗
  ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 
@@ -409,7 +409,7 @@ Now we have user flag, time to look for privilege escalation to get root. Start 
 
 ```text
 slade@LianYu:~$ sudo -l
-[sudo] password for slade: 
+[sudo] password for slade:
 Matching Defaults entries for slade on LianYu:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
 
