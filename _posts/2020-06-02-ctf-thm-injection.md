@@ -152,7 +152,7 @@ What version of Ubuntu is running?
 
 There's a helpful command called lsb_release you can use here:
 
-![lsb_release](/assets/images/2020-06-03-13-52-16.png)
+![lsb_release](/assets/images/2020-06-03-16-16-02.png)
 
 ### Question 4.6
 
