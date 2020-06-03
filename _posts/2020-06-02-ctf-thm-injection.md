@@ -25,7 +25,7 @@ Injection is a beginner level room designed to show the dangers of badly coded w
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Tomghost](https://tryhackme.com/room/injection) |
+| Link To Machine | [THM - Easy - Injection](https://tryhackme.com/room/injection) |
 | Machine Release Date | 2nd June 2020 |
 | Date I Completed It | 2nd June 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/releases/kali-linux-2020-1-release/) |
