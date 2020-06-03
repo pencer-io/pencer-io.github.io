@@ -34,7 +34,7 @@ Injection is a beginner level room designed to show the dangers of badly coded w
 
 Task 1 and 2 are introductions and don't require any questions to be answered.
 
-## Task 3 - Blind Command Injection
+## Task 3 - Blind Injection
 
 ### Question 3.1
 
@@ -106,7 +106,7 @@ Enter your name into the input and review the alert.  What type of alert do you 
 
 ![pencer](/assets/images/2020-06-02-22-56-37.png)
 
-## Task 4 - Active Command Injection
+## Task 4 - Active Injection
 
 ### Question 4.1
 
