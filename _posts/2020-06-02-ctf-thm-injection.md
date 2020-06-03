@@ -82,7 +82,7 @@ Options:
 
 Try to redirect output to a file on the web server.  What alert message do you see appear?
 
-The explanation for this task talks about the standard Bash operator for redirection, which is >. We need to try redirecting the output of the vulnerable web page to see what we get:
+The explanation for this task talks about the standard Bash operator for redirection, which is >. We need to try redirecting our input on the vulnerable web page to see what we get:
 
 ![redirect](/assets/images/2020-06-02-22-52-46.png)
 
