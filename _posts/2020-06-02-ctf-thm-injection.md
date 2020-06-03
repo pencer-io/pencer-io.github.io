@@ -203,6 +203,6 @@ Now we need to think how we will find the hidden flag. I started by looking arou
 www-data@injection:/$ find / -name *.txt 2>/dev/null | more
 ```
 
-It's a longish list, but look through that a certain file will jump out at you.
+It's a longish list, but looking through that a certain file will jump out at you.
 
 All done. See you next time.
