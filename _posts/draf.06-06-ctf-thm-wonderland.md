@@ -25,7 +25,7 @@ Wonderland is a mid level room themed around Alice In Wonderland. Skills require
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Injection](https://tryhackme.com/room/wonderland) |
+| Link To Machine | [THM - Medium - Wonderland](https://tryhackme.com/room/wonderland) |
 | Machine Release Date | 5th June 2020 |
 | Date I Completed It | 6th June 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/releases/kali-linux-2020-1-release/) |
@@ -38,15 +38,6 @@ As always, let's start with Nmap to check for open ports:
 root@kali:~/thm/wonderland# ports=$(nmap -p- --min-rate=1000 -T4 10.10.159.58 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
 root@kali:~/thm/wonderland# nmap -p$ports -v -sC -sV -oA wonderland 10.10.159.58
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-05 21:43 BST
-NSE: Loaded 151 scripts for scanning.
-NSE: Script Pre-scanning.
-Initiating NSE at 21:43
-Completed NSE at 21:43, 0.00s elapsed
-Initiating NSE at 21:43
-Completed NSE at 21:43, 0.00s elapsed
-Initiating NSE at 21:43
-Completed NSE at 21:43, 0.00s elapsed
-Initiating Ping Scan at 21:43
 Scanning 10.10.159.58 [4 ports]
 Completed Ping Scan at 21:43, 0.06s elapsed (1 total hosts)
 Initiating Parallel DNS resolution of 1 host. at 21:43
@@ -59,13 +50,6 @@ Completed SYN Stealth Scan at 21:43, 0.06s elapsed (2 total ports)
 Initiating Service scan at 21:43
 Scanning 2 services on 10.10.159.58
 Completed Service scan at 21:44, 11.36s elapsed (2 services on 1 host)
-NSE: Script scanning 10.10.159.58.
-Initiating NSE at 21:44
-Completed NSE at 21:44, 1.48s elapsed
-Initiating NSE at 21:44
-Completed NSE at 21:44, 0.11s elapsed
-Initiating NSE at 21:44
-Completed NSE at 21:44, 0.00s elapsed
 Nmap scan report for 10.10.159.58
 Host is up (0.025s latency).
 
@@ -79,19 +63,15 @@ PORT   STATE SERVICE VERSION
 | http-methods:
 |_  Supported Methods: GET HEAD POST OPTIONS
 |_http-title: Follow the white rabbit.
+
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-NSE: Script Post-scanning.
-Initiating NSE at 21:44
-Completed NSE at 21:44, 0.00s elapsed
-Initiating NSE at 21:44
-Completed NSE at 21:44, 0.00s elapsed
-Initiating NSE at 21:44
-Completed NSE at 21:44, 0.00s elapsed
 Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 13.99 seconds
            Raw packets sent: 6 (240B) | Rcvd: 3 (116B)
 ```
+
+Just two ports open, let's have a look at the website first:
 
 ![follow_the_rabbit](/assets/images/2020-06-07-14-14-59.png)
 
