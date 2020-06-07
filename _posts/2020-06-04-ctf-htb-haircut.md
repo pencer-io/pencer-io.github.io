@@ -98,6 +98,8 @@ http://10.10.10.24/exposed.php (Status: 200)
 ===============================================================
 ```
 
+## Gaining Access
+
 We have found a hidden folder and a php page. Let's have a look at the site, and these as well:
 
 ![bighair](/assets/images/2020-06-04-21-46-52.png)
@@ -180,6 +182,8 @@ Now back on box we brose to the uploaded shell:
 
 ![open_shell_php](/assets/images/2020-06-04-21-57-35.png)
 
+## User Flag
+
 Switch to Kali again and we have a connection:
 
 ```text
@@ -214,6 +218,8 @@ Let's see if we can get the user flag:
 www-data@haircut:/etc$ cat /home/maria/Desktop/user.txt
 <<HIDDEN>>
 ```
+
+## Privilege Escalation
 
 We have the user flag, time to try and escalate to root. First thing I check for is SUID binaries:
 
@@ -364,6 +370,8 @@ www-data@haircut:/etc$ screen -ls # screen itself is setuid, so...
 [+] done!
 No Sockets found in /tmp/screens/S-www-data.
 ```
+
+## Root Flag
 
 Ignore the error and run our exploit:
 
