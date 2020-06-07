@@ -10,10 +10,9 @@ categories:
 tags:
   - HTB
   - CTF
-  - 
-  - 
-  - 
-  - 
+  - gobuster
+  - motd
+  - searchsploit
 ---
 
 ## Machine Information
