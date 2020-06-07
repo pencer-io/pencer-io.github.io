@@ -166,6 +166,8 @@ Finally we get to the end, nothing on the page, let's check the source:
 
 ![alice_source](/assets/images/2020-06-07-18-35-32.png)
 
+## Gaining Access
+
 A hidden username and password, looks like it's time to try ssh on port 22:
 
 ```text
@@ -193,6 +195,8 @@ Root flag is in user folder, but we don't have permissions for view it:
 alice@wonderland:~$ cat root.txt
 cat: root.txt: Permission denied
 ```
+
+## User Flag
 
 My first thought was I wonder if the user flag is in the root folder:
 
@@ -263,6 +267,8 @@ alice@wonderland:~$ cat random.py
 import os
 os.system("/bin/bash")
 ```
+
+## Privilege Escalation
 
 Now we run the script as the rabbit user:
 
@@ -493,6 +499,8 @@ e [+] Files with POSIX capabilities set:
 /usr/bin/mtr-packet = cap_net_raw+ep
 /usr/bin/perl = cap_setuid+ep
 ```
+
+## Root Flag
 
 Capabilities is a well known attack vector. [GTFOBins](https://gtfobins.github.io/gtfobins/) has lots of really good information about the many UNIX/Linux binaries that can be abused. [This](https://gtfobins.github.io/gtfobins/perl) section talks about Perl and what you can do with CAP_SETUID being set.
 
