@@ -21,6 +21,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 004 | Popcorn | Medium | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-popcorn) |
 | 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep) |
 | 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
+| 021 | Haircut | Medium | Linux | 26/03/2017  [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
 
 ## Site: TryHackMe
 
@@ -33,3 +34,4 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Anthem | Easy | Windows | 15/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-anthem) |
 | Tomghost | Easy | Linux | 27/03/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-tomghost) |
 | Injection | Easy | Linux | 02/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-injection) |
+| Wonderland | Medium | Linux | 05/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wonderland) |
