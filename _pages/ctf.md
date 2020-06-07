@@ -7,8 +7,6 @@ layout: archive
 author_profile: true
 ---
 
-## Site: HackTheBox
-
 ![htb](/assets/images/2020-05-28-23-10-35.png)
 
 These are all retired machines, which you can only access if you have a VIP membership. More info at [HackTheBox](https://www.hackthebox.eu/home).
@@ -22,8 +20,6 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep) |
 | 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
 | 021 | Haircut | Medium | Linux | 26/03/2017  [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
-
-## Site: TryHackMe
 
 ![tryhackme](/assets/images/2020-05-28-23-10-58.png)
 
