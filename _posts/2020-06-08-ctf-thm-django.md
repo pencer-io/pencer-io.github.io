@@ -401,7 +401,7 @@ StrangeFox@py:/home/django-admin/messagebox$ ls /home/StrangeFox/
 user.txt
 
 StrangeFox@py:/home/django-admin/messagebox$ cat /home/StrangeFox/user.txt
-THM{SSH_gUy_101}
+THM{<<HIDDEN>>}
 ```
 
 There's a hidden flag somewhere, let's have a further look around:
@@ -453,7 +453,7 @@ Found it! We could also have just searched like this:
 trangeFox@py:/$ grep -r 'THM' 2>/dev/null
 home/django-admin/messagebox/messagebox/home.html:      <!-- Flag 3: THM{<<HIDDEN>>} -->
 Binary file home/django-admin/messagebox/db.sqlite3 matches
-home/StrangeFox/user.txt:THM{SSH_gUy_101}
+home/StrangeFox/user.txt:THM{<<HIDDEN>>}
 Binary file boot/initrd.img-4.15.0-20-generic matches
 boot/config-4.15.0-20-generic:CONFIG_RWSEM_XCHGADD_ALGORITHM=y
 boot/config-4.15.0-20-generic:CONFIG_SENSORS_THMC50=m
