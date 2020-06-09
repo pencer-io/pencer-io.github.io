@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Introduction To Django from TryHackMe"
+title: "Walk-through of Intro To Django from TryHackMe"
 header:
   teaser: /assets/images/2020-06-07-22-39-46.png
 toc: true
@@ -96,15 +96,11 @@ db.sqlite3  manage.py  pencer_project
 
 In the project folder we see the manage.py script, here's what the docs say about it:
 
-```text
 Manage.py is automatically created in each Django project. It does the same thing as django-admin but also sets the DJANGO_SETTINGS_MODULE environment variable so that it points to your project’s settings.py file.
-```
 
 So we've created our project, now we need to start it. To do that we use manage.py from with the project folder. Here's what the docs say about using the runserver command:
 
-```text
 Starts a lightweight development Web server on the local machine. By default, the server runs on port 8000 on the IP address 127.0.0.1. You can pass in an IP address and port number explicitly.
-```
 
 We do this now to get our web application running:
 
@@ -330,12 +326,14 @@ Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
 
+### Question 5.1
+
 Now we can get in with our new account:
 
 ![django_login_success](/assets/images/2020-06-07-23-00-34.png)
 
 Looking at users we get our first flag:
-***EDIT PIC***
+
 ![django_users](/assets/images/2020-06-07-23-01-04.png)
 
 There is also an interesting user called StrangeFox, with a link to a pastebin site. Let's see what we find there:
@@ -388,6 +386,8 @@ StrangeFox@py:/home/django-admin/messagebox$ id
 uid=1001(StrangeFox) gid=1001(StrangeFox) groups=1001(StrangeFox)
 ```
 
+### Question 5.2
+
 That worked, let's have a look around:
 
 ```text
@@ -403,6 +403,8 @@ user.txt
 StrangeFox@py:/home/django-admin/messagebox$ cat /home/StrangeFox/user.txt
 THM{<<HIDDEN>>}
 ```
+
+### Question 5.3
 
 There's a hidden flag somewhere, let's have a further look around:
 
