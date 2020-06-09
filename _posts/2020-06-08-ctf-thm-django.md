@@ -441,24 +441,17 @@ total 40
 4 -rw-r--r-- 1 django-admin django-admin  397 Apr 10 13:14 wsgi.py
 
 StrangeFox@py:/home/django-admin/messagebox/messagebox$ cat home.html
-{% extends 'base.html' %}
-{% block title %}Home page{% endblock %}
-{% block content %}
-        <body bgcolor="#E6E6FA">
-        <h1><center>Message box v1.1</center></h1>
-        <br>
         <center><p>Hi! Welcome back to your inbox. Seems like you got a new message!</p></center>
         <center><p>Check it out here:</p></center>
         <center><p><a href="/messages">Messages</a></p></center>
-        <!-- Flag 3: THM{django_w1zzard} -->
-{% endblock %}
+        <!-- Flag 3: THM{<<HIDDENN>>} -->
 ```
 
 Found it! We could also have just searched like this:
 
 ```text
 trangeFox@py:/$ grep -r 'THM' 2>/dev/null
-home/django-admin/messagebox/messagebox/home.html:      <!-- Flag 3: THM{django_w1zzard} -->
+home/django-admin/messagebox/messagebox/home.html:      <!-- Flag 3: THM{<<HIDDEN>>} -->
 Binary file home/django-admin/messagebox/db.sqlite3 matches
 home/StrangeFox/user.txt:THM{SSH_gUy_101}
 Binary file boot/initrd.img-4.15.0-20-generic matches
