@@ -2,8 +2,8 @@
 title: "Guide to creating a free blog"
 header:
   teaser: /assets/images/2020-05-18-22-06-46.png
-toc: true
-toc_sticky: true
+#toc: true
+#toc_sticky: true
 excerpt_separator:  <!--more-->
 categories:
   - Web
