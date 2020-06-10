@@ -62,7 +62,7 @@ Head over to your emails and look for the verify email from GitHub:
 
 ![github_verify](/assets/images/2020-06-01-21-23-15.png)
 
-Once you've clicked on the link in the verify email you'll end up here. If you're new to GitHub then it might be worth choosing **Start Learning** first. This will take you through cloning your first repository and doing some guided learning on GitHub basics. You can do this later, so don't worry if you don't want to do that now. If you're ready then choose **Skip this for now**:
+Once you've clicked on the link in the verify email you'll end up here. If you're new to GitHub then it might be worth choosing **Start Learning** first. This will take you through cloning your first repository, and doing some guided learning on GitHub basics. You can do this later, so it doesn't matter if you don't want to do that now. If you're ready then choose **Skip this for now**:
 
 ![github_whatfirst](/assets/images/2020-06-01-21-24-11.png)
 
@@ -80,7 +80,7 @@ GitHub let's you serve static html content directly from your repository, using 
  Jekyll is a static site generator. You give it text written in your favorite markup language and it uses layouts to create a static website. You can tweak how you want the site URLs to look, what data gets displayed on the site, and more.
 ```
 
-If you've never heard of Jekyll, don't worry for now because the way it's implemented on GitHub makes it really easy to deal with. We'll be going through using Jekyll a lot through out these guides, so by the end of it you'll be much more confident. Find more information on what that means [here.](https://jekyllrb.com/)
+If you've never heard of Jekyll, don't worry for now, because the way it's implemented on GitHub makes it really easy to deal with. We'll be going through using Jekyll a lot through out these guides, so by the end of it you'll be much more confident. You can find lots more information about Jekyll by going to their site [here.](https://jekyllrb.com/)
 
 ## Markdown
 
@@ -94,9 +94,9 @@ With the right plugins installed in your VSCode editor, you'll find it quick and
 
 ## Choosing A Jekyll Theme
 
-If you're not familiar with any of the above then it's a lot to take in. So take some time to read a few of the linked sites above.
+If you're not familiar with any of the above then it's a lot to understand. So take some time to read a few of the linked sites above.
 
-When you're ready to get started on creating your new Jekyll based blog, you'll want to have a look at the many pre-built themes that are available, many of which are free. Whilst you're still working out if this is the right platform for you, I would encourage you to have a look around and see what's out there.
+When you're ready to get started on creating your new Jekyll based blog, you'll want to have a look at some of the pre-built themes that are available, many of which are free. Whilst you're still working out if this is the right platform for you, I would encourage you to have a look around and see what's out there.
 
 Here are few sites to get you started:
 
@@ -165,4 +165,4 @@ That's all there is to getting your website set up and hosted by GitHub, you can
 
 So in this first post we've learnt a little about GitHub, Markdown, Jekyll and its remote themes. We've also cloned our first repository and enabled a basic website for the world to see.
 
-Next time we'll look at custom domains, enforced HTTPS, a quick tour of the files within your repository, and see how we can start to make changes to the defaults to customise your sites look and feel.
+
