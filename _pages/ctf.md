@@ -31,3 +31,5 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Tomghost | Easy | Linux | 27/03/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-tomghost) |
 | Injection | Easy | Linux | 02/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-injection) |
 | Wonderland | Medium | Linux | 05/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wonderland) |
+| Intro To Django | Medium | Linux | 08/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-django) |
+| Post-Exploitation Basics | Easy | Windows | 29/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-postexploit) |
