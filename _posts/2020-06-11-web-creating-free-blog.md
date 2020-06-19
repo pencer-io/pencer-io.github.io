@@ -1,5 +1,5 @@
 ---
-title: "Guide to creating a free blog"
+title: "GitHub, Jekyll, Markdown + VSCode = Writing Heaven"
 header:
   teaser: /assets/images/2020-05-18-22-06-46.png
 #toc: true
