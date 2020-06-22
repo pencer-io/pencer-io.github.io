@@ -158,5 +158,3 @@ That's all there is to getting your website set up and hosted by GitHub, you can
 ## Summary
 
 So in this first post we've learnt a little about GitHub, Markdown, Jekyll and its remote themes. We've also cloned our first repository and enabled a basic website for the world to see.
-
-
