@@ -628,7 +628,7 @@ Doesn't work, but does reveal which characters are allowed. Do CTRL+U to URL enc
 
 ![burp_url_encode](/assets/images/2020-06-19-16-30-09.png)
 
-Now to get a shell from kali, A dot (.) Is not allowed. So we will need to convert our IP to hex instead, can use [this site](https://www.browserling.com/tools/ip-to-hex), which shows us that 10.10.14.35 = 0a.0a.0e.23 (0x0a0a0e23)
+Now to get a shell from Kali, A dot (.) Is not allowed. So we will need to convert our IP to hex instead, can use [this site](https://www.browserling.com/tools/ip-to-hex), which shows us that 10.10.14.35 = 0a.0a.0e.23 (0x0a0a0e23)
 
 Test it:
 
@@ -683,6 +683,8 @@ algernon@holiday:~/app$ cat /home/algernon/user.txt
 <<HIDDEN>>
 ```
 
+## Root Flag
+
 Now look for our path to privilege escalation, first thing I usually check is sudo and SUID:
 
 ```text
@@ -719,7 +721,7 @@ algernon@holiday:~/app$ sudo /usr/bin/npm i --unsafe-perm
 <<HIDDEN>>
 ```
 
-## Root Shell
+## Bonus Root Shell
 
 Bonus extra, getting a root shell, create file in /tmp:
 
