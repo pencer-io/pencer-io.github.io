@@ -10,8 +10,11 @@ categories:
 tags:
   - HTB
   - CTF
-  -
-  -
+  - LFI
+  - gobuster
+  - hydra
+  - phpliteadmin
+  - chkrootkit
 ---
 
 ## Machine Information
