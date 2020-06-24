@@ -125,6 +125,8 @@ http://10.10.10.43/server-status (Status: 403)
 ===============================================================
 ```
 
+## Gaining Access
+
 Found a sub-folder called department, have a look at that:
 
 ![website_department_login](/assets/images/2020-06-24-21-52-50.png)
@@ -279,6 +281,8 @@ Try again and we find it works:
 
 ![website_lfi_success](/assets/images/2020-06-24-22-03-02.png)
 
+## Initial Shell
+
 Time to get a reverse shell, grab this one from [PenTestMonkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) and change to my IP:
 
 ```text
@@ -370,6 +374,8 @@ Looks to be something checking for suspicious files/activity. Googling "Searchin
 
 ![chkrootkit](/assets/images/2020-06-24-22-03-50.png)
 
+## Privilege Escalation
+
 This looks to be what we have running on the box, see if we can find it:
 
 ```text
@@ -435,6 +441,8 @@ connect to [10.10.14.21] from (UNKNOWN) [10.10.10.43] 34250
 root
 ```
 
+## User And Root Flags
+
 Get the flags:
 
 ```text
@@ -445,7 +453,7 @@ Get the flags:
 8a2b4956612b485720694fb45849ec3a
 ```
 
-## Alternate method using port knocking
+## Alternate Method: Port Knocking
 
 If I look back to the gobuster scan we did on https earlier, I see there was a folder called secure_notes that we never looked at, so do that now:
 
