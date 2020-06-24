@@ -12,8 +12,11 @@ tags:
   - CTF
   - XSS
   - Burp
-  -
-  -
+  - gobuster
+  - dirb
+  - sqlmap
+  - charcode
+  - npm
 ---
 
 ## Machine Information
