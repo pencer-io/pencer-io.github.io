@@ -724,7 +724,7 @@ algernon@holiday:~/app$ sudo /usr/bin/npm i --unsafe-perm
 <<HIDDEN>>
 ```
 
-## Bonus Root Shell
+## Bonus: Gaining Root Shell
 
 Bonus extra, getting a root shell, create file in /tmp:
 
