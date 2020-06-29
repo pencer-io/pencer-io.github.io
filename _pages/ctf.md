@@ -20,7 +20,8 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep) |
 | 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
 | 021 | Haircut | Medium | Linux | 26/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
-| 022 | Haircut | Hard | Linux | 26/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
+| 022 | Holiday | Hard | Linux | 26/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
+| 022 | Nineveh | Medium | Linux | 26/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-nineveh) |
 
 ![tryhackme](/assets/images/2020-05-28-23-10-58.png)
 
