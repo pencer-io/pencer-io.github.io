@@ -38,7 +38,7 @@ As always, start with Nmap:
 
 ```text
 root@kali:~/htb/nineveh# ports=$(nmap -p- --min-rate=1000 -T4 10.10.10.43 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
-root@kali:~/htb/nineveh# nmap -p$ports -v -sC -sV -oA europa 10.10.10.43
+root@kali:~/htb/nineveh# nmap -p$ports -v -sC -sV -oA nineveh 10.10.10.43
 
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-22 15:41 BST
 Initiating Ping Scan at 15:41
