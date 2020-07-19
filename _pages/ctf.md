@@ -41,4 +41,4 @@ These are all retired machines, which you can only access if you have a VIP memb
 
 | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- |
-| Vegeta-1 | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu) |
+| Vegeta-1 | Easy | Linux | 28th June 2020 | [Walk-through](https://pencer.io/ctf/vuln-vegata-1) |
