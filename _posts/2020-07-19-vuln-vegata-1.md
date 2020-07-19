@@ -13,21 +13,20 @@ tags:
   - gobuster
   - qr
   - morse code
-  -
 ---
 
 ## Machine Information
 
 ![Vegeta-1](/assets/images/2020-07-19-17-33-02.png)
 
-Vegeta-1 is a beginner level Anime themed machine, based around the character [Vegeta from Dragonball](https://dragonball.fandom.com/wiki/Vegeta). It contains numerous rabbit holes, so thorough enumeration and methodically following your leads is important.
+Vegeta-1 is a beginner level Anime themed machine, based around the character Vegeta from [Dragonball](https://dragonball.fandom.com/wiki/Vegeta). It contains numerous rabbit holes, so thorough enumeration and methodically following your leads is important.
 
 <!--more-->
 
 | Details |  |
 | --- | --- |
-| Hosting Site | [[VulnHub](https://www.vulnhub.com/) |
-| Link To Machine | [VulnHub - Easy - Vegeta-1](https://www.vulnhub.com/entry/vegeta-1,501/)) |
+| Hosting Site | [VulnHub](https://www.vulnhub.com/) |
+| Link To Machine | [VulnHub - Easy - Vegeta-1](https://www.vulnhub.com/entry/vegeta-1,501/) |
 | Machine Release Date | 28th June 2020 |
 | Date I Completed It | 19th July 2020 |
 | Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
@@ -137,6 +136,8 @@ Nothing here, try the next one:
 
 ![website-manual-folder](/assets/images/2020-07-19-21-19-33.png)
 
+## Gaining Access
+
 The last is where I should have started, bulma is a Dragonball character, so another clue:
 
 ![website-bulma-folder](/assets/images/2020-07-19-21-42-12.png)
@@ -180,7 +181,9 @@ drwxr-xr-x 3 trunks trunks 4096 Jun 28 19:45 .local
 -rw-r--r-- 1 trunks trunks  807 Jun 28 17:37 .profile
 ```
 
-Always worth checking out so we look at the contents:
+## Privilege Escalation
+
+It is always worth checking this out, so we look at the contents:
 
 ```text
 trunks@Vegeta:~$ cat .bash_history
@@ -199,7 +202,7 @@ cat .bash_history
 exit
 ```
 
-We see a password being salted the a new user called Tom added. Strange that this is being done by the user. Let's check permission of the passwd file:
+We see a password being salted then a new user called Tom added. Strange that this is being done by the user. Let's check permission of the passwd file:
 
 ```text
 trunks@Vegeta:~$ ls -la /etc/passwd
@@ -231,6 +234,8 @@ Password: (enter Password@973)
 root@Vegeta:/home/trunks# id
 uid=0(root) gid=0(root) groups=0(root)
 ```
+
+## Root Flag
 
 Straight to root, nice! We can get the flag now:
 
