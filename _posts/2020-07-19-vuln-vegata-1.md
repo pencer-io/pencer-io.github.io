@@ -29,9 +29,9 @@ Vegeta-1 is a beginner level Anime themed machine, based around the character Ve
 | Link To Machine | [VulnHub - Easy - Vegeta-1](https://www.vulnhub.com/entry/vegeta-1,501/) |
 | Machine Release Date | 28th June 2020 |
 | Date I Completed It | 19th July 2020 |
-| Distribution used | Kali 2019.1 – [Release Info](https://www.kali.org/news/kali-linux-2019-1-release/) |
+| Distribution used | Kali 2020.1 – [Release Info](https://www.kali.org/news/kali-linux-2020-1-release/) |
 
-### Initial Recon
+## Initial Recon
 
 Check for open ports with Nmap:
 
@@ -73,7 +73,7 @@ We find a file, at first it looks empty, but looking at the source we see this a
 
 ![find-me-source](/assets/images/2020-07-19-21-36-09.png)
 
-THe == at the end gives away this is base64 encoded, let's look at it in CyberChef:
+The == at the end gives away this is base64 encoded, let's look at it in CyberChef:
 
 ![cyberchef-decode](/assets/images/2020-07-19-21-33-19.png)
 
