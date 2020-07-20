@@ -1,7 +1,7 @@
 ---
 title: "Installing VirtualBox 6.1.12 and Extensions"
 header:
-  teaser: /assets/images/2020-07-20-15-33-12.png
+  teaser: /assets/images/2020-07-20-17-30-33.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -13,7 +13,7 @@ tags:
   - Windows 10
 ---
 
-![kali-2020.2](/assets/images/2020-07-20-15-33-12.png)
+![virtualbox](/assets/images/2020-07-20-17-30-33.png)
 
 ## VirtualBox Information
 
