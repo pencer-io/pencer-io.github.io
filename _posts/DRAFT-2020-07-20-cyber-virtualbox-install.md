@@ -25,7 +25,7 @@ The following guide follows the steps to install VirtualBox on Windows 10 64bit.
 
 ## Installing VirtualBox
 
-If you have VirtualBox installed, then skip this section, or use it as a reference to get yourself updated to the latest version. Once you have downloaded the latest version, run it and follow the wizard, then click Next:
+If you have VirtualBox installed, then skip this section, or use it as a reference to get yourself updated to the latest version. Once you've downloaded VirtualBox, run it and follow the wizard, then click Next:
 
 ![virtualbox-welcome](/assets/images/2020-07-20-15-47-48.png)
 
