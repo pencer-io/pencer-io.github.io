@@ -1,5 +1,5 @@
 ---
-title: "Installing VirtualBox 6.1.12 and Extensions"
+title: "Importing Kali 2020.2 in to VirtualBox"
 header:
   teaser: /assets/images/2020-07-20-15-33-12.png
 toc: true
@@ -8,7 +8,7 @@ excerpt_separator:  <!--more-->
 categories:
   - Cyber
 tags:
-  - kali
+  - Kali
   - Offensive Security
 ---
 
@@ -16,13 +16,13 @@ tags:
 
 ## VirtualBox And Kali Information
 
-For all my Cyber Security work I use Kali as a VM within VirtualBox. There is a special VirtualBox image available from Offensive Security with some settings already pre-configured for you.
-
-See **this guide** on how to set up VirtualBox if you haven't already got it installed.
+Kali is one of the most popular pre-built cyber security environment. It's well maintained and kept updated regularly, with a dedicated team at [Offesive Sercurity](https://www.offensive-security.com/) working on it. It's also referenced and used in many blogs, articles and guides. So to keep things simple I like to use it whenever I can.
 
 You can find information about the 2020.2 release of Kali [here.](https://www.kali.org/news/kali-linux-2020-2-release/). 
 
 You can download the VirtualBox specific image of Kali 2020.2 [here.](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b)
+
+See **this guide** on how to set up VirtualBox if you haven't already got it installed.
 
 ## Importing Kali 2020.2
 
@@ -38,7 +38,7 @@ After clicking Next you'll see the default appliance settings already configured
 
 ![virtualbox-kali-settings](/assets/images/2020-07-20-17-13-57.png)
 
-The only things I change at this point is CPU and RAM:
+The only things I change at this point is CPU and RAM. Make sure your host machine has enough of it's own resources before changing these:
 
 ![virtualbox-kali-cpuram](/assets/images/2020-07-20-17-16-37.png)
 
@@ -54,3 +54,6 @@ Eventually you should be back to the main window with Kali imported:
 
 ![virtualbox-kali-done](/assets/images/2020-07-20-17-21-44.png)
 
+There's a few tweaks you can do to try and squeeze the maximum performance out of your virtual Kali machine. [This TechRepublic article](https://www.techrepublic.com/article/how-to-improve-virtualbox-guest-performance-in-five-steps/) is worth having a quick read if you need a few ideas.
+
+Now we're ready to fire up our Kali machine and get it ready for use. Follow my next guide on updating on the things you'll want to do with Kali after it's first boot.
