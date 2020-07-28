@@ -16,7 +16,7 @@ tags:
 
 ## Kali Information
 
-In **this previous guide** I went through the steps of importing the VirtualBox specific pre-built image of Kali 2020.2a. Now we will walk through a first boot of that virtual machine, and the things you will probably want to do before using it in earnest.
+In [this previous guide](https://pencer.io/cyber/cyber-kali-install/) I went through the steps of importing the VirtualBox specific pre-built image of Kali 2020.2a. Now we will walk through a first boot of that virtual machine, and the things you will probably want to do before using it in earnest.
 
 First thing to know is the old root:toor user and password have been replaced. We now have a non root user called kali, with a password of kali. Let's log in and get to our desktop:
 
