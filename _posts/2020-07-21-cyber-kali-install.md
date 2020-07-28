@@ -1,5 +1,5 @@
 ---
-title: "Importing Kali 2020.2 in to VirtualBox"
+title: "Importing Kali 2020.2a in to VirtualBox"
 header:
   teaser: /assets/images/2020-07-20-15-33-12.png
 toc: true
@@ -16,15 +16,15 @@ tags:
 
 ## VirtualBox And Kali Information
 
-Kali is one of the most popular pre-built cyber security environment. It's well maintained and kept updated regularly, with a dedicated team at [Offesive Sercurity](https://www.offensive-security.com/) working on it. It's also referenced and used in many blogs, articles and guides. So to keep things simple I like to use it whenever I can.
+Kali is one of the most popular pre-built cyber security environments. It's well maintained and kept updated regularly, with a dedicated team at [Offesive Sercurity](https://www.offensive-security.com/) working on it. It's also referenced and used in many blogs, articles and guides. So to keep things simple I like to use it whenever I can.
 
-You can find information about the 2020.2 release of Kali [here.](https://www.kali.org/news/kali-linux-2020-2-release/). 
+You can find information about the 2020.2a release of Kali [here.](https://www.kali.org/news/kali-linux-2020-2-release/).
 
-You can download the VirtualBox specific image of Kali 2020.2 [here.](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b)
+You can download the VirtualBox specific image of Kali 2020.2a [here.](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b)
 
 See **this guide** on how to set up VirtualBox if you haven't already got it installed.
 
-## Importing Kali 2020.2
+## Importing Kali 2020.2a
 
 After you've downloaded the VirtualBox specific Kali pre-built image, open VirtualBox and click on Import:
 
@@ -56,4 +56,4 @@ Eventually you should be back to the main window with Kali imported:
 
 There's a few tweaks you can do to try and squeeze the maximum performance out of your virtual Kali machine. [This TechRepublic article](https://www.techrepublic.com/article/how-to-improve-virtualbox-guest-performance-in-five-steps/) is worth having a quick read if you need a few ideas.
 
-Now we're ready to fire up our Kali machine and get it ready for use. Follow my next guide on updating on the things you'll want to do with Kali after it's first boot.
+Now we're ready to fire up our Kali machine and get it ready for use. Follow my **next guide** on the things you'll want to do with Kali after it's first boot.
