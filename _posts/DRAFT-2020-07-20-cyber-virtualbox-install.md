@@ -17,7 +17,7 @@ tags:
 
 ## VirtualBox Information
 
-For all my Cyber Security work I use Kali as a VM within VirtualBox. There is a special VirtualBox image available from Offensive Security with some settings already pre-configured for you. See **this guide** on how to set up Kali 2020.2 with VirtualBox.
+For penetration testing and capture the flag activities I use Kali as a VM within VirtualBox. There is a special VirtualBox image available from Offensive Security with some settings already pre-configured for you. See **this guide** on how to set up Kali 2020.2a with VirtualBox.
 
 You can get the latest version of VirtualBox and it's Extension pack [here.](https://www.virtualbox.org/wiki/Downloads)
 
@@ -117,4 +117,4 @@ Once completed, you get the opportunity to tidy up:
 
 That's all there is to installing VirtualBox on Windows 10.
 
-You can now follow **this guide** to install Kali 2020.2 as a VM within it.
+You can now follow **this guide** to install Kali 2020.2a as a VM within it.

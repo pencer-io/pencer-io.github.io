@@ -16,7 +16,7 @@ tags:
 
 ## Kali Information
 
-In **this previous guide** I went through the steps of importing the VirtualBox specific pre-built image of Kali 2020.2. Now we will walk through a first boot of that virtual machine, and the things you will probably want to do before using it in earnest.
+In **this previous guide** I went through the steps of importing the VirtualBox specific pre-built image of Kali 2020.2a. Now we will walk through a first boot of that virtual machine, and the things you will probably want to do before using it in earnest.
 
 First thing to know is the old root:toor user and password have been replaced. We now have a non root user called kali, with a password of kali. Let's log in and get to our desktop:
 
@@ -32,7 +32,9 @@ The default theme is Kali-Dark, if you want to change it use the Appearance app 
 
 ![kali-appearance](/assets/images/2020-07-26-17-07-36.png)
 
-There's a good article [here](https://www.offensive-security.com/kali-linux/kali-linux-customization) on customizing the new xcfe based Kali. There's also a good article [here](https://drasite.com/blog/Kali%202020.2%20desktop%20and%20theme%20updates) on the many new interface related changes is this version of Kali, including some info on additional desktop wallpapers.
+There's a good article [here](https://www.offensive-security.com/kali-linux/kali-linux-customization) on customizing the new xcfe based Kali. There's also a good article [here](https://drasite.com/blog/Kali%202020.2%20desktop%20and%20theme%20updates) on the many new interface related changes in this version of Kali, including some info on additional desktop wallpapers.
+
+## Adding sources to Kali
 
 Before you start updating, you can optionally add the deb-src repository to your sources file. This lets you install programs from source and compile yourself later if you want to get a version different to the one packaged up in the normal kali-rolling repository. Let's open a terminal and edit the sources.list file:
 
@@ -58,7 +60,7 @@ Get:4 http://kali.download/kali kali-rolling/non-free Sources [125 kB]
 Get:5 http://kali.download/kali kali-rolling/main amd64 Packages [16.7 MB]
 Get:6 http://kali.download/kali kali-rolling/non-free amd64 Packages [196 kB]
 Get:7 http://kali.download/kali kali-rolling/contrib amd64 Packages [96.9 kB]
-Fetched 30.3 MB in 3s (10.4 MB/s)                     
+Fetched 30.3 MB in 3s (10.4 MB/s)
 Reading package lists... Done
 ```
 
@@ -69,7 +71,7 @@ Now let's upgrade any software that has been updated since the Kali image was cr
 ```text
 kali@kali:~$ sudo apt-get -y upgrade
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
 <<SNIP>>
@@ -108,9 +110,9 @@ Now we can upgrade the distribution:
 
 ```text
 kali@kali:~$ sudo apt-get dist-upgrade -Vy
-[sudo] password for kali: 
+[sudo] password for kali:
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
 The following packages were automatically installed and are no longer required:
@@ -156,7 +158,7 @@ Finally let's tidy up anything no longer needed:
 ```text
 kali@kali:~$ sudo apt-get autoremove -y
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 The following packages will be REMOVED:
   fonts-glyphicons-halflings gir1.2-appindicator3-0.1 libappindicator3-1 libboost-iostreams1.67.0 libboost-system1.67.0 libboost-thread1.67.0
@@ -211,13 +213,13 @@ Next I change the timezone, first check what is set:
 
 ```text
 kali@kali:~$ timedatectl status
-               Local time: Sun 2020-07-26 17:18:52 EDT  
-           Universal time: Sun 2020-07-26 21:18:52 UTC  
-                 RTC time: Sun 2020-07-26 21:18:52      
+               Local time: Sun 2020-07-26 17:18:52 EDT
+           Universal time: Sun 2020-07-26 21:18:52 UTC
+                 RTC time: Sun 2020-07-26 21:18:52
                 Time zone: America/New_York (EDT, -0400)
-System clock synchronized: no                           
-              NTP service: n/a                          
-          RTC in local TZ: no                           
+System clock synchronized: no
+              NTP service: n/a
+          RTC in local TZ: no
 ```
 
 For me I want it set to London, you can check the list of available timezones like this:
@@ -246,11 +248,11 @@ Now check it again to see it's changed:
 kali@kali:~$ timedatectl status
                Local time: Sun 2020-07-26 22:20:18 BST
            Universal time: Sun 2020-07-26 21:20:18 UTC
-                 RTC time: Sun 2020-07-26 21:20:18    
-                Time zone: Europe/London (BST, +0100) 
-System clock synchronized: no                         
-              NTP service: n/a                        
-          RTC in local TZ: no                         
+                 RTC time: Sun 2020-07-26 21:20:18
+                Time zone: Europe/London (BST, +0100)
+System clock synchronized: no
+              NTP service: n/a
+          RTC in local TZ: no
 
 kali@kali:~$ date
 Sun 26 Jul 2020 10:20:21 PM BST
@@ -332,3 +334,5 @@ A seperate window will open, and you can see the progress as it uninstalls the o
 Press enter to close the window and then reboot your Kali virtual machine for the last time.
 
 Hopefully you've reached this point without any problems, and now have a fully updated version of Kali ready for you to enjoy using.
+
+In my next guide I will look at some of the useful software I add to Kali. All of them are generally used during penetration testing and capture the flag activites.
