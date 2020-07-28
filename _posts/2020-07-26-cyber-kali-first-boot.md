@@ -199,9 +199,11 @@ Processing triggers for fontconfig (2.13.1-4.2) ...
 
 ## Useful tweaks
 
-Now a few tweaks to sort a couple of annoying defaults. First I have a GB keyboard, the default layout is US, so let's change it:
+Now a few tweaks to sort a couple of annoying defaults.
 
 ### Keyboard layout
+
+First I have a GB keyboard, the default layout is US, so let's change it:
 
 ```text
 kali@kali:~$ setxkbmap -layout gb
@@ -312,7 +314,7 @@ Anything in bold has been changed by the user.js file.
 
 ### VirtualBox Additions upgrade
 
-Finally we need to update the VirtualBox guest additions. We have VirtualBox 6.1.12 installed, but version 6.1.6 of guest additions came pre-installed. You may find bi-directional copy and paste isn't working. Also dynamic resizing of your Kali guest window might not work. It's easy to update to the version of VirtualBox we have installed. First from the Devices menu choose Insert Guest Additions CD Image:
+Finally we need to update the VirtualBox guest additions. We have VirtualBox 6.1.12 installed, but version 6.1.6 of guest additions came pre-installed in Kali. You may find bi-directional copy and paste isn't working. Also dynamic resizing of your Kali guest window might not work. It's easy to update to the version of VirtualBox we have installed. First from the Devices menu choose Insert Guest Additions CD Image:
 
 ![kali-insert-guest-additions](/assets/images/2020-07-26-22-02-58.png)
 
