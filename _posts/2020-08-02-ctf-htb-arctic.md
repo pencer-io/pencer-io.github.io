@@ -76,7 +76,7 @@ Adobe ColdFusion Server 8.0.1 - 'administrator/logviewer/ | exploits/cfm/webapps
 ColdFusion 8.0.1 - Arbitrary File Upload / Execution (Met | exploits/cfm/webapps/16788.rb
 ```
 
-The bottom one looks good, with file upload and metasploit module it should be easy. 
+The bottom one looks good, with file upload and metasploit module it should be easy.
 
 ## Gaining Access
 
@@ -432,7 +432,7 @@ Now start an http server in this folder so we can get to the file:
 python -m SimpleHTTPServer 80
 ```
 
-Go back to login page at http://10.10.10.11:8500/CFIDE/administrator, use admin and happyday to get in. Then go to Debugging & Logging then Scheduled Tasks:
+Go back to login page, use admin and happyday to get in. Then go to Debugging & Logging then Scheduled Tasks:
 
 ![coldfusion-debugging](/assets/images/2020-08-02-22-07-35.png)
 
