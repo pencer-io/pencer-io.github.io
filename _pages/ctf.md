@@ -21,6 +21,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 006 | Optimum | Easy | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-optimum) |
 | 007 | Bastard | Medium | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-bastard) |
 | 008 | TenTen | Medium | Linux | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-tenten) |
+| 009 | Arctic | Easy | Windows | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-arctic) |
 | 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
 | 021 | Haircut | Medium | Linux | 26/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
 | 022 | Holiday | Hard | Linux | 02/06/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
