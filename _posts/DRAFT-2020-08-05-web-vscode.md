@@ -23,7 +23,26 @@ The starting point for this series of guides is [here](https://pencer.io/web/web
 
 ## Install VSCode on Windows 10
 
-Install VSCode (on Windows): https://code.visualstudio.com/download
+First of all lets grab the latest version of VSCode. For Windows you have two choices, either download from the Microsoft site [here](https://code.visualstudio.com/download) or use PowerShell.
+
+Let's download via the browser first. Go to the URL above and then click on the relevant blue box for your setup:
+
+![vscode-download](/assets/images/2020-08-05-16-46-30.png)
+
+For me it's Windows 10, I clicked on the box on the left, and Edge downloads the setup exe:
+
+![vscode-setup](/assets/images/2020-08-05-16-48-39.png)
+
+Once downloaded click run, depending on which account your logged on as you might get this warning:
+
+![vscode-nonadmin](/assets/images/2020-08-05-16-51-15.png)
+
+If you want to install as Administrator click ok, otherwise cancel and log on with the user you want to use. At the license agreement choose I accept the agreement and click Next:
+
+![vscode-license](/assets/images/2020-08-05-16-52-38.png)
+
+
+
 Or do this: 
 Install-Script Install-VSCode -Scope CurrentUser; Install-VSCode.ps1
 https://github.com/PowerShell/vscode-powershell
