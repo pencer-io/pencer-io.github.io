@@ -141,6 +141,8 @@ You'll now see your Git Bash window:
 
 The files we create and edit in VSCode will be kept in our local Git repository. We can connect this to GitHub and store our credentials. VSCode will then use these to synchronize your local files with your remote GitHub repository, without you needing to log in each time.
 
+## Configure Git
+
 First make a new folder to use as your local workspace:
 
 ![workspace](/assets/images/2020-08-09-21-47-10.png)
