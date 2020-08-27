@@ -81,7 +81,7 @@ We see it is a double encoded PNG, save the file and have a look:
 
 ![find-me-qr](/assets/images/2020-07-19-21-38-04.png)
 
-We have a QR code, use an online decoder like [zxing](https://zxing.org/w/decode) to see what it gives us:
+We have a QR code, use an online decoder like [zxing](https://zxing.org/w/decode.jspx) to see what it gives us:
 
 ![zxing-decode-qr](/assets/images/2020-07-19-21-39-05.png)
 

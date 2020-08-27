@@ -415,7 +415,7 @@ Possible Hashs:
 [+]  MySQL5 - SHA-1(SHA-1($pass))
 ```
 
-We can try cracking it [here](https://hashkiller.co.uk/Cracker/SHA1), which gives me:
+We can try cracking it [here](https://hashes.com/en/decrypt/hash), which gives me:
 
 ![hashkiller-result](/assets/images/2020-08-02-22-07-04.png)
 

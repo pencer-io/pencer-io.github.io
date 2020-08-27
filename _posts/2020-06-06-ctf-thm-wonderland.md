@@ -502,7 +502,7 @@ hatter   pts/0    10.9.17.195      16:55    7.00s  0.74s  0.08s w
 
 ## Root Flag
 
-Capabilities is a well known attack vector. [GTFOBins](https://gtfobins.github.io/gtfobins/) has lots of really good information about the many UNIX/Linux binaries that can be abused. [This](https://gtfobins.github.io/gtfobins/perl) section talks about Perl and what you can do with CAP_SETUID being set.
+Capabilities is a well known attack vector. [GTFOBins](https://gtfobins.github.io/) has lots of really good information about the many UNIX/Linux binaries that can be abused. [This](https://gtfobins.github.io/gtfobins/perl) section talks about Perl and what you can do with CAP_SETUID being set.
 
 From that article I took this command:
 
