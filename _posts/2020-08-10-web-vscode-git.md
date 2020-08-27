@@ -171,6 +171,8 @@ Here's how our repo looked on GitHub when created it in the previous guide:
 
 ![github-repo](/assets/images/2020-08-09-22-03-48.png)
 
+## Configure Workspace
+
 Now we have our remote GitHub repository cloned to our local Git instance. Let's go back to VSCode and click on **Add workspace folder**:
 
 ![vscode-add-workspace](/assets/images/2020-08-09-22-16-17.png)
@@ -199,9 +201,11 @@ Click OK to run the sync:
 
 ![vscode-confirm-sync](/assets/images/2020-08-09-22-36-33.png)
 
-Doing this also get's VSCode to ask you to enable periodic fetches:
+Doing this also gets VSCode to ask you to enable periodic fetches:
 
 ![vscode-periodic-git-fetch](/assets/images/2020-08-09-22-37-15.png)
+
+## Create and publish test file
 
 Now let's create a test file:
 
