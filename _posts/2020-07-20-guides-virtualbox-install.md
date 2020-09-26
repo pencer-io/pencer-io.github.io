@@ -6,7 +6,7 @@ toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
 categories:
-  - Cyber
+  - Guides
 tags:
   - virtualbox
   - extensions
