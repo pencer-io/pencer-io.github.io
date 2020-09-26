@@ -21,7 +21,7 @@ This is the second post in a series of articles, that are aimed at showing you s
 <!--more-->
 As mentioned we're going to use Git and GitHub for version control. If you're not sure what Git is and why it makes sense to use it, then [this](https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it) is a good article that explains the basics.
 
-The starting point for this series of guides is [here](https://pencer.io/web/web-creating-free-blog/). The first article explaining how to set up a GitHub account is [here.](https://pencer.io/web/web-getting-started-github/) in case you need to do that.
+The starting point for this series of guides is [here](https://pencer.io/guides/web-creating-free-blog/). The first article explaining how to set up a GitHub account is [here.](https://pencer.io/guides/web-getting-started-github/) in case you need to do that.
 
 ## Install VSCode on Windows 10
 
@@ -71,7 +71,7 @@ You now have VSCode installed, and ready to configured:
 
 ![vscode-startup](/assets/images/2020-08-06-22-18-20.png)
 
-You'll need to have already set up your GitHub account and repository before proceeding with the following install and configuration of Git. Follow my previous guide [here.](https://pencer.io/web/web-getting-started-github/) if you still need to do that, then come back and follow on with the below.
+You'll need to have already set up your GitHub account and repository before proceeding with the following install and configuration of Git. Follow my previous guide [here.](https://pencer.io/guides/web-getting-started-github/) if you still need to do that, then come back and follow on with the below.
 
 ## Installing Git
 
@@ -151,7 +151,7 @@ In the Git Bash window we need to set the username we'll use to connect to GitHu
 
 ![git-username](/assets/images/2020-08-09-21-55-24.png)
 
-This is the same username we used to set up our GitHub account in the [last guide](https://pencer.io/web/web-getting-started-github/). Next we set the email address we used:
+This is the same username we used to set up our GitHub account in the [last guide](https://pencer.io/guides/web-getting-started-github/). Next we set the email address we used:
 
 ![git-username](/assets/images/2020-08-09-21-57-32.png)
 

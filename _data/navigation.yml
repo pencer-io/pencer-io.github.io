@@ -1,6 +1,10 @@
 main:
   - title: "CTF"
     url: /ctf/
+  - title: "Hacking"
+    url: /hacking/
+  - title: "Guides"
+    url: /guides/
   - title: "Posts"
     url: /posts/
   - title: "Categories"

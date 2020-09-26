@@ -16,7 +16,7 @@ tags:
 
 ## Kali Information
 
-For the following guide, I use the pre-built image from Offensive Security for VirtualBox. See [this guide](https://pencer.io/cyber/cyber-kali-install/) where I went through the steps of importing that image if you need help.
+For the following guide, I use the pre-built image from Offensive Security for VirtualBox. See [this guide](https://pencer.io/guides/cyber-kali-install/) where I went through the steps of importing that image if you need help.
 
 ## OWASP Information
 

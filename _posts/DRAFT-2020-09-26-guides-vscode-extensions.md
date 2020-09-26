@@ -22,12 +22,12 @@ This is the third post in a series of articles, that are aimed at showing you si
 
 <!--more-->
 
-The starting point for this series of guides is [here](https://pencer.io/web/web-creating-free-blog/). The first article explaining how to set up a GitHub account is [here.](https://pencer.io/web/web-getting-started-github/) in case you need to do that. The second article which goes through installing VSCode and Git is [here.](https://pencer.io/web/web-vscode-git/)
+The starting point for this series of guides is [here](https://pencer.io/guides/web-creating-free-blog/). The first article explaining how to set up a GitHub account is [here.](https://pencer.io/guides/web-getting-started-github/) in case you need to do that. The second article which goes through installing VSCode and Git is [here.](https://pencer.io/guides/web-vscode-git/)
 
 ## VSCode Extensions overview
 
 marketplace
 extensions tab in vscode
+https://code.visualstudio.com/docs/editor/extension-gallery
 
 ## Summary
-
