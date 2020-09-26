@@ -247,4 +247,4 @@ That's it for our installation and configuration of VSCode and Git.
 
 ## Summary
 
-So in this post we've looked at grabbing the latest version of VSCode, and Git. We've installed and configured them, and connected to our remote GitHib repository. Next time we'll look at some of the useful extensions that you can install in VSCode, which turn it in to a comfortable environment.
+So in this post we've looked at grabbing the latest version of VSCode, and Git. We've installed and configured them, and connected to our remote GitHib repository. Next time we'll look at some of the useful extensions that you can install in VSCode, which turn it in to a comfortable writing environment.

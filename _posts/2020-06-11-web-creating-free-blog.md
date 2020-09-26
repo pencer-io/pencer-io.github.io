@@ -29,9 +29,9 @@ I'll keep this page updated, and link the series of articles below as I get them
 
 1. Github - How to create an account, and fork a Jekyll theme - [available here.](https://pencer.io/web/web-getting-started-github/)
 
-2. VSCode - Install, configure, add helpful plugins, and use.
+2. VSCode + Git - Install, configure and use - [available here.](https://pencer.io/web/web-vscode-git/)
 
-3. Git - Install, configure and use.
+3. VSCode - Install, configure and use helpful plugins
 
 4. Jekyll - Looking at the configuration files and customising your theme.
 
