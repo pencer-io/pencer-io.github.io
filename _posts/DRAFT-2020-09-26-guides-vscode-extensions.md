@@ -26,8 +26,14 @@ The starting point for this series of guides is [here](https://pencer.io/guides/
 
 ## VSCode Extensions overview
 
-marketplace
-extensions tab in vscode
-https://code.visualstudio.com/docs/editor/extension-gallery
+One of the reasons why VSCode has become so popular is it's versatility. With the addition of a few selected extensions, you can change your environment from a Python playground to a writing suite. It's quick and simple to install extensions, and looking over the [VSCode Marketplace](https://marketplace.visualstudio.com/VSCode) you'll see there are hundreds to choose from. 
+
+Microsoft has a good guide to the Extension Marketplace [here.](https://code.visualstudio.com/docs/editor/extension-gallery)
+
+Below I show you the extensions I've used to give me a comfortable writing environment. I do all of my writing in VSCode, and couldn't be happier with it.
+
+## Activity Bar
+
+Microsoft have a good guide to the user interface of VSCode [here.](https://code.visualstudio.com/docs/getstarted/userinterface) 
 
 ## Summary
