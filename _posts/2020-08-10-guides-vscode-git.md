@@ -17,9 +17,9 @@ tags:
 
 ![header](/assets/images/2020-06-01-21-54-29.png)
 
-This is the second post in a series of articles, that are aimed at showing you simple step by step guides for creating your own static website hosted on GitHub for free. This post focuses on setting up VSCode and Git. I'll show you how to install and configure them, then we'll connect to our GitHub repository.
+This is the second post in a series of articles, that are aimed at showing you simple step by step guides to creating your own static website hosted on GitHub for free. This post focuses on setting up VSCode and Git. I'll show you how to install and configure them, then we'll connect to our GitHub repository. If you're not sure what Git is and why it makes sense to use it, then [this](https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it) is a good article that explains the basics.
+
 <!--more-->
-As mentioned we're going to use Git and GitHub for version control. If you're not sure what Git is and why it makes sense to use it, then [this](https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it) is a good article that explains the basics.
 
 The starting point for this series of guides is [here](https://pencer.io/guides/web-creating-free-blog/). The first article explaining how to set up a GitHub account is [here.](https://pencer.io/guides/web-getting-started-github/) in case you need to do that.
 

@@ -19,8 +19,11 @@ tags:
 
 ![header](/assets/images/2020-06-01-21-54-29.png)
 
-This is the first post in a series, aimed at showing you step by step guides to creating your own static website hosted on GitHub for free. This post focuses on setting up a new GitHub account, choosing your Jekyll theme, and the cloning it to your first repository. More info [here](https://pencer.io/guides/web-creating-free-blog/) on the other guides in this series.
+This is the third post in a series of articles, that are aimed at showing you simple step by step guides to creating your own static website hosted on GitHub for free.  This post focuses on setting up a new GitHub account, choosing your Jekyll theme, and then cloning it to your first repository.
+
 <!--more-->
+
+The starting point for this series of guides is [here](https://pencer.io/guides/web-creating-free-blog/). The second article which goes through installing VSCode and Git is [here.](https://pencer.io/guides/web-vscode-git/)
 
 ## Register with GitHub
 
