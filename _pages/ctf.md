@@ -39,6 +39,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Wonderland | Medium | Linux | 05/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wonderland) |
 | Intro To Django | Medium | Linux | 08/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-django) |
 | Post-Exploitation Basics | Easy | Windows | 29/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-postexploit) |
+| Looking Glass | Medium | Linux | 16/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-looking-glass/) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
