@@ -72,6 +72,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 194.24 seconds
 ```
 
+## Gaining Access
+
 We see OpenSSH running on port 22. There are also thousands of ports open between 9000 and 14000. All of them are running Dropbear sshd, let's try connecting to one of them:
 
 ```text
@@ -84,9 +86,7 @@ Lower
 Connection to 10.10.156.69 closed.
 ```
 
-## Gaining Access
-
-We connected to the lowest Dropbear port we found and the message **Lower** was returned to us, and then we were disconnected. Let's try the highest port:
+We connected to the lowest Dropbear port and we found and the message **Lower** was returned to us, then we were disconnected. Let's try the highest port:
 
 ```text
 root@kali:~/thm/looking# ssh root@10.10.156.69 -o StrictHostKeyChecking=no -p 13783
@@ -205,7 +205,7 @@ jabberwock@looking-glass:~$ cat user.txt | rev
 thm{<<HIDDED<>>}
 ```
 
-## Priviledge Escalation
+## Privilege Escalation
 
 Now we need to find our path for getting to root. A quick look at the passwd file show there are a few users:
 
