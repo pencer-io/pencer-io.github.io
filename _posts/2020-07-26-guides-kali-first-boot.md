@@ -308,7 +308,7 @@ kali@kali:~/.mozilla/firefox/up56m7v8.default-esr$ wget https://gist.githubuserc
 
 Now open FireFox, and check the settings have changed by going to the config page:
 
-![firefox-settins](/assets/images/2020-07-26-23-03-59.png)
+![firefox-settings](/assets/images/2020-07-26-23-03-59.png)
 
 Anything in bold has been changed by the user.js file.
 
