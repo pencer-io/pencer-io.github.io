@@ -19,7 +19,7 @@ tags:
 
 ![looking-glass](/assets/images/2020-10-05-22-14-40.png)
 
-Looking Glass is another room by [NinjaJc01](https://tryhackme.com/p/NinjaJc01), and a sequel to the first room of this series called [Wonderland](https://tryhackme.com/room/wonderland). This one is another mid level room themed around Alice In Wonderland. Skills required are basic enumeration techniques of ports, services and Linux file systems. 
+Looking Glass is another room by [NinjaJc01](https://tryhackme.com/p/NinjaJc01), and a sequel to the first room of this series called [Wonderland](https://tryhackme.com/room/wonderland). This one is another mid level room themed around Alice In Wonderland. Skills required are basic enumeration techniques of ports, services and Linux file systems.
 <!--more-->
 
 | Details |  |
@@ -83,6 +83,8 @@ Warning: Permanently added '[10.10.156.69]:9000' (RSA) to the list of known host
 Lower
 Connection to 10.10.156.69 closed.
 ```
+
+## Gaining Access
 
 We connected to the lowest Dropbear port we found and the message **Lower** was returned to us, and then we were disconnected. Let's try the highest port:
 
@@ -173,6 +175,8 @@ Connection to 10.10.156.69 closed.
 ```
 
 I have what appears to be a username and password. Note that this changes every time the box is booted, so what I have found here won't work for you.
+
+## User Flag
 
 Let's try ssh on port 22 now we have some credentials:
 
@@ -285,6 +289,8 @@ connect to [10.9.17.195] from (UNKNOWN) [10.10.156.69] 50348
 $
 ```
 
+## Second User
+
 Let's see who we are:
 
 ```text
@@ -337,6 +343,8 @@ We have two files, a poem and what looks to be something else that's encrypted. 
 ![hashes.com](/assets/images/2020-10-04-17-28-59.png)
 
 We detect some as SHA256PLAIN hashes, and they decode to reveal a sentence. The last one is not a SHA256 hash, but instead it is hex encoded. Lucky for us the website auto detected it and decoded that one along with the others.
+
+## Third User
 
 So we now have another password, from a file called humptydumpty.txt. And we know from earlier when we looked at the passwd file that there is a user called humptydumpty, so let's try switching to them:
 
@@ -405,6 +413,8 @@ dLnK/rW4O0JxgqIV69MjDsfRn1gZNhTTAyNnRMH1U7kUfPUB2ZXCmnCGLhAGEbY9
 k6ywCnCtTz2/sNEgNcx9/iZW+yVEm/4s9eonVimF+u19HJFOPJsAYxx0
 -----END RSA PRIVATE KEY-----
 ```
+
+## Forth User
 
 We can now ssh to alice using that file:
 
@@ -541,6 +551,8 @@ sudo: unable to resolve host ssalg-gnikool
 root@looking-glass:/root# id
 uid=0(root) gid=0(root) groups=0(root)
 ```
+
+## Root Flag
 
 Now we just need to get that last flag:
 
