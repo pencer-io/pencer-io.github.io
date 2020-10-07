@@ -22,7 +22,7 @@ You can find information about the 2020.2a release of Kali [here.](https://www.k
 
 You can download the VirtualBox specific image of Kali 2020.2a [here.](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b)
 
-See [this guide](https://pencer.io/guides/cyber-virtualbox-install/) on how to set up VirtualBox if you haven't already got it installed.
+See [this guide](https://pencer.io/guides/guides-virtualbox-install/) on how to set up VirtualBox if you haven't already got it installed.
 
 ## Importing Kali 2020.2a
 
@@ -56,4 +56,4 @@ Eventually you should be back to the main window with Kali imported:
 
 There's a few tweaks you can do to try and squeeze the maximum performance out of your virtual Kali machine. [This TechRepublic article](https://www.techrepublic.com/article/how-to-improve-virtualbox-guest-performance-in-five-steps/) is worth having a quick read if you need a few ideas.
 
-Now we're ready to fire up our Kali machine and get it ready for use. Follow my [next guide](https://pencer.io/guides/cyber-kali-first-boot/) on the things you'll want to do with Kali after it's first boot.
+Now we're ready to fire up our Kali machine and get it ready for use. Follow my [next guide](https://pencer.io/guides/guides-kali-first-boot/) on the things you'll want to do with Kali after it's first boot.
