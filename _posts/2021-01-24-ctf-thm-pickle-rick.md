@@ -19,17 +19,14 @@ tags:
 
 ![pickle-rick](/assets/images/2021-01-24-21-53-17.png)
 
-Looking Glass is another room by [NinjaJc01](https://tryhackme.com/p/NinjaJc01), and a sequel to the first room of this series called [Wonderland](https://tryhackme.com/room/wonderland). This one is another mid level room themed around Alice In Wonderland. Skills required are basic enumeration techniques of ports, services and Linux file systems.
-
-This Rick and Morty themed challenge requires you to exploit a webserver to find 3 ingredients that will help Rick make his potion to transform himself back into a human from a pickle.
-
+Pickle Rick is a nice and simple easy level Rick and Morty themed room. We exploit a web application to find three ingredients to help Rick make his potion to transform himself back in to a human from a pickle! Skills required are basic enumeration techniques of ports, services and Linux file systems.
 <!--more-->
 
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
 | Link To Machine | [THM - Easy - Pickle Rick](https://tryhackme.com/room/picklerick) |
-| Machine Release Date | 10th March 2190 |
+| Machine Release Date | 10th March 2019 |
 | Date I Completed It | 24th January 2021 |
 | Distribution Used | THM AttackBox – [Info](https://help.tryhackme.com/106142-my-machine/tryhackme-attack-machine) |
 
