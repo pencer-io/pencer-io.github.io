@@ -162,7 +162,7 @@ A file called "second ingredients, with the contents we need for the second ques
 
 Time to look for the last ingredient. With no more users to search, I should see what we can do to further enumerate.
 
-First let's see what we can do with the account we've logged in with. Always try sudo -l to see your user can run:
+First let's see what we can do with the account we've logged in with. Always try sudo -l to see what your user can run:
 
 ![pickle-sudo](/assets/images/2021-01-24-17-56-34.png)
 
@@ -180,13 +180,13 @@ As you can see this box was easily completed just using the browser and an insec
 
 ## Alternate Method To Root
 
-If you wanted to get a reverse shell, you could do it this way with the help of ![Pentest Monkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+If you wanted to get a reverse shell, you could do it this way with the help of [Pentest Monkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
 
 Check for php:
 
 ![pickle-php](/assets/images/2021-01-24-18-04-11.png)
 
-Try the php reverse shell pentest monkey:
+Try the php reverse shell from Pentest Monkey:
 
 ![pickle-phprev](/assets/images/2021-01-24-18-05-23.png)
 
