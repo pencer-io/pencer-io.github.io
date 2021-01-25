@@ -90,13 +90,13 @@ root@ip-10-10-19-48:~# nikto -h 10.10.24.11
 + 1 host(s) tested
 ```
 
-Nikto has found two files:
+## Gaining Access
+
+Nikto has found two files, the first one is this:
 
 ```text
 + "robots.txt" retrieved but it does not contain any 'disallow' entries (which is odd).
 ```
-
-## Gaining Access
 
 This sounds interesting, let's have a look here first:
 
@@ -136,9 +136,9 @@ We find more is not allowed, let's try less instead:
 
 ![pickle-less](/assets/images/2021-01-24-17-50-02.png)
 
-## Second Ingredient
-
 We have the answer to our first question. Let's enter that and start looking for the next ingredient.
+
+## Second Ingredient
 
 Let's have a look at that other interesting text file:
 
