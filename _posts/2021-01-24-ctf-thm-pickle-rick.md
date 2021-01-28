@@ -10,8 +10,6 @@ categories:
 tags:
   - THM
   - CTF
-  - sudoers
-  - ssh
   - Linux
 ---
 
