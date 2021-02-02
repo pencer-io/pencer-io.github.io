@@ -25,4 +25,12 @@ https://tryhackme.com/room/blaster (optional extra)
 https://tryhackme.com/room/kenobi
 https://tryhackme.com/room/steelmountain
 https://tryhackme.com/room/alfred
+
+subscriber rooms do first while i have my free subs:
 https://tryhackme.com/room/hackpark
+https://tryhackme.com/room/gamezone
+https://tryhackme.com/room/skynet
+https://tryhackme.com/room/brainstorm
+https://tryhackme.com/room/activedirectorybasics
+https://tryhackme.com/room/attackingkerberos
+
