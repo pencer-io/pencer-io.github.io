@@ -28,7 +28,7 @@ Game Zone is rated as an easy difficulty room on TryHackMe. This Linux based ser
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Medium - HackPark](https://tryhackme.com/room/gamezone) |
+| Link To Machine | [THM - Easy - GameZone](https://tryhackme.com/room/gamezone) |
 | Machine Release Date |28th August 2019 |
 | Date I Completed It | 10th February 2021 |
 | Distribution Used | Kali 2020.3 – [Release Info](https://www.kali.org/releases/kali-linux-2020-3-release/) |
