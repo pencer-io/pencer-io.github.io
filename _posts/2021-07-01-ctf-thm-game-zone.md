@@ -22,7 +22,7 @@ tags:
 
 Game Zone is rated as an easy difficulty room on TryHackMe. This Linux based server hosts a simple web application that we use to gain an initial foothold by exploiting it using SQLi techniques. We crack a password retrieved from the database and then gain access to SSH. From there we enumerate and find a vulnerable CMS. Then using SSH port forwarding we access it from behind a firewall.
 
- Skills required are basic knowledge of SQLi techniques, and file and server enumeration to find escalation paths. Skills learned are more in depth SQLi, password cracking, researching exploits to use on discovered vulnerabilities, and SSH port forwarding.
+ Skills required are basic knowledge of SQLi techniques, file and server enumeration to find escalation paths. Skills learned are more in depth SQLi, password cracking, researching exploits to use on discovered vulnerabilities, and SSH port forwarding.
 <!--more-->
 
 | Details |  |
@@ -30,7 +30,7 @@ Game Zone is rated as an easy difficulty room on TryHackMe. This Linux based ser
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
 | Link To Machine | [THM - Medium - HackPark](https://tryhackme.com/room/gamezone) |
 | Machine Release Date |28th August 2019 |
-| Date I Completed It | 10st February 2021 |
+| Date I Completed It | 10th February 2021 |
 | Distribution Used | Kali 2020.3 – [Release Info](https://www.kali.org/releases/kali-linux-2020-3-release/) |
 
 ## Initial Recon
@@ -157,7 +157,7 @@ If you're following the room guide then you could have used JohnTheRipper instea
 
 ```text
 root@kali:/home/kali/thm/gamezone# cat hash.txt
-agent47:ab5db915fc9cea6c78df88106c6500c57f2b52901ca6c0c6218f04122c3efd14
+agent47:<HIDDEN>
 ```
 
 Then use the rockyou wordlist against it:
@@ -309,8 +309,8 @@ The room description also explains the intended attack path, so you can follow t
 To set up our tunnel we simply ssh to the machine as before but with an extra parameter -L, which is for local port forwarding:
 
 ```text
-root@kali:/home/kali/thm/gamezone# ssh -L 10000:localhost:10000 agent47@10.10.85.174
-agent47@10.10.201.153's password: 
+root@kali:/home/kali/thm/gamezone# ssh -L 10000:localhost:10000 agent47@10.10.42.137
+agent47@10.10.42.137's password: 
 Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-159-generic x86_64)
 Last login: Mon Feb  8 16:18:38 2021 from 10.14.6.200
 agent47@gamezone:~$ 
