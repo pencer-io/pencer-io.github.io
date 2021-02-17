@@ -619,7 +619,7 @@ We've made it to root, so we can get the final flag:
 ```text
 root@skynet:/tmp# cat /root/root.txt
 cat /root/root.txt
-3f0372db24753accc7179a282cd6a949
+<<HIDDEN>>
 ```
 
 All done. See you next time.
