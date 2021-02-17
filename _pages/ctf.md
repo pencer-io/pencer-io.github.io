@@ -42,9 +42,9 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Looking Glass | Medium | Linux | 16/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-looking-glass/) |
 | Pickle Rick | Easy | Linux | 10/03/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-pickle-rick) |
 | Jurassic Park | Hard | Linux | 17/02/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-jurassic-park) |
-| HackPark | Medium | Windows | 06/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-hackpark)
-| Game Zone | Easy | Linux | 28/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-game-zone)
-
+| HackPark | Medium | Windows | 06/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-hackpark) |
+| Game Zone | Easy | Linux | 28/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-game-zone) |
+| Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
