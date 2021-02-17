@@ -281,8 +281,10 @@ The first email sounds interesting from a user called skynet, and looking at it 
 
 ![skynet-sambapassword](/assets/images/2021-02-15-22-57-00.png)
 
+```text
 We have changed your smb password after system malfunction.
-Password: )s{A&2Z=F^n_E.B`
+Password: <<HIDDEM>
+```
 
 We have Miles smb password, let's go try it:
 
@@ -322,7 +324,7 @@ smb: \notes\> ls
 
 ## Hidden Folder
 
-There's another log list of files to distract us, but amongst them I see a text file:
+There's another long list of files to distract us, but amongst them I see a text file:
 
 ```text
 smb: \notes\> more important.txt
