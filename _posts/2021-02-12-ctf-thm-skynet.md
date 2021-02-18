@@ -12,8 +12,8 @@ tags:
   - CTF
   - Linux
   - Linpeas
-  - SQLi
-  - hashcrack
+  - SMBMap
+  - Kernel Exploit
 ---
 
 ## Machine Information
