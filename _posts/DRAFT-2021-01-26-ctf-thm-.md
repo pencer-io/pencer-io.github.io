@@ -34,3 +34,6 @@ https://tryhackme.com/room/brainstorm
 https://tryhackme.com/room/activedirectorybasics
 https://tryhackme.com/room/attackingkerberos
 
+extras for subscribers:
+https://tryhackme.com/room/powershell
+https://tryhackme.com/room/corp

