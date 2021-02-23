@@ -45,6 +45,8 @@ These are all retired machines, which you can only access if you have a VIP memb
 | HackPark | Medium | Windows | 06/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-hackpark) |
 | Game Zone | Easy | Linux | 28/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-game-zone) |
 | Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
+| Brainstorm | Medium | Windows | 7/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainstorm) |
+| Daily Bugle | Hard | Linux | 13/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
