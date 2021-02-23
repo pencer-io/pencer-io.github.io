@@ -10,10 +10,12 @@ categories:
 tags:
   - THM
   - CTF
-  - Windows
-  - Buffer Overflow
-  - Reverse Engineering
-  -
+  - Linux
+  - SQLi
+  - SQLMap
+  - Joomla
+  - Yum
+  - GTFOBins
 ---
 
 ## Machine Information
