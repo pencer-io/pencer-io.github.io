@@ -30,7 +30,7 @@ Skills required are basic port enumeration and exploration knowledge. Skills lea
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
 | Link To Machine | [THM - Medium - Relevant](https://tryhackme.com/room/relevant) |
 | Machine Release Date | 24th July 2020 |
-| Date I Completed It | 2nd March 2021 |
+| Date I Completed It | 28th Feb 2021 |
 | Distribution Used | Kali 2020.3 – [Release Info](https://www.kali.org/releases/kali-linux-2020-3-release/) |
 
 ## Initial Recon
@@ -272,7 +272,7 @@ c:\Users\Bob\Desktop>dir
 03/01/2021  10:54 AM                35 user.txt
 
 c:\Users\Bob\Desktop>type user.txt
-THM{fdk4ka34vk346ksxfr21tg789ktf45}
+<HIDDEN>
 ```
 
 ## Root Flag
