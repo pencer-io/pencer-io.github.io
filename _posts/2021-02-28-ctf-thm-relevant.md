@@ -353,7 +353,7 @@ That was nice and easy! All we need to do now is grab the root flag:
 C:\Windows\system32> cd \users\administrator\desktop
 C:\users\administrator\desktop> cat root.txt
 cat root.txt
-THM{1fk5kf469devly1gl320zafgl345pv}
+<HIDDEN>
 ```
 
 All done. See you next time.
