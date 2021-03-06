@@ -47,6 +47,9 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
 | Brainstorm | Medium | Windows | 7/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainstorm) |
 | Daily Bugle | Hard | Linux | 13/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
+| Overpass 2 | Easy | Linux | 14/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-overpass2/) |
+| Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant/) |
+| Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
