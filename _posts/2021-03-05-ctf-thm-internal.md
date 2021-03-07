@@ -105,6 +105,8 @@ Nothing on Exploit-DB. Let's move on to looking at port 80 first:
 
 ![internal-apache](/assets/images/2021-03-02-22-11-46.png)
 
+## Gobuster
+
 Just the standard install page for Apache, nothing hidden in the source, time for gobuster:
 
 ```text
@@ -132,6 +134,8 @@ http://internal.thm/server-status (Status: 403)
 2021/03/02 22:15:52 Finished
 ===============================================================
 ```
+
+## WPScan
 
 We have a number of interesting subfolders. The one that jumps out is WordPress, because when doing CTFs that is often the starting point. Trying /wordpress redirects us to /blog:
 
@@ -339,6 +343,8 @@ Trying admin / marquez Time: 00:00:45 <                                         
 [+] Elapsed time: 00:01:01
 ```
 
+## WordPress
+
 We have the password for admin, what a great start. Let's try logging in:
 
 ![internal-wplogin](/assets/images/2021-03-02-22-41-35.png)
@@ -425,6 +431,8 @@ Back to the WordPress site and navigate to the 404.php page:
 
 ![internal-browse404](/assets/images/2021-03-03-22-21-18.png)
 
+## Initial Shell
+
 Now switch back to netcat to see we are connected:
 
 ```text
@@ -486,6 +494,8 @@ Aubreanna needed these credentials for something later.  Let her know you have t
 aubreanna:<HIDDEN>
 www-data@internal:/opt$ 
 ```
+
+## User Flag
 
 Nice, they look like credentials, and we know ssh is open. Let's try and log in with them:
 
@@ -572,7 +582,9 @@ aubreanna@internal:~$ netcat -v -z -n -w 1 172.17.0.2 8080
 Connection to 172.17.0.2 8080 port [tcp/*] succeeded!
 ```
 
-We definitely have something running on that IP and listening on port 8080. We can't see that port externally with nmap, so can assume it's hidden behind a firewall. I covered how to use SSH tunneling to access ports behind firewalls in my [GameZone writeup](https://pencer.io/ctf/ctf-thm-game-zone/). It's pretty simple, we just use the -L parameter and specify a local port to forward to the IP and port on the server:
+## SSH Tunneling
+
+We definitely have something running on that IP and listening on port 8080. We can't see that port externally with nmap, so can assume it's hidden behind a firewall. I covered how to use SSH tunneling (also known as port forwarding) to access ports behind firewalls in my [GameZone writeup](https://pencer.io/ctf/ctf-thm-game-zone/). It's pretty simple, we just use the -L parameter and specify a local port to forward to the IP and port on the server:
 
 ```text
 root@kali:/home/kali/thm/internal# ssh -L 1234:172.17.0.2:8080 aubreanna@internal.thm
@@ -585,6 +597,8 @@ aubreanna@internal:~$
 So above we've said any traffic on Kali port 1234 forward to the IP 172.17.0.2 on port 8080 using the SSH connection we have to the internal.thm server. Now we can open a browser locally on Kali and go to local port 1234, our traffic is passed through the SSH tunnel and we open the page on the internal.thm server:
 
 ![internal-jenkins](/assets/images/2021-03-04-21-39-29.png)
+
+## Jenkins
 
 We have the login page for Jenkins. I tried the credentials we've found so far without success. I also tried defaults like admin:admin etc, but nothing worked. So we have to assume we'll need to brute force our way in. First capture a login attempt in Burp:
 
@@ -672,6 +686,8 @@ need access to the root user account.
 
 root:<HIDDEN>
 ```
+
+## Root Flag
 
 At last we've found a user name and password for root. Let's try it:
 
