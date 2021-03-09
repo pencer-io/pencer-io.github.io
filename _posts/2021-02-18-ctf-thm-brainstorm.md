@@ -396,7 +396,7 @@ We see 42424242, which is ASCII for our four B's.
 
 Things are looking good. Our next job is to check for bad characters, as sending any will cause the overflow to stop before it completes executing our payload. When we use MSFVenom to generate our shellcode we can exclude any characters that would stop it from executing.
 
-There's lot's of sites that list these, I'll use [this](tps://github.com/cytopia/badchars) and add them to our script. So our message now looks like this:
+There's lot's of sites that list these, I'll use [this](https://github.com/cytopia/badchars) and add them to our script. So our message now looks like this:
 
 ```text
 message = 'A' * 3000
