@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Internal from TryHackMe"
+title: "Walk-through of Buffer Overflow Prep from TryHackMe"
 header:
   teaser: /assets/images/2021-03-14-15-46-39.png
 toc: true
@@ -21,10 +21,10 @@ tags:
 
 ![bofprep](/assets/images/2021-03-14-15-46-39.png)
 
-Buffer Overflow Prep is rated as a easy difficulty room on TryHackMe. It uses a vulnerable 32bit Windows binary to help teach you basic stack based buffer overflow techniques. This room can be used as prep for taking the OCSP exam, where you will need to use similar methods. It's also a great resource if you want to get started on learning how to exploit buffer overflows. There is a single vulnerable file that has ten different vulnerabilities. You'll use the same technique to for each so I just run through it twice.
+Buffer Overflow Prep is rated as an easy difficulty room on TryHackMe. It uses a vulnerable 32bit Windows binary to help teach you basic stack based buffer overflow techniques. This room can be used as prep for taking the OCSP exam, where you will need to use similar methods. It's also a great resource if you want to get started on learning how to exploit buffer overflows. The vulnerable file has ten different vulnerabilities, and you'll use the same technique for each so I just run through it twice.
 
 <!--more-->
-Skill required are a basic understanding of the tools and techniques needed to debug an application. Skills learned are a better understanding of EIP, ESP and other registers that we can use to help us develop an exploit. We also learn a little about Immunity Debugger and Mona for Windows.
+Skills required are a basic understanding of the tools and techniques needed to debug an application. Skills learned are a better understanding of EIP, ESP and other registers that we can use to help us develop an exploit. We also learn a little about Immunity Debugger and Mona for Windows.
 
 | Details |  |
 | --- | --- |
@@ -69,7 +69,7 @@ Now from the VM copy the OCSP folder over to my share on Kali:
 
 ![bofprep-smbshare](/assets/images/2021-03-07-17-20-40.png)
 
-This room will take a fair amount of time to get through all tem challenges. So now I won't need the THM VM again, and it saves me having to keep deploying it.
+This room will take a fair amount of time to get through all ten challenges. So now I won't need the THM VM again, and it saves me having to keep deploying it.
 
 I already have a VM with Python, Immunity and Mona set up from when I did the [Brainstorm](https://pencer.io/ctf/ctf-thm-brainstorm/) room. So I can just fire that up and pull the files across to work on them from there. If you haven't got your own VM to use, then you can either deploy the one provided in the room which is ready to go, or simply install the software yourself on a VM of choice:
 
@@ -701,4 +701,4 @@ We have our shell. OVERFLOW2 completed.
 
 ## Conclusion
 
-For the remaining eight challenges you should be able to simply repeat the steps from above. By the time you've completed this room you really should be ready for your OCSP! Or just be really good at static buffer overflows. Either way this room is a great resource to help you improve you're skills.
+For the remaining eight challenges you should be able to simply repeat the steps from above. By the time you've completed this room you really should be ready for your OCSP exam! Or just be really good at static buffer overflows. Either way this room is a great resource to help you improve you're skills.
