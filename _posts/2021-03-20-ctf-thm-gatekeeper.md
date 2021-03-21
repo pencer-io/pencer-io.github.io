@@ -803,7 +803,7 @@ c:\Users\mayor\Desktop>dir
                2 Dir(s)  16,283,815,936 bytes free
 
 c:\Users\mayor\Desktop>type root.txt.txt
-{Th3_M4y0r_C0ngr4tul4t3s_U}
+<<HIDDEN>>
 ```
 
 All done. See you next time.
