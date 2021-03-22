@@ -51,6 +51,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant/) |
 | Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-internal/) |
 | Buffer Overflow Prep | Easy | Windows | 08/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bofprep) |
+| Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper/) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
