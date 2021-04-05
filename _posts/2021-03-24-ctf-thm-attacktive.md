@@ -23,7 +23,7 @@ tags:
 
 ![attacktive](/assets/images/2021-03-28-21-01-52.png)
 
-Attackive Directory is a medium difficulty room on TryHackMe. An initial nmap scan reveals a Windows domain controller, which we probe using enum4linux. We then use Kerbrute to discover users and ASREPRoasting to retrieve hashes. Cracking the hash of a user gives us access to a file share, where we find more credentials. We then use sercretsdump.py to gather more hashes, including the administrators. Finally we use Evil-WinRM to gain a shell as admin to grab the loot.
+Attacktive Directory is a medium difficulty room on TryHackMe. An initial nmap scan reveals a Windows domain controller, which we probe using enum4linux. We then use Kerbrute to discover users and ASREPRoasting to retrieve hashes. Cracking the hash of a user gives us access to a file share, where we find more credentials. We then use sercretsdump.py to gather more hashes, including the administrators. Finally we use Evil-WinRM to gain a shell as admin to grab the loot.
 
 <!--more-->
 Skills required are a basic understanding of Active Directory and the tools needed to attack it. Skills learned are Kerberoasting, ASREPRoating and retrieving hashes to use pass the hash attacks.
