@@ -81,8 +81,8 @@ We see a response with a value for a key pair called token. It looks like base64
 
 ```text
 ┌──(root💀kali)-[~/thm/glitch]
-└─# echo "dGhpc19pc19ub3RfcmVhbA==" | base64 -d
-this_is_not_real
+└─# echo "<HIDDEN>==" | base64 -d
+<HIDDEN>
 ```
 
 The clue from above suggests the token and this decoded value belong together. If we switch to the storage tab in the dev console of Firefox we find a cookie called token, so let's set it's value to what we've found:
@@ -187,7 +187,7 @@ And second we can see this is a Node.JS application, as it mentions node_modules
 Layer.handle [as handle_request] (/var/web/node_modules/express/lib/router/layer.js:95:5)
 ```
 
-I don't know about the eval function and if it's exploitable, but a quick search [this](https://medium.com/@sebnemK/node-js-rce-and-a-simple-reverse-shell-ctf-1b2de51c1a44) and [this](https://blog.appsecco.com/nodejs-and-a-simple-rce-exploit-d79001837cc6), both explain how to take advantage of it.
+I don't know about the eval function and if it's exploitable, but a quick search found [this](https://medium.com/@sebnemK/node-js-rce-and-a-simple-reverse-shell-ctf-1b2de51c1a44) and [this](https://blog.appsecco.com/nodejs-and-a-simple-rce-exploit-d79001837cc6), both explain how to take advantage of it.
 
 First I tried the suggested method:
 
@@ -254,7 +254,7 @@ total 48
  4 drwx------   2 user user  4096 Jan 21 08:47 .ssh
  4 -rw-rw-r--   1 user user    22 Jan  4 15:29 user.txt
 user@ubuntu:~$ cat user.txt
-THM{i_don't_know_why}
+THM{<HIDDEN>}
 ```
 
 While we're here, I notice a .firefox folder. This may contain saved passwords for the user, let's have a look at that:
@@ -336,7 +336,7 @@ Move our retrieved files in to the firepwd folder:
 └─# mv logins.json firepwd
 ```
 
-Now we just run the script and it will automatically crack the files and give us an saved credentials:
+Now we just run the script and it will automatically crack the files and give us any saved credentials:
 
 ```text
 ┌──(root💀kali)-[~/thm/glitch/firepwd]
@@ -345,7 +345,7 @@ globalSalt: b'c6b3288fe32e9b2eaab7f9859afd603ee5438c7d'
 <SNIP>
 clearText b'5edc75d601dc4f2c9e5b9bbc49e6432c85dc0dbcfd1c6b1c0808080808080808'
 decrypting login/password pairs
-  https://glitch.thm:b'v0id',b'love_the_void'
+  https://glitch.thm:b'v0id',b'<HIDDEN>'
 ```
 
 We have a user and password, and before when looking around I saw there is a user on this server called v0id. We can assume this is our next step, let's try to switch user:
@@ -353,7 +353,7 @@ We have a user and password, and before when looking around I saw there is a use
 ```text
 user@ubuntu:~/.firefox/b5w4643p.default-release$ su v0id
 su v0id
-Password: love_the_void
+Password: <HIDDEN>
 v0id@ubuntu:/home/user/.firefox/b5w4643p.default-release$
 ```
 
@@ -411,7 +411,7 @@ We made it to root, let's grab the flag:
 
 ```text
 root@ubuntu:/var/web# cat /root/root.txt
-THM{diamonds_break_our_aching_minds}
+THM{<HIDDEN>}
 ```
 
 All done. See you next time.
