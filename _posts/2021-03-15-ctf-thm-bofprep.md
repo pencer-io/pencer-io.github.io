@@ -701,4 +701,4 @@ We have our shell. OVERFLOW2 completed.
 
 ## Conclusion
 
-For the remaining eight challenges you should be able to simply repeat the steps from above. By the time you've completed this room you really should be ready for your OCSP exam! Or just be really good at static buffer overflows. Either way this room is a great resource to help you improve you're skills.
+For the remaining eight challenges you should be able to simply repeat the steps from above. By the time you've completed this room you really should be ready for your OCSP exam! Or just be really good at static buffer overflows. Either way this room is a great resource to help you improve your skills.
