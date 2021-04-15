@@ -47,11 +47,14 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
 | Brainstorm | Medium | Windows | 7/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainstorm) |
 | Daily Bugle | Hard | Linux | 13/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
-| Overpass 2 | Easy | Linux | 14/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-overpass2/) |
-| Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant/) |
-| Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-internal/) |
+| Overpass 2 | Easy | Linux | 14/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-overpass2) |
+| Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant) |
+| Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-internal) |
 | Buffer Overflow Prep | Easy | Windows | 08/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bofprep) |
-| Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper/) |
+| Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper) |
+| Attacktive | Medium | Windows | 25/11/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-attacktive) |
+| Glitch | Easy | Linux | 04/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-glitch) |
+| Wreath | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wreath/) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
