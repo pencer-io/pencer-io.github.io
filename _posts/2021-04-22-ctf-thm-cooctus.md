@@ -232,7 +232,7 @@ zsh: suspended  nc -nlvp 4444
 [1]  + continued  nc -nlvp 4444
 ```
 
-One thing to note, if you're using zsh then you need to use **stty raw -echo; fg** or you shell will crash!
+One thing to note, if you're using zsh then you need to use **stty raw -echo; fg** or your shell will crash!
 
 Ok let's have a look around:
 
