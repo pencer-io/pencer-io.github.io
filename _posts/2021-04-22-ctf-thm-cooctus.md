@@ -142,9 +142,6 @@ Export list for cooctus.thm:
 One called general is visible, let's try to mount it and see what's inside:
 
 ```text
-┌──(root💀kali)-[~/thm]
-└─# cd /root/thm/cooctus
-
 ┌──(root💀kali)-[~/thm/cooctus]
 └─# mkdir nfs    
 
@@ -165,7 +162,7 @@ nfs/credentials.bak: ASCII text
 ┌──(root💀kali)-[~/thm/cooctus]
 └─# cat nfs/credentials.bak        
 paradoxial.test
-ShibaPretzel79
+<HIDDEN>
 ```
 
 Ok well that was eventful! Let's see if these creds work for the login page we found before:
@@ -252,7 +249,7 @@ total 8
 4 -rw------- 1 paradox paradox   38 Feb 20 20:23 user.txt
 
 paradox@cchq:~$ cat user.txt     
-THM{2dccd1ab3e03990aea77359831c85ca2}
+THM{HIDDEN}
 ```
 
 We find the user flag for paradox, and a folder which looks to contain the CAT app running on the web server on port 8080. Let's have a further look around:
@@ -359,7 +356,7 @@ total 16
 szymex@cchq:~$ cat mysupersecretpassword.cat
 cherrycoke
 szymex@cchq:~$ cat user.txt
-THM{c89f9f4ef264e22001f9a9c3d72992ef}
+THM{HIDDEN}
 szymex@cchq:~$
 ```
 
@@ -505,7 +502,7 @@ You can have the key fragment if you can decrypt it.
 Good luck and keep on nooting!
 ```
 
-This one is nice and simple. We can just import the key adn then decrypt:
+This one is nice and simple. We can just import the key and then decrypt:
 
 ```text
 szymex@cchq:/media/tuxling_2$ gpg --import private.key 
@@ -515,6 +512,7 @@ gpg: Total number processed: 1
 gpg:               imported: 1
 gpg:       secret keys read: 1
 gpg:   secret keys imported: 1
+
 szymex@cchq:/media/tuxling_2$ gpg --decrypt fragment.asc 
 gpg: encrypted with 3072-bit RSA key, ID 97D48EB17511A6FA, created 2021-02-20
       "TuxPingu"
@@ -543,7 +541,7 @@ Ah, a give away. That was no challenge at all!
 As suggested I put all three fragments together:
 
 ```text
-f96050ad616eaf62818d637b56db1552
+f<HIDDEN>2
 ```
 
 He says visit the station? Must be crackstation as this looks like a hash:
@@ -563,7 +561,7 @@ Let's get the next flag:
 ```text
 tux@cchq:~/tuxling_3$ cd /home/tux/
 tux@cchq:~$ cat user.txt 
-THM{592d07d6c2b7b3b3e7dc36ea2edbd6f1}
+THM{HIDDEN}
 ```
 
 Now we move on to varg:
@@ -669,7 +667,7 @@ index 4ccfcc1..0000000
 -pw = input("Password: ")
 -
 -for i in range(0,2):
--    if pw != "slowroastpork":
+-    if pw != "<HIDDEN>":
 -        pw = input("Password: ")
 -    else:
 -        if uname == "varg":
@@ -694,7 +692,7 @@ Yep! Let's grab the user flag for varg before we move on:
 
 ```text
 varg@cchq:~$ cat /home/varg/user.txt 
-THM{3a33063a4a8a5805d17aa411a53286e6}
+THM{HIDDEN}
 ```
 
 Last step is finding our way to root. For CTF there's a few things I always check before resorting to [LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) or similar. One of them is sudo privileges. I checked it for varg:
@@ -708,7 +706,9 @@ User varg may run the following commands on cchq:
     (root) NOPASSWD: /bin/umount
 ```
 
-There is no reason for this user to have that unless it's our intended path. It had me puzzled for a while, but I found [this](https://linoxide.com/list-mounted-drives-on-linux/) really interesting article. It shows lots of ways to find mounted volumes. First I listed them all:
+There is no reason for this user to have that unless it's our intended path.
+
+It had me puzzled for a while, but I found [this](https://linoxide.com/list-mounted-drives-on-linux/) really interesting article. It shows lots of ways to find mounted volumes. First I listed them all:
 
 ```text
 varg@cchq:~$ findmnt
@@ -843,7 +843,7 @@ We're in as root at last. Let's get the last flag and we're finished:
 
 ```text
 root@cchq:~# cat root.txt
-THM{H4CK3D_BY_C00CTUS_CL4N}
+THM{HIDDEN}
 ```
 
 All done. See you next time.
