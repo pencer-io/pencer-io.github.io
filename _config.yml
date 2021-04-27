@@ -7,7 +7,7 @@
 # in the templates via {{ site.myvariable }}.
 # locale: en-GB
 title: pencer.io
-subtitle: "Eat. Sleep. Hack. Repeat"
+subtitle: "Eat. Sleep. Hack. Repeat."
 description: "Hacking. A lot of hacking. Mostly CTFs, but then other stuff too when I get round to it."
 repository: "pencer-io/pencer-io.github.io"
 
@@ -66,7 +66,7 @@ plugins:
 author:
   name   : 
   avatar : "/assets/images/BlackUnicorn.png"
-  bio    : "Cyber Security, Penetration Testing, Hacking, Coding and Web enthusiast."
+  bio    : "Hacking. A lot of hacking. Mostly CTFs, but then other stuff too when I get round to it."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
