@@ -11,7 +11,9 @@ tags:
   - THM
   - CTF
   - Linux
-  - 
+  - Gobuster
+  - Hashes
+  - Git
 ---
 
 ## Machine Information
