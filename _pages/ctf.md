@@ -54,7 +54,10 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper) |
 | Attacktive | Medium | Windows | 25/11/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-attacktive) |
 | Glitch | Easy | Linux | 04/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-glitch) |
-| Wreath | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wreath/) |
+| Wreath | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wreath) |
+| Brainpan | Hard | Windows | 05/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainpan) |
+| Cooctus Stories | Easy | Linux | 20/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cooctus) |
+| Different CTF | Hard | Linux | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-diffctf) |
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
