@@ -423,7 +423,7 @@ bash-4.3# cat /root/root.txt
 <<HIDDEN>>
 ```
 
-That was a nice simple box. Below is how you could get the initial shell by changing a file withing the WordPress theme instead of using Meterpreter.
+That was a nice simple box. Below is how you could get the initial shell by changing a file within the WordPress theme instead of using Meterpreter.
 
 ## WordPress Themes Method
 
