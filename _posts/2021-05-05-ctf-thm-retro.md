@@ -153,7 +153,7 @@ Instead let's go back to our list of open ports we found earlier, and review wha
 
 ```text
 ┌──(root💀kali)-[~/thm/retro]
-└─# xfreerdp /v:retroweb.thm /u:wade /p:'parzival' +clipboard /dynamic-resolution
+└─# xfreerdp /v:retroweb.thm /u:wade /p:'<HIDDEN>' +clipboard /dynamic-resolution
 
 [22:00:31:849] [1333:1334] [INFO][com.freerdp.core] - freerdp_connect:freerdp_set_last_error_ex resetting error state
 [22:00:31:849] [1333:1334] [INFO][com.freerdp.client.common.cmdline] - loading channelEx rdpdr
@@ -182,8 +182,6 @@ Before we move on lets grab that user flag:
 
 ![retro-user](/assets/images/2021-05-06-22-38-58.png)
 
-Flag: 3b99fbdc6d430bfb51c72c651a261927
-
 ## CVE-2019-1388 Exploit
 
 After an initial look around I find two interesting things. Firstly there is a file in the recycle bin:
@@ -199,7 +197,8 @@ He also saved a bookmark to one, so seems like he was interested in it for some 
 I found [this](https://www.zerodayinitiative.com/blog/2019/11/19/thanksgiving-treat-easy-as-pie-windows-7-secure-desktop-escalation-of-privilege) post that explains how you can exploit that vulnerability:
 
 ```text
-The bug is found in the UAC (User Account Control) mechanism. By default, Windows shows all UAC prompts on a separate desktop known as the Secure Desktop. The prompts themselves are produced by an executable named consent.exe, running as NT AUTHORITY\SYSTEM and having an integrity level of System.
+The bug is found in the UAC (User Account Control) mechanism. By default, Windows shows all UAC prompts on a separate desktop known as the Secure Desktop.
+The prompts themselves are produced by an executable named consent.exe, running as NT AUTHORITY\SYSTEM and having an integrity level of System.
 ```
 
 A quick search found [this video](https://www.youtube.com/watch?v=3BQKpPNlTSo) on YouTube. It shows how to use the hhupd file we found in the recycle bin to get us an administrator command prompt.
@@ -234,7 +233,7 @@ Press Ok to get rid of the error message. Then in the file name box put the path
 
 ![retro-path-to-cmd](/assets/images/2021-05-08-16-27-58.png)
 
-This let's you see all files in the System32 folder. Find cmd, right click it, then chose Run as administrator:
+This let's you see all files in the System32 folder. Find cmd, right click it, then chose Open:
 
 ![retro-cmd](/assets/images/2021-05-08-16-29-07.png)
 
@@ -245,8 +244,6 @@ We now have a command prompt as system:
 Time to get the root flag:
 
 ![retro-root-flag](/assets/images/2021-05-08-16-30-10.png)
-
-Flag: 7958b569565d7bd88d10c6f22d1c4063
 
 That was the intended way to complete this room, however there is another way.
 
