@@ -1,7 +1,7 @@
 ---
 title: "Walk-through of Retro from TryHackMe"
 header:
-  teaser: ../assets/images/2021-05-08-17-35-50.png
+  teaser: /assets/images/2021-05-08-17-35-50.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
@@ -16,7 +16,7 @@ tags:
 
 ## Machine Information
 
-![retro](../assets/images/2021-05-08-17-35-50.png)
+![retro](/assets/images/2021-05-08-17-35-50.png)
 
 Retro is a hard difficulty room on TryHackMe. An initial scan reveals just two ports, a WordPress site on port 80, and RDP open on 3389. We find credentials hidden in the WordPress site which lets us logon on to a remote desktop. From there we discover an exploit in the recycle bin that we use to escalate to administrator.
 
@@ -84,7 +84,7 @@ First add the machine IP to our hosts file:
 
 Let's look at the website:
 
-![retro-web](../assets/images/2021-05-04-21-16-11.png)
+![retro-web](/assets/images/2021-05-04-21-16-11.png)
 
 A standard IIS landing page, which means no default website. Fire up gobuster and see if we can find anything hidden:
 
@@ -117,33 +117,33 @@ http://retroweb.thm/Retro      (Status: 301) [Size: 148] [--> http://retroweb.th
 
 We've found a subfolder called retro, let's have a look:
 
-![retro-fanatics](../assets/images/2021-05-04-21-23-27.png)
+![retro-fanatics](/assets/images/2021-05-04-21-23-27.png)
 
 Here we find a WordPress site hosting a selection of interesting articles about retro games.
 
 How do I know it's WordPress? I have Wappalyzer installed in Kali:
 
-![retro-wappalyzer](../assets/images/2021-05-04-21-31-50.png)
+![retro-wappalyzer](/assets/images/2021-05-04-21-31-50.png)
 
 And also there's a login link that gives it away:
 
-![retro-login](../assets/images/2021-05-04-21-34-02.png)
+![retro-login](/assets/images/2021-05-04-21-34-02.png)
 
 I notice all posts are by someone called Wade, clicking on him shows us a list of all his entries, and one recent comment:
 
-![retro-wade-posts](../assets/images/2021-05-04-21-28-51.png)
+![retro-wade-posts](/assets/images/2021-05-04-21-28-51.png)
 
 Looking at the post he commented on we see something suspicious:
 
-![retro-comment](../assets/images/2021-05-04-21-36-54.png)
+![retro-comment](/assets/images/2021-05-04-21-36-54.png)
 
 The obvious thing to try next is logging in as Wade with this password:
 
-![retro-wade-login](../assets/images/2021-05-04-21-38-25.png)
+![retro-wade-login](/assets/images/2021-05-04-21-38-25.png)
 
 This works and we get to the standard admin dashboard:
 
-![retro-admin](../assets/images/2021-05-04-21-39-53.png)
+![retro-admin](/assets/images/2021-05-04-21-39-53.png)
 
 In the spirit of following the intended path for this room I'm going to stop at this point. With access to the admin panel we could go down the route of replacing one of the files within WordPress with a reverse shell. I've covered this before in another TryHackMe room called [Internal](https://pencer.io/ctf/ctf-thm-internal/). We could also use Meterpreter to get a shell, which I've covered previously on a HackTheBox server called [Spectra](https://pencer.io/ctf/ctf-htb-spectra).
 
@@ -176,11 +176,11 @@ Instead let's go back to our list of open ports we found earlier, and review wha
 
 We find that the credentials are indeed valid allowing us to log on to the desktop:
 
-![retro-desktop](../assets/images/2021-05-06-22-37-18.png)
+![retro-desktop](/assets/images/2021-05-06-22-37-18.png)
 
 Before we move on lets grab that user flag:
 
-![retro-user](../assets/images/2021-05-06-22-38-58.png)
+![retro-user](/assets/images/2021-05-06-22-38-58.png)
 
 Flag: 3b99fbdc6d430bfb51c72c651a261927
 
@@ -188,11 +188,11 @@ Flag: 3b99fbdc6d430bfb51c72c651a261927
 
 After an initial look around I find two interesting things. Firstly there is a file in the recycle bin:
 
-![retro-hhupd](../assets/images/2021-05-06-22-44-07.png)
+![retro-hhupd](/assets/images/2021-05-06-22-44-07.png)
 
 Secondly looking at the browsing history in Chrome shows Dark searched for and visited sites related to CVE-2019-1388 and how to patch against it:
 
-![retro-chrome](../assets/images/2021-05-08-16-42-29.png)
+![retro-chrome](/assets/images/2021-05-08-16-42-29.png)
 
 He also saved a bookmark to one, so seems like he was interested in it for some reason.
 
@@ -206,45 +206,45 @@ A quick search found [this video](https://www.youtube.com/watch?v=3BQKpPNlTSo) o
 
 This looks to be the intended path, so let's give it a go. First run hhupd as administrator:
 
-![retro-hhupd](../assets/images/2021-05-08-16-22-38.png)
+![retro-hhupd](/assets/images/2021-05-08-16-22-38.png)
 
 On the dialog that opens click on the "Show information about the publishers certificate" link:
 
-![retro-show-info](../assets/images/2021-05-08-16-21-47.png)
+![retro-show-info](/assets/images/2021-05-08-16-21-47.png)
 
 On the certificate dialog click on the Verisign link in the Issued by area:
 
-![retro-cert](../assets/images/2021-05-08-16-21-33.png)
+![retro-cert](/assets/images/2021-05-08-16-21-33.png)
 
 You may get this box appear, if you do I couldn't find a way around it:
 
-![retro-default-app](../assets/images/2021-05-08-16-21-14.png)
+![retro-default-app](/assets/images/2021-05-08-16-21-14.png)
 
 If you don't then Internet Explorer will open with the verisign URL visible:
 
-![retro-verisign-url](../assets/images/2021-05-08-16-26-50.png)
+![retro-verisign-url](/assets/images/2021-05-08-16-26-50.png)
 
 If the Set up Internet Explorer 11 box appears just close it.
 
 There's no internet connection from this server so IE will fail to get to the site. Now you can press CTRL+S to open the Save Webpage dialog:
 
-![retro-no-internet](../assets/images/2021-05-08-16-27-21.png)
+![retro-no-internet](/assets/images/2021-05-08-16-27-21.png)
 
 Press Ok to get rid of the error message. Then in the file name box put the path like so:
 
-![retro-path-to-cmd](../assets/images/2021-05-08-16-27-58.png)
+![retro-path-to-cmd](/assets/images/2021-05-08-16-27-58.png)
 
 This let's you see all files in the System32 folder. Find cmd, right click it, then chose Run as administrator:
 
-![retro-cmd](../assets/images/2021-05-08-16-29-07.png)
+![retro-cmd](/assets/images/2021-05-08-16-29-07.png)
 
 We now have a command prompt as system:
 
-![retro-cmd-prompt](../assets/images/2021-05-08-16-29-27.png)
+![retro-cmd-prompt](/assets/images/2021-05-08-16-29-27.png)
 
 Time to get the root flag:
 
-![retro-root-flag](../assets/images/2021-05-08-16-30-10.png)
+![retro-root-flag](/assets/images/2021-05-08-16-30-10.png)
 
 Flag: 7958b569565d7bd88d10c6f22d1c4063
 
@@ -295,15 +295,15 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 
 Switch back to the desktop on the server and use certutil to pull the file over:
 
-![retro-certutil](../assets/images/2021-05-08-17-07-48.png)
+![retro-certutil](/assets/images/2021-05-08-17-07-48.png)
 
 Now run the exploit:
 
-![retro-run-exploit](../assets/images/2021-05-08-17-06-56.png)
+![retro-run-exploit](/assets/images/2021-05-08-17-06-56.png)
 
 A separate command prompt opens and we are system:
 
-![retro-system-again](../assets/images/2021-05-08-17-09-08.png)
+![retro-system-again](/assets/images/2021-05-08-17-09-08.png)
 
 Now wasn't that much easier!
 
