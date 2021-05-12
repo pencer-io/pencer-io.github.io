@@ -12,6 +12,7 @@ tags:
   - CTF
   - Linux
   - GitLab
+  - Docker
 ---
 
 ## Machine Information
@@ -91,6 +92,8 @@ This works and I'm logged in as a standard user:
 
 ![ready-gitlab-dashboard](/assets/images/2021-05-09-22-26-30.png)
 
+## GitLab Exploitation
+
 As a new user I have no access to any projects, and there is no public content to look at. I find the version of this installation on the help page:
 
 ![ready-help](/assets/images/2021-05-09-22-24-08.png)
@@ -143,6 +146,8 @@ I have a user name and password from earlier when I registered on the GitLab sit
 [+] Exploit completed successfully!
 ```
 
+## Reverse Shell
+
 Looks good. When I switch to my netcat listener I see we have a reverse shell connected:
 
 ```text
@@ -176,6 +181,8 @@ zsh: suspended  nc -nlvp 49999
 git@gitlab:~/gitlab-rails/working$ stty rows 52 cols 237
 ```
 
+## User Flag
+
 Ok, that's better. Let's see what users we have:
 
 ```text
@@ -191,14 +198,16 @@ total 4
 4 -r--r----- 1 dude git 33 Dec  2 10:46 user.txt
 ```
 
-Just the user flag, which we also have rights to read so let's grab that before we move one:
+Just the user flag, which we also have rights to read so let's grab that before we move on:
 
 ```text
 git@gitlab:~/gitlab-rails/working$ cat /home/dude/user.txt 
 <HIDDEN>
 ```
 
-I had a look round but didn't spot anything obvious, so time to bring on [LinPeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS). Get the latest version:
+## Privilege Escalation
+
+I had a look round but didn't spot anything obvious, so time to bring on [LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS). Get the latest version:
 
 ```text
 ┌──(root💀kali)-[~/htb/ready]
@@ -254,6 +263,8 @@ And also that we are inside a Docker container:
 [+] Is this a virtual machine? ..... Yes (docker)
 [+] Is this a container? ........... Looks like we're in a Docker container
 ```
+
+## Root Access
 
 I tried the password with the user dude, but that didn't work. Then I tried it with root:
 
