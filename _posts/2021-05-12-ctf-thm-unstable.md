@@ -13,24 +13,17 @@ tags:
   - Linux
   - Ffuf
   - 
-
-## 1.3.6-final
-## Nay
-## Orange
-## experiment
-## THM{Mary_Ann_notes}
-## THM{The_Family_Is_Back_Together}
 ---
 
 ## Machine Information
 
 ![unstable](/assets/images/2021-05-19-17-21-20.png)
 
-Unstable Twin is a medium difficulty room on TryHackMe. An initial scan reveals just two ports are open. After some enumeration we find a web service API listening on port 80. Further enumeration finds a login which is vulnerable to SQL injection. We dump credentials from the underlying sqlite database and use them to login via SSH. From there we find pictures, which via steghide reveal hidden text. We then use CyberChef to combine and decode the final flag.
+Unstable Twin is a medium difficulty room on TryHackMe. An initial scan reveals just two ports are open. After some enumeration we find a web service API listening on port 80. Further enumeration finds a login which is vulnerable to SQL injection. We dump credentials from the underlying sqlite database and use them to login via SSH. From there we find pictures, which via Steghide reveal hidden text. We then use CyberChef to combine and decode the final flag.
 
 <!--more-->
 
-Skills required are basic enumeration and file manipulation. Skills learned fuzzing using fuff and manually performing SQLi using curl.
+Skills required are basic enumeration and file manipulation. Skills learned fuzzing using Ffuf and manually performing SQLi using Curl.
 
 | Details |  |
 | --- | --- |
@@ -101,7 +94,7 @@ Just one folder is found, let's try it:
 
 ![unstable-web-info](/assets/images/2021-05-12-22-01-35.png)
 
-We have a message about an API that needs authenticating to. Let's see what curl shows us in verbose mode:
+We have a message about an API that needs authenticating to. Let's see what Curl shows us in verbose mode:
 
 ```text
 ┌──(root💀kali)-[~/thm/unstable]
@@ -127,7 +120,7 @@ We have a message about an API that needs authenticating to. Let's see what curl
 * Connection #0 to host unstable.thm left intact
 ```
 
-I also noticed if I do a curl again I get a different server:
+I also noticed if I do a Curl again I get a different server:
 
 ```text
 < Content-Length: 148
