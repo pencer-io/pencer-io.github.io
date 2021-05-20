@@ -21,7 +21,7 @@ Delivery is rated as an easy machine on HackTheBox. An initial scan reveals seve
 
 <!--more-->
 
-Skills required are basic port enumeration and OS exploration knowledge. Skills learned are using Hashcat masks to generate wordlist.
+Skills required are basic port enumeration and OS exploration knowledge. Skills learned are using Hashcat masks to generate a wordlist.
 
 | Details |  |
 | --- | --- |
