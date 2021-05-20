@@ -28,7 +28,7 @@ Skills required are basic enumeration and file manipulation. Skills learned are 
 | --- | --- |
 | Hosting Site | [TryHackMe](https://tryhackme.com/) |
 | Link To Machine | [THM - Hard - Retro](https://tryhackme.com/room/retro) |
-| Machine Release Date | 2nd January 2022 |
+| Machine Release Date | 2nd January 2021 |
 | Date I Completed It | 5th May 2021 |
 | Distribution Used | Kali 2021.1 – [Release Info](https://www.kali.org/blog/kali-linux-2021-1-release) |
 
