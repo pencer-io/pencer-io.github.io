@@ -15,7 +15,7 @@ tags:
 
 ## Machine Information
 
-![delivery](../assets/images/2021-05-20-21-55-12.png)
+![delivery](/assets/images/2021-05-20-21-55-12.png)
 
 Delivery is rated as an easy machine on HackTheBox. An initial scan reveals several open ports. We find a helpdesk system powered by osTicket on port 80, and a chat application called Mattermost on port 8065. After raising support tickets and creating accounts we gain access to Mattermost where we find credentials for SSH access. Once connected to the server we enumerate and find credentials for an sql installation. This gives us the root users password hash, which we crack with Hashcat to complete the box.
 
@@ -88,7 +88,7 @@ Nmap done: 1 IP address (1 host up) scanned in 90.38 seconds
 
 We find three open ports. SSH on port 22, that can be left until later. Nginx on port 80 presumably running a website. And something unknown on port 8065. Let's start with port 80:
 
-![delivery](../assets/images/2021-05-20-10-25-59.png)
+![delivery](/assets/images/2021-05-20-10-25-59.png)
 
 Not a lot happening on the homepage. Hovering over the HELPDESK link shows there is a subdomain called helpdesk.delivery.htb, let's add this to our hosts file:
 
@@ -99,53 +99,53 @@ Not a lot happening on the homepage. Hovering over the HELPDESK link shows there
 
 Now clicking on it we see this page:
 
-![delivery-support](../assets/images/2021-05-20-10-41-31.png)
+![delivery-support](/assets/images/2021-05-20-10-41-31.png)
 
 The helpdesk system is using osTicket. First instinct is to try and open a new ticket. Clicking the link takes me to a page where I can create a new one:
 
-![delivery-register](../assets/images/2021-05-20-10-56-26.png)
+![delivery-register](/assets/images/2021-05-20-10-56-26.png)
 
 I filled in the form and clicked Create Ticket, which takes me to this page:
 
-![deliver-created](../assets/images/2021-05-20-10-58-44.png)
+![deliver-created](/assets/images/2021-05-20-10-58-44.png)
 
 A ticket is created and I've been given a temporary email address and matching ticket ID. Clicking on Check Ticket Status link I can now use the email address I created the ticket with and the ticket ID given:
 
-![delivery-access](../assets/images/2021-05-20-10-59-58.png)
+![delivery-access](/assets/images/2021-05-20-10-59-58.png)
 
 When I get in I see my ticket has been created, but there isn't an obvious way to progress:
 
-![delivery-view-ticket](../assets/images/2021-05-20-11-01-22.png)
+![delivery-view-ticket](/assets/images/2021-05-20-11-01-22.png)
 
 Going back to the homepage I try clicking the Contact Us section:
 
-![delivery-contact](../assets/images/2021-05-20-10-44-08.png)
+![delivery-contact](/assets/images/2021-05-20-10-44-08.png)
 
 Here we have a link to the osTicket support page we just visited. However the text says we will have access to the helpsystem once we have a @delivery.htb email address. Then there is a link to MatterMost which is on port 8065. So now we know what was on that mysterious port.
 
 I hadn't heard of [Mattermost](https://mattermost.com/) before, but it looks to be a collaboration/chat type application. Clicking the link takes me here:
 
-![delivery-mattermost](../assets/images/2021-05-20-10-47-06.png)
+![delivery-mattermost](/assets/images/2021-05-20-10-47-06.png)
 
 Clicking on the link to create a new account takes me here:
 
-![delivery-mattermost-signup](../assets/images/2021-05-20-11-04-02.png)
+![delivery-mattermost-signup](/assets/images/2021-05-20-11-04-02.png)
 
 I've filled in the email address given by the help system, clicking Create Account looks to have worked:
 
-![delivery-mattermost-done](../assets/images/2021-05-20-11-04-57.png)
+![delivery-mattermost-done](/assets/images/2021-05-20-11-04-57.png)
 
 Going back to the help system my ticket has been updated:
 
-![delivery-confirmation](../assets/images/2021-05-20-11-05-43.png)
+![delivery-confirmation](/assets/images/2021-05-20-11-05-43.png)
 
 It says registration successful, and there's a URL to use to verify my email address. Pasting that in to a new tab on Firefox gives me an Email Verified message:
 
-![delivery-mattermost-logged-in](../assets/images/2021-05-20-11-07-33.png)
+![delivery-mattermost-logged-in](/assets/images/2021-05-20-11-07-33.png)
 
 I can log in to Mattermost with the temporary email address and password I've used to create the account, and end up at the dashboard:
 
-![delivery-mattermost-homepage](../assets/images/2021-05-20-11-08-51.png)
+![delivery-mattermost-homepage](/assets/images/2021-05-20-11-08-51.png)
 
 We can see an interesting message from root on the first page:
 
@@ -398,7 +398,7 @@ I wish I'd read that before wasting time with rockyou! Any way here's how I did 
 
 First confirm hash type:
 
-![delivery-root-hash](../assets/images/2021-05-20-11-26-08.png)
+![delivery-root-hash](/assets/images/2021-05-20-11-26-08.png)
 
 Next use a [mask](https://hashcat.net/wiki/doku.php?id=mask_attack#charsets_in_hex) to incrementally append numbers on the end of the given password:
 
