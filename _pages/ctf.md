@@ -7,25 +7,32 @@ layout: archive
 author_profile: true
 ---
 
+## HackTheBox
+
 ![htb](/assets/images/2020-05-28-23-10-35.png)
 
 These are all retired machines, which you can only access if you have a VIP membership. More info at [HackTheBox](https://www.hackthebox.eu/home).
 
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
-| 001 | Lame | Easy | Linux | 14/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-lame) |
-| 002 | Legacy | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy) |
-| 003 | Devel | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-devel) |
-| 004 | Popcorn | Medium | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-popcorn) |
-| 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep) |
-| 006 | Optimum | Easy | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-optimum) |
-| 007 | Bastard | Medium | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-bastard) |
-| 008 | TenTen | Medium | Linux | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-tenten) |
-| 009 | Arctic | Easy | Windows | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-arctic) |
-| 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
-| 021 | Haircut | Medium | Linux | 26/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
-| 022 | Holiday | Hard | Linux | 02/06/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
+| 317 | Spectra | Easy | Linux | 27/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-spectra) |
+| 308 | Delivery | Easy | Linux | 09/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-delivery) |
+| 304 | Ready | Medium | Linux | 12/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-ready) |
 | 054 | Nineveh | Medium | Linux | 04/08/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-nineveh) |
+| 022 | Holiday | Hard | Linux | 02/06/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
+| 021 | Haircut | Medium | Linux | 26/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
+| 019 | Sneaky | Medium | Linux | 14/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-sneaky) |
+| 009 | Arctic | Easy | Windows | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-arctic) |
+| 008 | TenTen | Medium | Linux | 22/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-tenten) |
+| 007 | Bastard | Medium | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-bastard) |
+| 006 | Optimum | Easy | Windows | 18/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-optimum) |
+| 005 | Beep | Easy | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-beep) |
+| 004 | Popcorn | Medium | Linux | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-popcorn) |
+| 003 | Devel | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-devel) |
+| 002 | Legacy | Easy | Windows | 15/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-legacy) |
+| 001 | Lame | Easy | Linux | 14/03/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-lame) |
+
+## TryHackMe
 
 ![tryhackme](/assets/images/2020-05-28-23-10-58.png)
 
@@ -58,6 +65,12 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Brainpan | Hard | Windows | 05/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainpan) |
 | Cooctus Stories | Easy | Linux | 20/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cooctus) |
 | Different CTF | Hard | Linux | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-diffctf) |
+| Year Of The Jellyfish | Hard | Linux | 12/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-jellyfish) |
+| Vulnet: dotjar | Medium | Linux | 31/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-dotjar/) |
+| Retro | Hard | Windows | 02/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-retro) |
+| Unstable Twin | Medium | Linux | 14/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-unstable) |
+
+## VulnHub
 
 ![vulnhub](/assets/images/2020-07-19-22-41-36.png)
 
