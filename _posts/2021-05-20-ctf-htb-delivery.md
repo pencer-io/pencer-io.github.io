@@ -11,6 +11,7 @@ tags:
   - HTB
   - CTF
   - Linux
+  - Hashcat
 ---
 
 ## Machine Information
@@ -97,6 +98,8 @@ Not a lot happening on the homepage. Hovering over the HELPDESK link shows there
 └─# sed -i '/10.10.10.222 delivery.htb/ s/$/ helpdesk.delivery.htb/' /etc/hosts
 ```
 
+## Helpdesk System
+
 Now clicking on it we see this page:
 
 ![delivery-support](/assets/images/2021-05-20-10-41-31.png)
@@ -152,6 +155,8 @@ We can see an interesting message from root on the first page:
 ```text
 @developers Please update theme to the OSTicket before we go live. Credentials to the server are maildeliverer:<HIDDEN> 
 ```
+
+## Maildeliverer Access
 
 Let's try them:
 
@@ -216,6 +221,8 @@ maildeliverer@Delivery:/dev/shm$ find / -user maildeliverer -perm -400 -not -pat
 /home/maildeliverer/.viminfo
 /home/maildeliverer/.mysql_history
 ```
+
+## Mattermost Access
 
 I've used -not to reduce the noise for directories I'm not interested in. With what's left there's nothing obvious for this user, let's see what other users we have:
 
@@ -294,6 +301,8 @@ maildeliverer@Delivery:/opt/mattermost/config$ cat config.json | grep -B 5 -A 5 
         "ConnMaxLifetimeMilliseconds": 3600000,
         "MaxOpenConns": 300,
 ```
+
+## Mysql Access
 
 We have sql settings, let's try and log in to it locally:
 
@@ -384,6 +393,8 @@ MariaDB [mattermost]> SELECT username, password FROM Users;
 12 rows in set (0.000 sec)
 ```
 
+## Hashcat
+
 I can see the login I created, plus some that must be other hackers on here at the same time. Of course we're interested in root so let's grab that hash.
 
 I tried hashcat using the rockyou wordlist, but that didn't get me any where. After a look around I revisited the Mattermost dashboard where we had found the username and password earlier. On there I see another comment I'd missed before:
@@ -451,6 +462,8 @@ Stopped: Thu May 20 11:59:47 2021
 ```
 
 It took me a while to get that mask correct. It would have been quicker to use a rule set like [this one](https://github.com/praetorian-inc/Hob0Rules) which contains all the common variations.
+
+## Root Flag
 
 With the hash cracked we can now switch to root and grab the flag:
 
