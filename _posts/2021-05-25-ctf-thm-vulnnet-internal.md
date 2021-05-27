@@ -113,7 +113,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 19.90 seconds
 ```
 
-We see from scan there are a lot of open ports. Let's first add the server IP to our hosts file:
+We see from the scan there are a lot of open ports. Let's first add the server IP to our hosts file:
 
 ```text
 ┌──(root💀kali)-[~/thm/internal]
@@ -286,7 +286,9 @@ So this is possibly the intended path for us to progress with. First though, wha
 A search found plenty of information. It's available on Amazon, and [this page](https://aws.amazon.com/redis/) describes it nicely:
 
 ```text
-Redis, which stands for Remote Dictionary Server, is a fast, open-source, in-memory key-value data store for use as a database, cache, message broker, and queue. Redis now delivers sub-millisecond response times enabling millions of requests per second for real-time applications in Gaming, Ad-Tech, Financial Services, Healthcare, and IoT. Redis is a popular choice for caching, session management, gaming, leaderboards, real-time analytics, geospatial, ride-hailing, chat/messaging, media streaming, and pub/sub apps.
+Redis, which stands for Remote Dictionary Server, is a fast, open-source, in-memory key-value data store for use as a database, cache, message broker, and queue.
+Redis now delivers sub-millisecond response times enabling millions of requests per second for real-time applications in Gaming, Ad-Tech, Financial Services, Healthcare, and IoT.
+Redis is a popular choice for caching, session management, gaming, leaderboards, real-time analytics, geospatial, ride-hailing, chat/messaging, media streaming, and pub/sub apps.
 ```
 
 Ok, sounds interesting, but how do we access it?
@@ -688,3 +690,5 @@ sys-internal@vulnnet-internal:/TeamCity/logs$ sudo su
 root@vulnnet-internal:/TeamCity/logs# cat /root/root.txt
 THM{<HIDDEN>}
 ```
+
+We are all done. See you next time.
