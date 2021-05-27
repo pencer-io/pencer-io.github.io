@@ -180,7 +180,7 @@ Let's see what we have, first the services text file:
 ```text
 ┌──(root💀kali)-[~/thm/internal]
 └─# cat temp/services.txt                   
-THM{0a09d51e488f5fa105d8d866a497440a}
+THM{HIDDEN}
 ```
 
 We have our first flag. Let's have a look at the other files:
@@ -266,7 +266,7 @@ Nothing useful for the user search, but searching for **pass** looks to have rev
 redis/redis.conf:# 2) No password is configured.
 redis/redis.conf:# If the master is password protected (using the "requirepass" configuration
 redis/redis.conf:# masterauth <master-password>
-redis/redis.conf:requirepass "B65Hx562F@ggAZ@F"
+redis/redis.conf:requirepass "<HIDDEN>"
 redis/redis.conf:# resync is enough, just passing the portion of data the slave missed while
 redis/redis.conf:# 150k passwords per second against a good box. This means that you should
 redis/redis.conf:# use a very strong password otherwise it will be very easy to break.
@@ -334,7 +334,7 @@ Right, now we have the client let's try and connect with the password we found b
 
 ```text
 ┌──(root💀kali)-[~/thm/internal]
-└─# redis-cli -h internal.thm -a B65Hx562F@ggAZ@F
+└─# redis-cli -h internal.thm -a <HIDDEN>
 Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
 internal.thm:6379>
 ```
@@ -398,7 +398,7 @@ We can use the **get** command to retrieve the string held in this key:
 
 ```text
 internal.thm:6379> get "internal flag"
-"THM{ff8e518addbbddb74531a724236a8221}"
+"THM{<HIDDEN>}"
 ```
 
 Ok, moving on let's look at the other keys:
@@ -412,17 +412,17 @@ This key is a list instead of a string, we can view the contents of it using the
 
 ```text
 internal.thm:6379> lrange authlist 1 9999999
-1) "QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg=="
-2) "QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg=="
-3) "QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg=="
+1) "QXV0aG9yaXphdGlvbi<HIDDEN>hjZzNIUDY3QFRXQEJjNzJ2Cg=="
+2) "QXV0aG9yaXphdGlvbi<HIDDEN>hjZzNIUDY3QFRXQEJjNzJ2Cg=="
+3) "QXV0aG9yaXphdGlvbi<HIDDEN>hjZzNIUDY3QFRXQEJjNzJ2Cg=="
 ```
 
 The same string repeated three times. The == on the end tells us it is probably base64 encoded, let's try and decode it:
 
 ```text
 ┌──(root💀kali)-[~/thm/internal]
-└─# echo "QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg==" | base64 -d
-Authorization for rsync://rsync-connect@127.0.0.1 with password Hcg3HP67@TW@Bc72v
+└─# echo "QXV0aG9yaXphdGlvbi<HIDDEN>hjZzNIUDY3QFRXQEJjNzJ2Cg==" | base64 -d
+Authorization for rsync://rsync-connect@127.0.0.1 with password <HIDDEN>
 ```
 
 ## Rsync
@@ -493,7 +493,7 @@ Password:
 
 ┌──(root💀kali)-[~/thm/internal]
 └─# cat user.txt             
-THM{da7c20696831f253e0afaca8b83c07ab}
+THM{<HIDDEN>}
 ```
 
 I looked around the folders a little but nothing stood out apart from the .ssh one, but inside it's empty:
@@ -625,7 +625,7 @@ A further look around the TeamCity area found a file called catalina.out in the 
 ```text
 TeamCity initialized, server UUID: 61907dff-244c-4220-b252-31de83974909, URL: http://localhost:8111
 TeamCity is running in professional mode
-[TeamCity] Super user authentication token: 8928970526984206121 (use empty username with the token as the password to access the server)
+[TeamCity] Super user authentication token: <HIDDEN> (use empty username with the token as the password to access the server)
 ```
 
 Firstly we need a web browser to access the TeamCity application URL which we can't do from this ssh session. Instead we can use port forwarding to pass our local Kali web browser traffic through ssh and on to port 8111 on the target server. I've covered tunneling over ssh few times already. See [GameZone](https://pencer.io/ctf/ctf-thm-game-zone), [Internal](https://pencer.io/ctf/ctf-thm-internal) and [Wreath](https://pencer.io/ctf/ctf-thm-wreath) for other examples if you need them.
@@ -686,5 +686,5 @@ Now we can switch user to root and get the last flag:
 ```text
 sys-internal@vulnnet-internal:/TeamCity/logs$ sudo su
 root@vulnnet-internal:/TeamCity/logs# cat /root/root.txt
-THM{e8996faea46df09dba5676dd271c60bd}
+THM{<HIDDEN>}
 ```
