@@ -18,7 +18,7 @@ tags:
 
 ![catpics](/assets/images/2021-06-07-21-31-17.png)
 
-Cat Pictures is an easy difficulty room on TryHackMe. Our initial scan reveals several open and filtered ports. We find phpBB running on one of them, from there we find clues to a port knocking sequence which opens an anonymous FTP service. We find credentials to access a custom shell running on another port, which leads us to a password executable. A hexdump reveals a password, and the output is a private RSA key. We use this to access a docker container via SSH. From there we escape to the underlying host to gain our final flag. As you can see this one is quite a fun ride!
+Cat Pictures is an easy difficulty room on TryHackMe. Our initial scan reveals several open and filtered ports. We find phpBB running on one of them, from there we find clues to a port knocking sequence which opens an anonymous FTP service. We find credentials to access a custom shell running on another port, which leads us to a password protected executable. A hexdump reveals a password, and the output is a private RSA key. We use this to access a docker container via SSH. From there we escape to the underlying host to gain our final flag. As you can see this one is quite a fun ride!
 
 <!--more-->
 
