@@ -16,7 +16,7 @@ tags:
 
 ## Machine Information
 
-![catpics](../assets/images/2021-06-07-21-31-17.png)
+![catpics](/assets/images/2021-06-07-21-31-17.png)
 
 Cat Pictures is an easy difficulty room on TryHackMe. Our initial scan reveals several open and filtered ports. We find phpBB running on one of them, from there we find clues to a port knocking sequence which opens an anonymous FTP service. We find credentials to access a custom shell running on another port, which leads us to a password executable. A hexdump reveals a password, and the output is a private RSA key. We use this to access a docker container via SSH. From there we escape to the underlying host to gain our final flag. As you can see this one is quite a fun ride!
 
@@ -92,13 +92,13 @@ First let's add the server IP to our hosts file:
 
 We'll start with port 8080 and see if there is a website to look around:
 
-![catpics-phpbb](../assets/images/2021-06-06-17-44-22.png)
+![catpics-phpbb](/assets/images/2021-06-06-17-44-22.png)
 
 We find a bulletin board set up for us to share our cat pictures. Nice!
 
 Disappointingly when we look around we find there is only one post:
 
-![catpics-post](../assets/images/2021-06-06-17-45-29.png)
+![catpics-post](/assets/images/2021-06-06-17-45-29.png)
 
 This is a clear clue that we need to use port knocking to progress. I've covered this before on the [HTB Machine Nineveh](https://pencer.io/ctf/ctf-htb-nineveh), there's also a good detailed article [here](https://www.howtogeek.com/442733/how-to-use-port-knocking-on-linux-and-why-you-shouldnt) that explains how to set up your own knockd service and access it.
 
@@ -108,14 +108,14 @@ If we look back at our earlier scan we found two ports, 21 and 2375, that were f
 
 ```text
 ┌──(root💀kali)-[~/thm/catpics]
-└─# for x in 1111 2222 3333 4444; do nmap -Pn --host-timeout 201 --max-retries 0 -p $x catpics.thm; done         
+└─# for x in <HIDDEN>; do nmap -Pn --host-timeout 201 --max-retries 0 -p $x catpics.thm; done         
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-06 18:03 BST
 Nmap scan report for catpics.thm (10.10.158.78)
 Host is up (0.029s latency).
 
 PORT     STATE  SERVICE
-1111/tcp closed lmsocialserver
+<HIDDEN>/tcp closed lmsocialserver
 Nmap done: 1 IP address (1 host up) scanned in 0.15 seconds
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-06 18:03 BST
@@ -123,7 +123,7 @@ Nmap scan report for catpics.thm (10.10.158.78)
 Host is up (0.036s latency).
 
 PORT     STATE  SERVICE
-2222/tcp closed EtherNetIP-1
+<HIDDEN>/tcp closed EtherNetIP-1
 Nmap done: 1 IP address (1 host up) scanned in 0.16 seconds
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-06 18:03 BST
@@ -131,7 +131,7 @@ Nmap scan report for catpics.thm (10.10.158.78)
 Host is up (0.025s latency).
 
 PORT     STATE  SERVICE
-3333/tcp closed dec-notes
+<HIDDEN>/tcp closed dec-notes
 Nmap done: 1 IP address (1 host up) scanned in 0.15 seconds
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-06 18:03 BST
@@ -139,7 +139,7 @@ Nmap scan report for catpics.thm (10.10.158.78)
 Host is up (0.023s latency).
 
 PORT     STATE  SERVICE
-4444/tcp closed krb524
+<HIDDEN>/tcp closed krb524
 
 Nmap done: 1 IP address (1 host up) scanned in 0.15 seconds
 ```
@@ -174,11 +174,11 @@ Processing triggers for man-db (2.9.4-2) ...
 Processing triggers for kali-menu (2021.2.3) ...
 
 ┌──(root💀kali)-[~/thm/catpics]
-└─# knock catpics.thm -v -d 100 1111 2222 3333 4444
-hitting tcp 10.10.158.78:1111
-hitting tcp 10.10.158.78:2222
-hitting tcp 10.10.158.78:3333
-hitting tcp 10.10.158.78:4444
+└─# knock catpics.thm -v -d 100 <HIDDEN>
+hitting tcp 10.10.158.78:<HIDDEN>
+hitting tcp 10.10.158.78:<HIDDEN>
+hitting tcp 10.10.158.78:<HIDDEN>
+hitting tcp 10.10.158.78:<HIDDEN>
 ```
 
 Either way once we've knocked, let's do another port scan and see if anything changed:
@@ -236,7 +236,7 @@ local: /dev/tty remote: note.txt
 150 Opening BINARY mode data connection for note.txt (162 bytes).
 In case I forget my password, I'm leaving a pointer to the internal shell service on the server.
 
-Connect to port 4420, the password is sardinethecat.
+Connect to port 4420, the password is <HIDDEN>.
 - catlover
 226 Transfer complete.
 162 bytes received in 0.00 secs (1.5000 MB/s)
@@ -248,13 +248,13 @@ We've found credentials for the service we saw earlier running on port 4420. Let
 
 ```text
 ┌──(root💀kali)-[~/thm/catpics]
-└─# nc -v catpics.thm 4420                                                                                                                                                                                                               1 ⨯
+└─# nc -v catpics.thm 4420
 catpics.thm [10.10.158.78] 4420 (?) open
 INTERNAL SHELL SERVICE
 please note: cd commands do not work at the moment, the developers are fixing it at the moment.
 do not use ctrl-c
 Please enter password:
-sardinethecat
+<HIDDEN>
 Password accepted
 ```
 
@@ -391,7 +391,7 @@ Ok, we have the file and can confirm it runs. Now we need to analyse it, and the
 00001650  48 83 c4 08 c3 00 00 00  00 00 00 00 00 00 00 00  |H...............|
 00001660  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 *
-00002000  01 00 02 00 00 00 00 00  00 72 65 62 65 63 63 61  |.........rebecca|
+00002000  01 00 02 00 00 00 00 00  00 72 65 62 65 63 63 61  |.........<HIDDEN>|
 00002010  00 50 6c 65 61 73 65 20  65 6e 74 65 72 20 79 6f  |.Please enter yo|
 00002020  75 74 20 70 61 73 73 77  6f 72 64 3a 20 00 00 00  |ut password: ...|
 00002030  57 65 6c 63 6f 6d 65 2c  20 63 61 74 6c 6f 76 65  |Welcome, catlove|
@@ -412,7 +412,7 @@ u+UH
 ATSH
 [A\]
 []A\A]A^A_
-rebecca
+<HIDDEN>
 Please enter yout password: 
 Welcome, catlover! SSH key transfer queued! 
 touch /tmp/gibmethesshkey
@@ -426,7 +426,7 @@ Either way we have a suspected password so let's try it:
 ```text
 ┌──(root💀kali)-[~/thm/catpics]
 └─# ./runme
-Please enter yout password: rebecca
+Please enter yout password: <HIDDEN>
 Welcome, catlover! SSH key transfer queued!
 ```
 
@@ -442,7 +442,7 @@ It's 0 bytes, so doesn't reveal anything. Let's try it on the server now we have
 
 ```text
 # ./runme
-Please enter yout password: rebecca
+Please enter yout password: <HIDDEN>
 Welcome, catlover! SSH key transfer queued! 
 
 # ls -l
@@ -462,22 +462,7 @@ jSmQqh7eqtXuAvOkadRoFlyog2kZ1Gb72zebR75UCBzCKv1zODRx2zLgFyGu0k2u
 xCa4zmBdm80X0gKbk5MTgM4/l8U3DFZgSg45v+2uM3aoqbhSNu/nXRNFyR/Wb10H
 tzeTEJeqIrjbAwcOZzPhISo6fuUVNH0pLQOf/9B1ojI3/jhJ+zE6MB0m77iE07cr
 lT5PuxlcjbItlEF9tjqudycnFRlGAKG6uU8/8wIDAQABAoIBAH1NyDo5p6tEUN8o
-aErdRTKkNTWknHf8m27h+pW6TcKOXeu15o3ad8t7cHEUR0h0bkWFrGo8zbhpzcte
-D2/Z85xGsWouufPL3fW4ULuEIziGK1utv7SvioMh/hXmyKymActny+NqUoQ2JSBB
-QuhqgWJppE5RiO+U5ToqYccBv+1e2bO9P+agWe+3hpjWtiAUHEdorlJK9D+zpw8s
-/+9CjpDzjXA45X2ikZ1AhWNLhPBnH3CpIgug8WIxY9fMbmU8BInA8M4LUvQq5A63
-zvWWtuh5bTkj622QQc0Eq1bJ0bfUkQRD33sqRVUUBE9r+YvKxHAOrhkZHsvwWhK/
-oylx3WECgYEAyFR+lUqnQs9BwrpS/A0SjbTToOPiCICzdjW9XPOxKy/+8Pvn7gLv
-00j5NVv6c0zmHJRCG+wELOVSfRYv7z88V+mJ302Bhf6uuPd9Xu96d8Kr3+iMGoqp
-tK7/3m4FjoiNCpZbQw9VHcZvkq1ET6qdzU+1I894YLVu258KeCVUqIMCgYEAwvHy
-QTo6VdMOdoINzdcCCcrFCDcswYXxQ5SpI4qMpHniizoa3oQRHO5miPlAKNytw5PQ
-zSKoIW47AObP2twzVAH7d+PWRzqAGZXW8gsF6Ls48LxSJGzz8V191PjbcGQO7Oro
-Em8pQ+qCISxv3A8fKvG5E9xOspD0/3lsM/zGD9ECgYBOTgDAuFKS4dKRnCUt0qpK
-68DBJfJHYo9DiJQBTlwVRoh/h+fLeChoTSDkQ5StFwTnbOg+Y83qAqVwsYiBGxWq
-Q2YZ/ADB8KA5OrwtrKwRPe3S8uI4ybS2JKVtO1I+uY9v8P+xQcACiHs6OTH3dfiC
-tUJXwhQKsUCo5gzAk874owKBgC/xvTjZjztIWwg+WBLFzFSIMAkjOLinrnyGdUqu
-aoSRDWxcb/tF08efwkvxsRvbmki9c97fpSYDrDM+kOQsv9rrWeNUf4CpHJQuS9zf
-ZSal1Q0v46vdt+kmqynTwnRTx2/xHf5apHV1mWd7PE+M0IeJR5Fg32H/UKH8ROZM
+<HIDDEN>
 RpHhAoGAehljGmhge+i0EPtcok8zJe+qpcV2SkLRi7kJZ2LaR97QAmCCsH5SndzR
 tDjVbkh5BX0cYtxDnfAF3ErDU15jP8+27pEO5xQNYExxf1y7kxB6Mh9JYJlq0aDt
 O4fvFElowV6MXVEMY/04fdnSWavh0D+IkyGRcY5myFHyhWvmFcQ=
@@ -518,7 +503,7 @@ We can grab the first flag:
 root@7546fa2336d6:/# ls /root
 flag.txt
 root@7546fa2336d6:/# cat /root/flag.txt 
-7cf90a0e7c5d25f1a827d3efe6fe4d0edd63cca9
+<HIDDEN>
 ```
 
 ## Escaping Container
@@ -634,7 +619,7 @@ root.txt
 # cat /root/root.txt
 Congrats!!!
 Here is your flag:
-4a98e43d78bab283938a06f38d2ca3a3c53f0476
+<HIDDEN>
 ```
 
 ## Root+1
