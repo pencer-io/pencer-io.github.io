@@ -738,4 +738,16 @@ Now it makes sense, so just need to paste our HEX in to CyberChef and convert to
 
 ![diffctf-root](/assets/images/2021-04-22-22-43-10.png)
 
+With the root password we can now go back to our shell on the server and switch user to grab the last flag:
+
+```text
+www-data@ubuntu:/$ su root
+su root
+Password: <HIDDEN>
+
+root@ubuntu:/# cat /root/root.txt
+cat /root/root.txt
+THM{<HIDDEN>}
+```
+
 That was a fun room. Hope you enjoyed it too. See you next time.
