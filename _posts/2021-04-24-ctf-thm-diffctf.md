@@ -329,8 +329,8 @@ The wp-options file contains the site URL, I see on the database we have a diffe
 
 Put this new subdomain in the hosts file:
 
-```
-──(root💀kali)-[~/thm/diffctf]
+```text
+┌──(root💀kali)-[~/thm/diffctf]
 └─# cat /etc/hosts
 127.0.0.1       localhost
 127.0.1.1       kali
