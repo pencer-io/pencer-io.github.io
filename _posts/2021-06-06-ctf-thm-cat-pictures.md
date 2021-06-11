@@ -108,7 +108,7 @@ If we look back at our earlier scan we found two ports, 21 and 2375, that were f
 
 ```text
 ┌──(root💀kali)-[~/thm/catpics]
-└─# for x in <HIDDEN>; do nmap -Pn --host-timeout 201 --max-retries 0 -p $x catpics.thm; done         
+└─# for x in <HIDDEN>; do nmap -Pn --host-timeout 201 --max-retries 0 -p $x catpics.thm; done
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-06 18:03 BST
 Nmap scan report for catpics.thm (10.10.158.78)
