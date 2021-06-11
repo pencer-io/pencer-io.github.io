@@ -73,6 +73,8 @@ An Apache default install page, let's add the IP to our hosts file and see if th
 └─# echo 10.10.10.223 tenet.htb >> /etc/hosts
 ```
 
+## WordPress
+
 Now let's browse to the name instead of the IP:
 
 ![tenet-blog](/assets/images/2021-05-20-15-57-48.png)
@@ -166,6 +168,8 @@ Success
 ```
 
 We can and it shows the contents is what was in the php file.
+
+## Reverse Shell
 
 We can abuse this to get remote code execution by writing a php reverse shell, and then using the serialize function to encode it. Then when we pass to sator.php it will deserialize it and write the file to disk on the server.
 
@@ -273,6 +277,8 @@ define( 'DB_PASSWORD', '<HIDDEN>' );
 define( 'DB_HOST', 'localhost' );
 ```
 
+## User Flag
+
 We've got neil's password for the database. I wonder if he's reused the same one for ssh access:
 
 ```text
@@ -372,6 +378,8 @@ checkAdded
 
 This looks like the intended path. The script is writing the root users rsa key to a file in /tmp with a random name starting with "ssh-". It then copies that to root authorized_keys file, which allows you to login via ssh as root with the matching private key. After that it deletes the randomly named file.
 
+## Privilege Escalation
+
 Let's generate a new rsa key on Kali:
 
 ```text
@@ -422,6 +430,8 @@ neil@tenet:~$
 ```
 
 You may need to do it several times to catch it just right, but when you do the public rsa key we generated on our Kali machine is copied in to the known hosts for root on the tenet box.
+
+## Root Flag
 
 Once that's happened we can log in as root using our private rsa key:
 
