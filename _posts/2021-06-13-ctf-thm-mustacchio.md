@@ -323,7 +323,7 @@ Will run 2 OpenMP threads
 Note: This format may emit false positives, so it will keep trying even after
 finding a possible candidate.
 Press 'q' or Ctrl-C to abort, almost any other key for status
-urieljames       (id_rsa)
+<HIDDEN>       (id_rsa)
 1g 0:00:00:05 DONE (2021-06-12 17:43) 0.1697g/s 2434Kp/s 2434Kc/s 2434KC/s xCvBnM,..*7¡Vamos!
 Session completed
 ```
