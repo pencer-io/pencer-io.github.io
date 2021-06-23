@@ -19,7 +19,7 @@ tags:
 
 ## Machine Information
 
-![sqhell](../assets/images/2021-06-21-16-56-36.png)
+![sqhell](/assets/images/2021-06-21-16-56-36.png)
 
 SQHell is a medium difficulty room on TryHackMe. Instead of the usual capture the flag style experience this room is designed to help you develop your SQL injection skills. There are five flags to capture, and each requires a different type of SQLi to retrieve it. Areas covered are in-band, out-of-band and blind. I show you different ways for each type including browser, Curl, Burp and SQLMap methods.
 
@@ -57,7 +57,7 @@ SQLMap
 
 For BurpSuite I'm using FoxyProxy to redirect my browser to it. Here's the config needed in case you haven't got it set up:
 
-![sqhell-foxy-burp](../assets/images/2021-06-08-22-36-12.png)
+![sqhell-foxy-burp](/assets/images/2021-06-08-22-36-12.png)
 
 ## Initial Access
 
@@ -70,7 +70,7 @@ First let's add the server IP to our hosts file:
 
 Now we can have a look at the website:
 
-![sqhell-website](../assets/images/2021-06-08-21-44-26.png)
+![sqhell-website](/assets/images/2021-06-08-21-44-26.png)
 
 We have a simple static html based website with five areas for us to exploit. Let's start on the first flag.
 
@@ -78,7 +78,7 @@ We have a simple static html based website with five areas for us to exploit. Le
 
 The first flag is the easiest, start by clicking on the Login button which takes us here:
 
-![sqhell-login](../assets/images/2021-06-08-21-59-04.png)
+![sqhell-login](/assets/images/2021-06-08-21-59-04.png)
 
 We have username and password boxes, it's safe to assume we'll be doing a simple sql injection authentication bypass technique here.
 
@@ -90,11 +90,11 @@ admin' or '1'='1
 
 Simply enter that in the Username field and press Login:
 
-![sqhell-admin-bypass](../assets/images/2021-06-08-22-20-14.png)
+![sqhell-admin-bypass](/assets/images/2021-06-08-22-20-14.png)
 
 We are taken to another page which reveals the first flag:
 
-![sqhell-browser-1](../assets/images/2021-06-08-22-21-09.png)
+![sqhell-browser-1](/assets/images/2021-06-08-22-21-09.png)
 
 ## Flag 1 - In-Band/Error Based - Curl Method
 
@@ -151,23 +151,23 @@ As you can see quite a few different ones worked.
 
 We can use Burp to intercept the browser request. First make sure you have FoxyProxy on and set to use Burp, then use anything for the username:
 
-![sqhell-foxy-config](../assets/images/2021-06-08-22-40-10.png)
+![sqhell-foxy-config](/assets/images/2021-06-08-22-40-10.png)
 
 With Intercept set to On in Burp, when you click the Login button in your browser it gets redirected and caught:
 
-![sqhell-burp-intercept](../assets/images/2021-06-08-22-43-08.png)
+![sqhell-burp-intercept](/assets/images/2021-06-08-22-43-08.png)
 
 Right click anywhere on the text and chose Send to Intruder. Check the last line has something within $ set against the username field, this is the variable that Burp will replace with our word list:
 
-![sqhell-burp-1](../assets/images/2021-06-08-22-30-06.png)
+![sqhell-burp-1](/assets/images/2021-06-08-22-30-06.png)
 
 Switch to the Payloads tab and load a list of bypass techniques to try. I used the same file I'd copied them in to for the above curl method:
 
-![sqhell-burp-intruder](../assets/images/2021-06-09-22-02-49.png)
+![sqhell-burp-intruder](/assets/images/2021-06-09-22-02-49.png)
 
 Click the Start Attack button and wait for burp to try everything from your list. Looking at the results you'll see a few lines with a smaller length to the others. If you switch to the response tab you can see these are the responses containing our flag:
 
-![sqhell-burp-results](../assets/images/2021-06-09-22-08-44.png)
+![sqhell-burp-results](/assets/images/2021-06-09-22-08-44.png)
 
 ## Flag 1 - In-Band/Error Based - SQLMap Method
 
@@ -381,21 +381,21 @@ The next easiest flag is number five. For this one we'll be using parameter tamp
 
 First let's see what we have:
 
-![sqhell-posts](../assets/images/2021-06-10-22-00-58.png)
+![sqhell-posts](/assets/images/2021-06-10-22-00-58.png)
 
 We're looking at one of the posts and can see it has a parameter on the end of the URL, in this case it's ID=1. There's lots of ways to check if this is vulnerable, probably the easiest is to add a ' on the end:
 
-![sqhell-apostrophe](../assets/images/2021-06-10-22-07-45.png)]
+![sqhell-apostrophe](/assets/images/2021-06-10-22-07-45.png)]
 
 It says there's an error in our syntax, which tells us our extra character on the end wasn't removed. We could also do something simple like AND 1=1:
 
-![sqhell-and1=1](../assets/images/2021-06-10-22-10-25.png)
+![sqhell-and1=1](/assets/images/2021-06-10-22-10-25.png)
 
 As before we can see the statement was evaluated with our extra part on the end. In this instance AND 1=1 is true so the page appears as normal. Now we know it's vulnerable we can start to dig deeper.
 
 First we want to know how many columns are in the table. We start at 1 and add columns until we get an error:
 
-![sqhell-columns](../assets/images/2021-06-10-22-13-56.png)
+![sqhell-columns](/assets/images/2021-06-10-22-13-56.png)
 
 So here I did ORDER BY 1 then ORDER BY 1,2 and so on until I got to 5. The error at that point tells us there are four columns. Next we want to see which of those columns are useable:
 
@@ -403,7 +403,7 @@ So here I did ORDER BY 1 then ORDER BY 1,2 and so on until I got to 5. The error
 http://sqhell.thm/post?id=99 union all select 1,2,3,4
 ```
 
-![sqhell-union-all](../assets/images/2021-06-10-22-17-03.png)
+![sqhell-union-all](/assets/images/2021-06-10-22-17-03.png)
 
 The UNION ALL statement is used to show us which column appears where on the page. We want the output to be visible, otherwise we won't be able to see the data we retrieve. We can see column three is the main section of the page, so plenty of room for our output. We'll use that one for all our subsequent commands.
 
@@ -413,7 +413,7 @@ Let's get the database name:
 http://sqhell.thm/post?id=99 union all select 1,2,database(),4
 ```
 
-![sqhell-union-database](../assets/images/2021-06-10-22-20-11.png)
+![sqhell-union-database](/assets/images/2021-06-10-22-20-11.png)
 
 Now we want the tables in the database:
 
@@ -421,7 +421,7 @@ Now we want the tables in the database:
 http://sqhell.thm/post?id=99 union select 1,2,group_concat(table_name),4 from information_schema.tables where table_schema=database()
 ```
 
-![sqhell-union-tables](../assets/images/2021-06-10-22-22-27.png)
+![sqhell-union-tables](/assets/images/2021-06-10-22-22-27.png)
 
 Finally we see the tables in the database, flag sounds like the one we're looking for. Let's have a look at the contents of it:
 
@@ -429,7 +429,7 @@ Finally we see the tables in the database, flag sounds like the one we're lookin
 http://sqhell.thm/post?id=99 union select 1,2,flag,4 from flag
 ```
 
-![sqhell-union-flag](../assets/images/2021-06-10-22-31-25.png)
+![sqhell-union-flag](/assets/images/2021-06-10-22-31-25.png)
 
 We have the flag. Let's move on to a different method.
 
@@ -658,15 +658,15 @@ I found [this](https://www.hackingarticles.in/beginner-guide-sql-injection-boole
 
 First looking at the Register page to see what we are dealing with:
 
-![sqhell-register](../assets/images/2021-06-14-22-09-41.png)
+![sqhell-register](/assets/images/2021-06-14-22-09-41.png)
 
 If we try admin as the user we see a message saying it's taken:
 
-![sqhell-admin](../assets/images/2021-06-14-22-10-40.png)
+![sqhell-admin](/assets/images/2021-06-14-22-10-40.png)
 
 If we try test as the user we see a message saying it's available:
 
-![sqhell-test](../assets/images/2021-06-14-22-11-36.png)
+![sqhell-test](/assets/images/2021-06-14-22-11-36.png)
 
 Looking at the source code for the page we see how this works:
 
@@ -690,11 +690,11 @@ Looking at the source code for the page we see how this works:
 
 The script section calls a function called user-check to see if the name you've entered is available. We can visit this endpoint directly:
 
-![sqhell-user-check](../assets/images/2021-06-14-22-15-40.png)
+![sqhell-user-check](/assets/images/2021-06-14-22-15-40.png)
 
 Here we see the JSON output showing us the username isn't available. First we test for SQLi:
 
-![sqhell-test-user](../assets/images/2021-06-14-22-22-09.png)
+![sqhell-test-user](/assets/images/2021-06-14-22-22-09.png)
 
 We still see available is false so we know we can perform SQLi and use the true/false response to confirm our query. Now we know this works our first task is to find the database name. We could continue in the browser, but for speed I'll switch to curl.
 
@@ -925,7 +925,7 @@ Make sure to read the terms and conditions ;)
 
 Let's see what we have:
 
-![sqhell-t&c](../assets/images/2021-06-16-22-55-40.png)
+![sqhell-t&c](/assets/images/2021-06-16-22-55-40.png)
 
 It mentions logging the visitors IP. A search online found [this](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) that explains the process:
 
@@ -1131,17 +1131,17 @@ I didn't know where to start with this one, but searching for "SQLi inception" f
 
 So first let's look at the last page which we haven't visited yet:
 
-![sqhell-users](../assets/images/2021-06-21-21-48-40.png)
+![sqhell-users](/assets/images/2021-06-21-21-48-40.png)
 
 We see her just like on the posts page there is a parameter. Let's test to see if we can inject like before:
 
-![sqhell-users-or](../assets/images/2021-06-21-21-56-45.png)
+![sqhell-users-or](/assets/images/2021-06-21-21-56-45.png)
 
 Adding AND 1=1 results in a true statement which proves we can inject here. Now we need to determine the number of columns in the table just like we did for flag 5. We do this the same way using the ORDER BY statement.
 
 So just like before we start with ORDER BY 1, then ORDER BY 2, and so on until we get to ORDER BY 4 where we see an error:
 
-![sqhell-users-order](../assets/images/2021-06-21-22-05-34.png)
+![sqhell-users-order](/assets/images/2021-06-21-22-05-34.png)
 
 Now we know how many columns we have we can use a UNION statement to test which ones are visible:
 
@@ -1149,7 +1149,7 @@ Now we know how many columns we have we can use a UNION statement to test which 
 http://sqhell.thm/user?id=1337 union select 1,2,3
 ```
 
-![sqhell-users-union](../assets/images/2021-06-21-22-14-15.png)
+![sqhell-users-union](/assets/images/2021-06-21-22-14-15.png)
 
 Here we've used a false ID, which would result in an error but instead we've used the UNION statement to retrieve the column numbers. Now we know column one and two are useable we can retrieve the user and database:
 
@@ -1157,7 +1157,7 @@ Here we've used a false ID, which would result in an error but instead we've use
 http://sqhell.thm/user?id=1337 union select database(),user(),null
 ```
 
-![sqhell-users-db](../assets/images/2021-06-21-22-27-18.png)
+![sqhell-users-db](/assets/images/2021-06-21-22-27-18.png)
 
 Next we want to see the tables in the database and can use the same query as before:
 
@@ -1167,7 +1167,7 @@ http://sqhell.thm/user?id=1337 union select 1,group_concat(table_name),3 from in
 
 However this time when we ask for all tables using group_concat we only see the one user table:
 
-![sqhell-users-users](../assets/images/2021-06-21-22-38-56.png)
+![sqhell-users-users](/assets/images/2021-06-21-22-38-56.png)
 
 We know a different database contains the posts table, but we find the expected flag table can't be queried here. It's at this point that we need to go back to the hint about running a query inside a query. And we again need to determine the number of columns:
 
@@ -1175,7 +1175,7 @@ We know a different database contains the posts table, but we find the expected 
 http://sqhell.thm/user?id=1337 union select "1 order by 1-- -",2,3 from information_schema.tables where table_schema=database()
 ```
 
-![sqhell-users-order](../assets/images/2021-06-22-21-53-38.png)
+![sqhell-users-order](/assets/images/2021-06-22-21-53-38.png)
 
 Here I've just added an ORDER BY query to the end of the UNION SELECT 1, and enclosed it in quotes so it gets evaluated. As before we keep adding columns until we something changes:
 
@@ -1183,7 +1183,7 @@ Here I've just added an ORDER BY query to the end of the UNION SELECT 1, and enc
 http://sqhell.thm/user?id=1337 union select "1 order by 1,2,3,4,5-- -",2,3 from information_schema.tables where table_schema=database()
 ```
 
-![sqhell-users-orderby5](../assets/images/2021-06-22-21-54-52.png)
+![sqhell-users-orderby5](/assets/images/2021-06-22-21-54-52.png)
 
 We can see at five columns the posts disappear. This tells us there are four columns. Now we can use the same query as before to get the flag from the flag table:
 
@@ -1191,7 +1191,7 @@ We can see at five columns the posts disappear. This tells us there are four col
 http://sqhell.thm/user?id=1337 union select "1 union select 1,flag,3,4 from flag-- -",2,3 from information_schema.tables where table_schema=database()
 ```
 
-![sqhell-users-flag](../assets/images/2021-06-22-22-09-04.png)
+![sqhell-users-flag](/assets/images/2021-06-22-22-09-04.png)
 
 At last we have our flag.
 
