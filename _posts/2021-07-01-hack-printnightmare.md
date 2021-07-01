@@ -1,5 +1,5 @@
 ---
-title: "PrintNightmare Step-by-step"
+title: "PrintNightmare / CVE-2021-1675 - Step-by-step Guide"
 header:
   teaser: /assets/images/2021-07-01-10-54-23.png
 toc: true
@@ -11,13 +11,14 @@ tags:
   - Kali
   - CVE-2021-1675
   - PrintNightmare
+  - cube0x0
 ---
 
-![printnightmare](../assets/images/2021-07-01-10-54-23.png)
+![printnightmare](/assets/images/2021-07-01-10-54-23.png)
 
 ## Vulnerability Info
 
-Thanks to Trusec for the great info they've gather [here](https://blog.truesec.com/2021/06/30/exploitable-critical-rce-vulnerability-allows-regular-users-to-fully-compromise-active-directory-printnightmare-cve-2021-1675/), from that:
+Thanks to Trusec for the great info they've gathered [here](https://blog.truesec.com/2021/06/30/exploitable-critical-rce-vulnerability-allows-regular-users-to-fully-compromise-active-directory-printnightmare-cve-2021-1675/), from that:
 
 PrintNightmare (CVE-2021-1675) is a vulnerability that allows an attacker with a regular user account to take over a server running the Windows Print Spooler service. This is by default running on all Windows servers and clients, including domain controllers, in an Active Directory environment.
 
@@ -362,7 +363,7 @@ whoami
 nt authority\system
 ```
 
-Pwned. 
+Pwned.
 
 ## Mitigation
 
@@ -392,5 +393,7 @@ $PrinterLogs.SaveChanges()
 ```
 
 Lots of info from LaresLabs [here](https://github.com/LaresLLC/CVE-2021-1675) - includes GPO, PowerShell, Sysmon, Spluk, etc
+
 Sentinel KQL [here](https://github.com/rod-trent/SentinelKQL/blob/master/PrintNightmare.txt) to hunt for compromised devices.
+
 Sigma Rules [here](https://github.com/SigmaHQ/sigma/pull/1592)
