@@ -13,7 +13,10 @@ tags:
   - CVE-2021-36934
   - HiveNightmare
   - SeriousSAM
+  - ShadowSteal
   - pypykatz
+  - Meterpreter
+  - PSExec
 ---
 
 ![hivenightmare](/assets/images/2021-07-21-21-24-53.png)
@@ -47,9 +50,9 @@ OS Build Type:             Multiprocessor Free
 Check what version 19042 is [here](https://www.lifewire.com/windows-version-numbers-2625171):
 
 ```text
-Operating System	Version Details		Version Number
-Windows 10			Windows 10 (21H1)	10.0.19043
-					Windows 10 (20H2)	10.0.19042
+Operating System    Version Details     Version Number
+Windows 10          Windows 10 (21H1)   10.0.19043
+                    Windows 10 (20H2)   10.0.19042
 ```
 
 Check what shadow copies exist:
@@ -111,12 +114,12 @@ OS Build Type:             Multiprocessor Free
 Check what version 18362 is [here](https://www.lifewire.com/windows-version-numbers-2625171):
 
 ```text
-Operating System	Version Details		Version Number
-Windows 10			Windows 10 (21H1)	10.0.19043
-					Windows 10 (20H2)	10.0.19042
-					Windows 10 (2004)	10.0.19041
-					Windows 10 (1909)	10.0.18363
- 					Windows 10 (1903)	10.0.18362
+Operating System    Version Details     Version Number
+Windows 10          Windows 10 (21H1)   10.0.19043
+                    Windows 10 (20H2)   10.0.19042
+                    Windows 10 (2004)   10.0.19041
+                    Windows 10 (1909)   10.0.18363
+                    Windows 10 (1903)   10.0.18362
 ```
 
 This one is 1903, and it hasn't got System Protection enabled, switch it on:
@@ -388,7 +391,7 @@ The command completed successfully.
 \\192.168.0.17\share was deleted successfully.
 ```
 
-## HiveNightmare executable method
+## HiveNightmare method
 
 GossiTheDog has produced a prebuilt exe [here](https://github.com/GossiTheDog/HiveNightmare/), and blog about it [here](https://doublepulsar.com/hivenightmare-aka-serioussam-anybody-can-read-the-registry-in-windows-10-7a871c465fa5).
 
@@ -443,7 +446,7 @@ CurrentControlSet: ControlSet001
 Boot Key: 9da73970e33947b03b30e8e00ca5fc08
 ============== SAM hive secrets ==============
 HBoot Key: 8a2e60f6fc38769898f5fe735793e42c10101010101010101010101010101010
-Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:58a478135a93ac3bf058a5ea0e8fdb71:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:910a89f8b810236e9cbd99e1c7eee683:::
@@ -479,7 +482,7 @@ Secret:
 00000030:  a1 a0 a8 3c 08 ae 1f 2e  3f 11 6a b5 c2 16 e5 6f   |...<....?.j....o|
 ```
 
-## NT SYSTEM Shell using Meterpreter
+## SYSTEM Shell with Meterpreter
 
 Now we have the local administrator hash. The world is your oyster, as an example let's connect using Meterpreter to get a shell:
 
