@@ -16,8 +16,10 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
 | 317 | Spectra | Easy | Linux | 27/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-spectra) |
+| 309 | Tenet | Medium | Linux | 16/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-tenet) |
 | 308 | Delivery | Easy | Linux | 09/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-delivery) |
 | 304 | Ready | Medium | Linux | 12/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-ready) |
+| 222 | OpenAdmin | Easy | Linux | 04/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-htb-openadmin) |
 | 054 | Nineveh | Medium | Linux | 04/08/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-nineveh) |
 | 022 | Holiday | Hard | Linux | 02/06/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-holiday) |
 | 021 | Haircut | Medium | Linux | 26/05/2017 | [Walk-through](https://pencer.io/ctf/ctf-htb-haircut) |
@@ -69,6 +71,11 @@ These are all retired machines, which you can only access if you have a VIP memb
 | Vulnet: dotjar | Medium | Linux | 31/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-dotjar/) |
 | Retro | Hard | Windows | 02/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-retro) |
 | Unstable Twin | Medium | Linux | 14/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-unstable) |
+| Ustoun | Easy | Windows | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-ustoun)
+| Vulnet: Internal | Easy | Linux 06/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-vulnnet-internal) |
+| Cat Pictures | Easy | Linux | 24/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cat-pictures) |
+| Mustacchio | Easy | Linux | 29/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-mustacchio/) |
+| SQHell | Medium | Linux | 07/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-sqhell/) |
 
 ## VulnHub
 
