@@ -66,6 +66,8 @@ Just two open ports, let's have a look at Apache running on port 80:
 
 ![open-apache](/assets/images/2021-07-26-21-22-55.png)
 
+## Gobuster
+
 Just a default Apache installation site. Let's try brute forcing for subfolders using Gobuster:
 
 ```text
@@ -106,6 +108,8 @@ Finally looking at music we have another template:
 
 ![open-music](/assets/images/2021-07-26-21-31-52.png)
 
+## OpenNetAdmin Portal
+
 However there's a Menu link top right. Clicking that brings up a list of sections and clicking on Login takes us to an OpenNetAdmin page:
 
 ![open-](/assets/images/2021-07-26-21-33-13.png)
@@ -117,6 +121,8 @@ You are NOT on the latest release version
 Your version    = v18.1.1
 Latest version = Unable to determine
 ```
+
+## Searchsploit
 
 We can assume there is an exploit for this old version, let's check searchsploit:
 
@@ -174,6 +180,8 @@ Ok, nice and simple. We just execute the exploit and point it at our vulnerable 
 47691.sh: line 23: syntax error near unexpected token `done'
 47691.sh: line 23: `done'
 ```
+
+## Initial Shell
 
 We get errors, but if you've used searchsploit a lot you'll know that sometimes what you download doesn't work straight away. First try is to copy the text to a new file in case it's return characters causing a problem:
 
@@ -287,6 +295,8 @@ total 8
 4 drwxr-x--- 6 jimmy  jimmy  4096 Jul 26 20:34 jimmy
 4 drwxr-x--- 6 joanna joanna 4096 Nov 28  2019 joanna
 ```
+
+## Jimmy SSH Access
 
 I tried the credentials on the admin page of the website but that didn't work. We know there is SSH open on port 22, so let's try the password with the users we've found:
 
@@ -417,6 +427,8 @@ We have the private RSA key for Joanna, but it's encrypted so we'll need to find
 rsa_id:$sshng$1$16$2AF25344B8391A25A9B318F3FD767D6D$1200$906d14608706c9ac6ea6342a692d9ed47a9b87044b94d72d5b61df25e68a5235991f8bac883f40b539c829550ea5937c69dfd2b4c589f8c910e4c9c030982541e51b4717013fafbe1e1db9d6331c83cca061cc7550c0f4dd98da46ec1c7f460e4a135b6f1f04bafaf66a08db17ecad8a60f25a1a095d4f94a530f9f0bf9222c6736a5f54f1ff93c6182af4ad8a407044eb16ae6cd2a10c92acffa6095441ed63215b6126ed62de25b2803233cc3ea533d56b72d15a7
 ```
 
+## Password Cracking
+
 Now use rockyou wordlist with John to try and crack:
 
 ```text
@@ -435,6 +447,8 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Session completed
 ```
 
+## Joanna SSH Access
+
 We have the password, and can now login in via SSH as Joanna:
 
 ```text
@@ -452,6 +466,8 @@ Last login: Mon Jul 26 18:50:29 2021 from 10.10.14.90
 joanna@openadmin:~$
 ```
 
+## User Flag
+
 Let's grab the user flag:
 
 ```text
@@ -461,6 +477,8 @@ joanna@openadmin:~$ ls -l
 joanna@openadmin:~$ cat user.txt
 c<HIDDEN>f
 ```
+
+## Root Flag
 
 Now we just need to find our way to root. There's a few things I always try before grabbing an enumeration script. First one is check for sudo privileges:
 
