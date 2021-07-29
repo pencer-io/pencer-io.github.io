@@ -14,6 +14,9 @@ tags:
   - Armageddon
   - Drupal
   - JohnTheRipper
+  - MySQLShow
+  - MySQLDump
+  - Dirty_Sock
 ---
 
 ## Machine Information
@@ -30,7 +33,7 @@ Skills required are basic port enumeration and OS exploration knowledge. Skills 
 | --- | --- |
 | Hosting Site | [HackTheBox](https://www.hackthebox.eu) |
 | Link To Machine | [HTB - Easy - Armageddon](https://www.hackthebox.eu/home/machines/profile/323) |
-| Machine Release Date | 27th March 2020 |
+| Machine Release Date | 27th March 2021 |
 | Date I Completed It | 29th July 2021 |
 | Distribution Used | Kali 2021.1 – [Release Info](https://www.kali.org/blog/kali-linux-2021-1-release) |
 
