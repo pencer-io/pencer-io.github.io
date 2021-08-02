@@ -20,11 +20,11 @@ tags:
 
 ![love](/assets/images/2021-07-31-17-48-51.png)
 
-Love is rated as an easy machine on HackTheBox. Windows
+Love is rated as an easy machine on HackTheBox. An initial scan discovers a Windows box with lots of open ports, however a website running on port 80 proves to be the correct starting point. After some enumeration we find a way to log in to an admin panel, and from there we upload a reverse shell. After gaining user access we find a simple escalation path to system via an well known exploit.
 
 <!--more-->
 
-Skills required are basic port enumeration and OS exploration knowledge. Skills learned are modifying public exploits and cracking hashed passwords.
+Skills required are basic port enumeration and OS exploration knowledge. Skills learned are researching vulnerabilities and using msfvenom payloads.
 
 | Details |  |
 | --- | --- |
