@@ -24,7 +24,7 @@ Validation is rated as an easy machine on HackTheBox. It was created by [ippsec]
 
 <!--more-->
 
-Skill required are basic web enumeration and knowledge of SQLi. Skills learned are how second order injections work and using cURL to do the exploitation.
+Skills required are basic web enumeration and knowledge of SQLi. Skills learned are how second order injections work and using cURL to do the exploitation.
 
 | Details |  |
 | --- | --- |
