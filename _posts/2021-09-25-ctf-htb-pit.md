@@ -297,7 +297,7 @@ SeedDMS versions < 5.1.11 - Remote Command Execution            | php/webapps/47
 --------------------------------------------------------------- -------------------------
 ```
 
-There's a note on the site that says seeddms was upgraded from 5.1.10 to 5.1.15. Trying the above I found the last one worked, so I guess the update didn't patch the vulnerability here. Let's grab the exploit:
+There's a note on the site that says SeedDMS was upgraded from 5.1.10 to 5.1.15. Trying the above I found the last one worked, so I guess the update didn't patch the vulnerability here. Let's grab the exploit:
 
 ```text
 ┌──(root💀kali)-[~/htb/pit/snmp]
@@ -309,7 +309,7 @@ File Type: ASCII text
 Copied to: /root/htb/pit/snmp/47022.txt
 ```
 
-The exploit is based on ![CVE-2019-12744](https://nvd.nist.gov/vuln/detail/CVE-2019-12744). Looking at it we can simply upload the provided php code to give us a webshell:
+The exploit is based on [CVE-2019-12744](https://nvd.nist.gov/vuln/detail/CVE-2019-12744). Looking at it we can simply upload the provided php code to give us a webshell:
 
 ```text
 ┌──(root💀kali)-[~/htb/pit/snmp]
@@ -385,7 +385,7 @@ It works, and from the passwd file we see michelle also has a logon to the box.
 
 ## MySQL Credentials
 
-A look on the GitHub site at the structure of seeddms reveals there is a config file in the conf folder.
+A look on the GitHub site at the structure of SeedDMS reveals there is a config file in the conf folder:
 
 ```text
 ┌──(root💀kali)-[~/htb/pit/snmp]
@@ -403,7 +403,7 @@ PHP Backdoor Code:
 
 ## Cockpit Access
 
-The config file is long but searching for "pass" finds the above hidden amongst it. I couldn't get any further in seeddms, so I wondered if that password has been reused by michelle somewhere else. It didn't work for SSH but it did work on the Cockpit login page I found earlier on port 9090:
+The config file is long but searching for "pass" finds the above hidden amongst it. I couldn't get any further in SeedDMS, so I wondered if that password has been reused by michelle somewhere else. It didn't work for SSH but it did work on the Cockpit login page I found earlier on port 9090:
 
 ![pit-cockpit](/assets/images/2021-09-25-18-24-23.png)
 
