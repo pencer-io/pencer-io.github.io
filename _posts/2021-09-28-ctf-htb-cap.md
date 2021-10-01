@@ -153,7 +153,7 @@ With it being so small we quickly find credentials:
 
 ```text
 36	4.126500	192.168.196.1	192.168.196.16	FTP	69	Request: USER nathan
-40	5.424998	192.168.196.1	192.168.196.16	FTP	78	Request: PASS Buck3tH4TF0RM3!
+40	5.424998	192.168.196.1	192.168.196.16	FTP	78	Request: PASS <HIDDEN>
 ```
 
 ## FTP Access
@@ -203,7 +203,7 @@ nathan@cap:~$ ls -ls
 4 -r-------- 1 nathan nathan 33 Sep 25 17:37 user.txt
 
 nathan@cap:~$ cat user.txt 
-4d1b97995472dc71ab65930c2e713d9a
+<HIDDEN>
 ```
 
 ## LinPEAS Enumeration
@@ -296,7 +296,7 @@ There, as simple as that and we're now root. Let's grab the flag:
 
 ```text
 root@cap:~# cat /root/root.txt
-c4035a6fa432af188462b88e74d854c6
+<HIDDEN>
 ```
 
 That was a nice. I hope you enjoyed it and many thanks to [InfoSecJack](https://twitter.com/InfoSecJack) for creating the box.
