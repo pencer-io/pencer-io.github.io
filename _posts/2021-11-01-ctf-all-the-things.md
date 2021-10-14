@@ -35,7 +35,7 @@ gobuster vhost -u <target url> -w <wordlist>
 
 File type:
 
-```
+```text
 gobuster dir -u <target url> -w <wordlist> -x .php
 ```
 

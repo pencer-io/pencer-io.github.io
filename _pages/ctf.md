@@ -7,6 +7,12 @@ layout: archive
 author_profile: true
 ---
 
+## CTF All The Things
+
+Putting all my frequently used CTF techniques, tactics and tools here so I can find them easily.
+
+[First Post](https://pencer.io/ctf/ctf-all-the-things)
+
 ## HackTheBox
 
 ![htb](/assets/images/2020-05-28-23-10-35.png)
@@ -15,6 +21,14 @@ These are all retired machines, which you can only access if you have a VIP memb
 
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
+| 382 | Validation | Easy | Linux | 06/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-validation) |
+| 356 | Explore | Easy | Android | 26/06/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-explore) |
+| 351 | Cap | Easy | Linux | 05/06/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-cap) |
+| 347 | Knife | Easy | Linux | 22/05/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-knife) |
+| 346 | Pit | Medium | Linux | 15/05/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-pit) |
+| 344 | Love | Easy | Windows | 01/05/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-love) |
+| 335 | Schooled | Medium | FreeBSD | 03/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-schooled) |
+| 323 | Armageddon | Easy | Linux | 27/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-armageddon) |
 | 317 | Spectra | Easy | Linux | 27/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-spectra) |
 | 309 | Tenet | Medium | Linux | 16/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-tenet) |
 | 308 | Delivery | Easy | Linux | 09/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-delivery) |
@@ -40,42 +54,42 @@ These are all retired machines, which you can only access if you have a VIP memb
 
 | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- |
-| Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu) |
-| Mr Robot CTF | Medium | Linux | 27/011/2018 | [Walk-through](https://pencer.io/ctf/ctf-thm-mrrobot) |
-| Anthem | Easy | Windows | 15/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-anthem) |
-| Tomghost | Easy | Linux | 27/03/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-tomghost) |
-| Injection | Easy | Linux | 02/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-injection) |
-| Wonderland | Medium | Linux | 05/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wonderland) |
-| Intro To Django | Medium | Linux | 08/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-django) |
-| Post-Exploitation Basics | Easy | Windows | 29/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-postexploit) |
-| Looking Glass | Medium | Linux | 16/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-looking-glass/) |
-| Pickle Rick | Easy | Linux | 10/03/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-pickle-rick) |
-| Jurassic Park | Hard | Linux | 17/02/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-jurassic-park) |
-| HackPark | Medium | Windows | 06/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-hackpark) |
-| Game Zone | Easy | Linux | 28/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-game-zone) |
-| Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
-| Brainstorm | Medium | Windows | 7/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainstorm) |
-| Daily Bugle | Hard | Linux | 13/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
-| Overpass 2 | Easy | Linux | 14/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-overpass2) |
-| Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant) |
-| Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-internal) |
-| Buffer Overflow Prep | Easy | Windows | 08/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bofprep) |
-| Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper) |
-| Attacktive | Medium | Windows | 25/11/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-attacktive) |
-| Glitch | Easy | Linux | 04/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-glitch) |
-| Wreath | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wreath) |
-| Brainpan | Hard | Windows | 05/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainpan) |
-| Cooctus Stories | Easy | Linux | 20/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cooctus) |
-| Different CTF | Hard | Linux | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-diffctf) |
-| Year Of The Jellyfish | Hard | Linux | 12/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-jellyfish) |
-| Vulnet: dotjar | Medium | Linux | 31/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-dotjar/) |
-| Retro | Hard | Windows | 02/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-retro) |
-| Unstable Twin | Medium | Linux | 14/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-unstable) |
-| Ustoun | Easy | Windows | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-ustoun)
-| Vulnet: Internal | Easy | Linux 06/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-vulnnet-internal) |
-| Cat Pictures | Easy | Linux | 24/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cat-pictures) |
-| Mustacchio | Easy | Linux | 29/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-mustacchio/) |
 | SQHell | Medium | Linux | 07/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-sqhell/) |
+| Mustacchio | Easy | Linux | 29/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-mustacchio/) |
+| Cat Pictures | Easy | Linux | 24/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cat-pictures) |
+| Vulnet: Internal | Easy | Linux 06/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-vulnnet-internal) |
+| Ustoun | Easy | Windows | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-ustoun)
+| Unstable Twin | Medium | Linux | 14/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-unstable) |
+| Retro | Hard | Windows | 02/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-retro) |
+| Vulnet: dotjar | Medium | Linux | 31/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-dotjar/) |
+| Year Of The Jellyfish | Hard | Linux | 12/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-jellyfish) |
+| Different CTF | Hard | Linux | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-diffctf) |
+| Cooctus Stories | Easy | Linux | 20/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cooctus) |
+| Brainpan | Hard | Windows | 05/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainpan) |
+| Wreath | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wreath) |
+| Glitch | Easy | Linux | 04/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-glitch) |
+| Attacktive | Medium | Windows | 25/11/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-attacktive) |
+| Gatekeeper | Medium | Windows | 19/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-gatekeeper) |
+| Buffer Overflow Prep | Easy | Windows | 08/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bofprep) |
+| Internal | Hard | Linux | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-internal) |
+| Relevant | Medium | Windows | 24/07/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-relevant) |
+| Overpass 2 | Easy | Linux | 14/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-overpass2) |
+| Daily Bugle | Hard | Linux | 13/01/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-bugle) |
+| Brainstorm | Medium | Windows | 7/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-brainstorm) |
+| Skynet | Easy | Linux | 18/09/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-skynet) |
+| Game Zone | Easy | Linux | 28/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-game-zone) |
+| HackPark | Medium | Windows | 06/08/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-hackpark) |
+| Jurassic Park | Hard | Linux | 17/02/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-jurassic-park) |
+| Pickle Rick | Easy | Linux | 10/03/2019 | [Walk-through](https://pencer.io/ctf/ctf-thm-pickle-rick) |
+| Looking Glass | Medium | Linux | 16/08/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-looking-glass/) |
+| Post-Exploitation Basics | Easy | Windows | 29/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-postexploit) |
+| Intro To Django | Medium | Linux | 08/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-django) |
+| Wonderland | Medium | Linux | 05/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-wonderland) |
+| Injection | Easy | Linux | 02/06/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-injection) |
+| Tomghost | Easy | Linux | 27/03/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-tomghost) |
+| Anthem | Easy | Windows | 15/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-anthem) |
+| Mr Robot CTF | Medium | Linux | 27/011/2018 | [Walk-through](https://pencer.io/ctf/ctf-thm-mrrobot) |
+| Lian_Yu | Easy | Linux | 22/05/2020 | [Walk-through](https://pencer.io/ctf/ctf-thm-lianyu) |
 
 ## VulnHub
 
