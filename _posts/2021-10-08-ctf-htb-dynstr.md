@@ -17,13 +17,11 @@ tags:
 
 ![dynstr](/assets/images/2021-10-01-16-14-45.png)
 
-****STILL NEED TO SORT THIS****
 dynstr is rated as a medium machine on HackTheBox. We start with a static website for a Dynamic DNS service, which hides several hidden folders. With recursive scanning using gobuster we discover an API that we can interactive with. After a lengthy investigation we find a way to catch a reverse shell. A carelessly left DNS secret key file allows us to add our attacker IP and SSH in. From there the path to root is achieved by abusing a badly written script to add a sticky bit to bash.
 
 <!--more-->
 
 Skills required are web and OS enumeration. Skills learned are manipulating DNS services and exploiting scripts.
-
 
 | Details |  |
 | --- | --- |
