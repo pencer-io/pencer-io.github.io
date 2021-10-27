@@ -353,7 +353,7 @@ _".,_,.__).,) (.._( ._),     )  , (._..( '.._"._, . '._)_(..,_(_".) _( _')
 
 ## User Investigation
 
-Now we can investigation users, groups and permissions:
+Now we can investigate users, groups and permissions:
 
 ```text
 *Evil-WinRM* PS C:\Users\svc-printer\Documents> whoami
