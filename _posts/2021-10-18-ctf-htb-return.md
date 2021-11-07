@@ -29,7 +29,7 @@ Skills required are basic web and OS enumeration. Skills learned are using Crack
 | Details |  |
 | --- | --- |
 | Hosting Site | [HackTheBox](https://www.hackthebox.eu) |
-| Link To Machine | [HTB - Medium - Return](https://www.hackthebox.eu/home/machines/profile/401) |
+| Link To Machine | [HTB - Easy - Return](https://www.hackthebox.eu/home/machines/profile/401) |
 | Machine Release Date | 27th September 2021 |
 | Date I Completed It | 18th October 2021 |
 | Distribution Used | Kali 2021.3 – [Release Info](https://www.kali.org/blog/kali-linux-2021-3-release/) |
