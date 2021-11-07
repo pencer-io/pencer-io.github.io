@@ -21,8 +21,11 @@ These are all retired machines, which you can only access if you have a VIP memb
 
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
+| 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
 | 382 | Validation | Easy | Linux | 06/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-validation) |
+| 358 | Seal | Medium | Linux | 10/07/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-seal) |
 | 356 | Explore | Easy | Android | 26/06/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-explore) |
+| 352 | dynstr | Medium | Linux | 12/06/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-dynstr) |
 | 351 | Cap | Easy | Linux | 05/06/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-cap) |
 | 347 | Knife | Easy | Linux | 22/05/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-knife) |
 | 346 | Pit | Medium | Linux | 15/05/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-pit) |
@@ -57,7 +60,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | SQHell | Medium | Linux | 07/04/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-sqhell/) |
 | Mustacchio | Easy | Linux | 29/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-mustacchio/) |
 | Cat Pictures | Easy | Linux | 24/03/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-cat-pictures) |
-| Vulnet: Internal | Easy | Linux 06/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-vulnnet-internal) |
+| Vulnet: Internal | Easy | Linux | 06/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-vulnnet-internal) |
 | Ustoun | Easy | Windows | 01/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-ustoun)
 | Unstable Twin | Medium | Linux | 14/02/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-unstable) |
 | Retro | Hard | Windows | 02/01/2021 | [Walk-through](https://pencer.io/ctf/ctf-thm-retro) |
