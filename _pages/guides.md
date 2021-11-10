@@ -24,3 +24,5 @@ Here are a few posts I wrote about setting up VirtualBox and Kali.
 [Kali Install](https://pencer.io/guides/guides-kali-install)
 
 [Kali First Boot](https://pencer.io/guides/guides-kali-first-boot)
+
+[VPN Config on Kali](https://pencer.io/guides/guides-vpn-config)

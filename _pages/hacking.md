@@ -9,4 +9,4 @@ author_profile: true
 
 [PrintNightmare / CVE-2021-1675 - Step-by-step Guide](https://pencer.io/hacking/hack-printnightmare/)
 
-
+[HiveNightmare / CVE-2021-36934](https://pencer.io/hacking/hack-hivenightmare)
