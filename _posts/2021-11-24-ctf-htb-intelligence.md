@@ -427,7 +427,7 @@ We have read access to Users and one called IT. Instead of walking around the sh
 
 ```text
 ┌──(root💀kali)-[~/htb/intelligence]
-└─# smbmap -u Tiffany.Molina -p NewIntelligenceCorpUser9876 -H intelligence.htb -R
+└─# smbmap -u Tiffany.Molina -p <HIDDEN> -H intelligence.htb -R
 [+] IP: intelligence.htb:445    Name: unknown
         Disk                                                    Permissions     Comment
         ----                                                    -----------     -------
@@ -635,7 +635,7 @@ of locking down our service accounts.
 
 ## LDAP Dump
 
-Interesting that this file mentioned a security audit and they are in the process of locking down service accounts. A little searching found [this](https://book.hacktricks.xyz/pentesting/pentesting-ldap) from hacktricks. I have valid credentials for Ted so looked at [ldapsearch](https://github.com/dirkjanm/ldapdomaindump), which is another tool from Dirk Janm:
+Interesting that this file mentioned a security audit and they are in the process of locking down service accounts. A little searching found [this](https://book.hacktricks.xyz/pentesting/pentesting-ldap) from HackTricks. I have valid credentials for Ted so looked at [ldapsearch](https://github.com/dirkjanm/ldapdomaindump), which is another tool from Dirk Janm:
 
 ```sh
 ┌──(root💀kali)-[~/htb/intelligence]
