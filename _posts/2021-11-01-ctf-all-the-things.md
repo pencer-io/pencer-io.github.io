@@ -120,3 +120,13 @@ function __wget() {
     exec 3>&-
 }
 ```
+
+## Bash mkdir & cd
+
+```sh
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+``
