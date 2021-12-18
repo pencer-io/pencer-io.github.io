@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Pikaboo from HackTHeBox"
+title: "Walk-through of Pikaboo from HackTheBox"
 header:
   teaser: /assets/images/2021-11-16-22-06-12.png
 toc: true
@@ -11,8 +11,10 @@ tags:
   - HTB
   - CTF
   - Linux
+  - gobuster
+  - wfuzz
   - vsFTPd
-  - 
+  - ldapsearch
 ---
 
 ## Machine Information
@@ -178,7 +180,7 @@ Thu Jul  8 17:31:03 2021 [pid 21035] [pwnmeow] FTP response: Client "::ffff:10.1
 
 We've retrieved the FTP log file, which reveals a username pwnmeow. After a while looking around I looked for an exploit and found [this](https://book.hacktricks.xyz/pentesting-web/file-inclusion#via-vsftpd-logs) method of file inclusion. Further info [here](https://shahjerry33.medium.com/rce-via-lfi-log-poisoning-the-death-potion-c0831cebc16d) and [here](https://secnhack.in/ftp-log-poisoning-through-lfi/) helped me figure out the next move.
 
-We can connect to the FTP server and use the method described to execute arbitary code. First lets test our theory:
+We can connect to the FTP server and use the method described to execute arbitrary code. First lets test our theory:
 
 ```sh
 ┌──(root💀kali)-[~/htb/pikaboo]

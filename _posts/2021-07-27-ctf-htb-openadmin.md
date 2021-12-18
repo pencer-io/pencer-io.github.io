@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of OpenAdmin from HackTHeBox"
+title: "Walk-through of OpenAdmin from HackTheBox"
 header:
   teaser: /assets/images/2021-07-27-21-12-31.png
 toc: true
@@ -12,7 +12,6 @@ tags:
   - CTF
   - Linux
   - OpenNetAdmin
-  - 
 ---
 
 ## Machine Information

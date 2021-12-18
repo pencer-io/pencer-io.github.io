@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Armageddon from HackTHeBox"
+title: "Walk-through of Armageddon from HackTheBox"
 header:
   teaser: /assets/images/2021-07-29-22-28-47.png
 toc: true

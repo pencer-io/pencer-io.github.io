@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Validation from HackTHeBox"
+title: "Walk-through of Validation from HackTheBox"
 header:
   teaser: /assets/images/2021-09-17-17-01-04.png
 toc: true

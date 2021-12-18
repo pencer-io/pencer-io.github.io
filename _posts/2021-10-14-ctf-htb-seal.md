@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Seal from HackTHeBox"
+title: "Walk-through of Seal from HackTheBox"
 header:
   teaser: /assets/images/2021-10-08-17-18-32.png
 toc: true

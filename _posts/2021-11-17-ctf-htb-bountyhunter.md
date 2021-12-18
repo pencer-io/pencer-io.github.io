@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of BountyHunter from HackTHeBox"
+title: "Walk-through of BountyHunter from HackTheBox"
 header:
   teaser: /assets/images/2021-09-26-21-48-36.png
 toc: true

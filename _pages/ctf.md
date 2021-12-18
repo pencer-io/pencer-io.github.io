@@ -23,6 +23,7 @@ These are all retired machines, which you can only access if you have a VIP memb
 | --- | --- | --- | --- | --- | --- |
 | 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
 | 382 | Validation | Easy | Linux | 06/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-validation) |
+| 361 | Writer | Medium | Linux | 31/07/2021 |  [Walk-through](https://pencer.io/ctf/ctf-htb-writer) |
 | 360 | Pikaboo | Hard | Linux | 17/07/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-pikaboo) |
 | 359 | Bounty Hunter | Easy | Linux | 24/07/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-bountyhunter) |
 | 358 | Seal | Medium | Linux | 10/07/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-seal) |

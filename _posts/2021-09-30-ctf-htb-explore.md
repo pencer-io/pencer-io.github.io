@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Explore from HackTHeBox"
+title: "Walk-through of Explore from HackTheBox"
 header:
   teaser: /assets/images/2021-09-26-18-35-59.png
 toc: true
@@ -12,7 +12,6 @@ tags:
   - CTF
   - Android
   - ADB
-  - 
 ---
 
 ## Machine Information

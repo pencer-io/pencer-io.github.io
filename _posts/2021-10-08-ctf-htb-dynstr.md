@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of dynstr from HackTHeBox"
+title: "Walk-through of dynstr from HackTheBox"
 header:
   teaser: /assets/images/2021-10-01-16-14-45.png
 toc: true
@@ -11,6 +11,10 @@ tags:
   - HTB
   - CTF
   - Linux
+  - gobuster
+  - tcpdump
+  - bindmgr
+  - nsupdate
 ---
 
 ## Machine Information
@@ -203,7 +207,7 @@ Now we're getting somewhere. We can do a simple test to see if that subdomain ca
 
 ```text
 ┌──(root💀kali)-[~/htb/dynstr]
-└─# echo 'ping -c4 10.10.14.214' | base64                                                                        2 ⨯
+└─# echo 'ping -c4 10.10.14.214' | base64
 cGluZyAtYzQgMTAuMTAuMTQuMjE0Cg==
 ```
 

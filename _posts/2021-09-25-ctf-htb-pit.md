@@ -1,5 +1,5 @@
 ---
-title: "Walk-through of Pit from HackTHeBox"
+title: "Walk-through of Pit from HackTheBox"
 header:
   teaser: /assets/images/2021-09-25-10-45-00.png
 toc: true
@@ -15,7 +15,6 @@ tags:
   - snmpbw.pl
   - Cockpit
   - SeedDMS
-  - 
 ---
 
 ## Machine Information
