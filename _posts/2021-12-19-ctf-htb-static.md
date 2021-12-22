@@ -238,7 +238,7 @@ Once installed click on it's icon then on the pencil:
 
 Add the totp code we've found above to the Secret field and click ok:
 
-[static-secret](/assets/images/2021-11-02-21-44-12.png)
+![static-secret](/assets/images/2021-11-02-21-44-12.png)
 
 Now you have a rotating one time code:
 
