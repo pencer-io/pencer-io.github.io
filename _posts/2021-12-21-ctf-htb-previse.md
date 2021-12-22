@@ -199,7 +199,7 @@ Archive:  siteBackup.zip
   inflating: logs.php                
   inflating: nav.php                 
   inflating: status.php              
-``` 
+```
 
 My eyes are drawn to the config.php file, this contains credentials:
 
@@ -464,7 +464,7 @@ Here we've just created a file called gzip in the current folder which has a rev
 
 Now we can run the backup script as root, with another netcat waiting in a different terminal:
 
-```
+```text
 m4lwhere@previse:~$ sudo /opt/scripts/access_backup.sh
 ```
 
