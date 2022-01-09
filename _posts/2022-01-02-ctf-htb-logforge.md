@@ -48,7 +48,7 @@ As always let's start with Nmap:
 └─# ports=$(nmap -p- --min-rate=1000 -T4 10.10.11.138 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
 
 ┌──(root💀kali)-[~/htb/logforge]
-└─# nmap -p$ports -sC -sV -oA timing 10.10.11.138
+└─# nmap -p$ports -sC -sV -oA logforge 10.10.11.138
 Starting Nmap 7.92 ( https://nmap.org ) at 2021-12-31 16:49 GMT
 Nmap scan report for 10.10.11.138
 Host is up (0.031s latency).
@@ -307,7 +307,7 @@ rmi://10.10.14.12:1099/2hpfij
 2022-01-02 17:46:02 [LDAPSERVER] >> Listening on 0.0.0.0:389
 ```
 
-As you can see there are targets for different environments depending on the version of JDK we are dealing with. You may need trial and error to find the one that works for you on another box. 
+As you can see there are targets for different environments depending on the version of JDK we are dealing with. You may need trial and error to find the one that works for you on another box.
 
 From that list, this is the one I used:
 
