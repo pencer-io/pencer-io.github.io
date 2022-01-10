@@ -48,7 +48,6 @@ As always let's start with Nmap:
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-09-29 20:36 BST
 Nmap scan report for 10.10.11.104
 Host is up (0.025s latency).
-
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -72,7 +71,7 @@ All we get from the nmap scan is a website on port 80 to look at for now:
 
 ## File Discovery
 
-This is a simple static login page. Nothing interesting in the source code, time for feroxbuster:
+This is a simple static login page. Nothing interesting in the source code, time for Feroxbuster:
 
 ```sh
 ┌──(root💀kali)-[~/htb/previse]
