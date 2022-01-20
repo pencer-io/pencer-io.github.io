@@ -18,7 +18,7 @@ tags:
 
 ![forge](/assets/images/2021-10-24-15-05-16.png)
 
-Forge is a medium machine on HackTheBox. We start with a simple website, after some enumeration and testing we find a way to upload a file allowing command execution on the box. We use this to exfiltrate an ssh private key which gives us user level access. Privilege escalation involves exploiting a vulnerable Python script and using pdb to gain root shell.
+Forge is a medium machine on HackTheBox. We start with a simple website, after some enumeration and testing we find a way to upload a file allowing command execution on the box. We use this to exfiltrate an SSH private key which gives us user level access. Privilege escalation involves exploiting a vulnerable Python script and using pdb to gain a root shell.
 
 <!--more-->
 
