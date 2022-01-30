@@ -25,6 +25,8 @@ These are all retired machines, which you can only access if you have a VIP memb
 | 418 | Union | Medium | Linux | 22/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-union) |
 | 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
 | 382 | Validation | Easy | Linux | 06/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-validation) |
+| 376 | Forge | Medium | Linux | 11/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-forge) |
+| 374 | Horizontall | Easy | Linux | 20/08/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-horizontall) |
 | 373 | Previse | Easy | Linux | 07/08/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-previse) |
 | 361 | Writer | Medium | Linux | 31/07/2021 |  [Walk-through](https://pencer.io/ctf/ctf-htb-writer) |
 | 360 | Pikaboo | Hard | Linux | 17/07/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-pikaboo) |
