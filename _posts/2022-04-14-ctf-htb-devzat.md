@@ -28,7 +28,6 @@ Devzat is a medium machine on HackTheBox. After an initial scan we find a versio
 
 Skills required are enumeration and an ability to read code. Skills learned are finding and using exploits, discovering and taking advantage of errors in the logic of source code.
 
-
 | Details |  |
 | --- | --- |
 | Hosting Site | [HackTheBox](https://www.hackthebox.eu) |
@@ -66,7 +65,6 @@ PORT     STATE SERVICE VERSION
 |_    SSH-2.0-Go
 | ssh-hostkey: 
 |_  3072 6a:ee:db:90:a6:10:30:9f:94:ff:bf:61:95:2a:20:63 (RSA)
-1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port8000-TCP:V=7.91%I=7%D=10/28%Time=617B0C07%P=x86_64-pc-linux-gnu%r(N
 SF:ULL,C,"SSH-2\.0-Go\r\n");
 Service Info: Host: devzat.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
@@ -89,9 +87,9 @@ Now let's look at the website:
 
 ![devzat](/assets/images/2021-10-28-21-54-11.png)
 
-It's a simple single page with details of a developers chat system and connection information:
-
 ## Devzat Chat
+
+It's a simple single page with details of a developers chat system and connection information:
 
 ![devzat-](/assets/images/2021-10-28-21-58-17.png)
 
@@ -747,7 +745,6 @@ catherine@devzat:~$ find / -group catherine -not -path "/proc/*" 2> /dev/null
 /home/catherine/.gnupg
 /home/catherine/.gnupg/private-keys-v1.d
 /home/catherine/.bash_logout
-/tmp/linpeas.sh
 /var/backups/devzat-main.zip
 /var/backups/devzat-dev.zip
 ```
