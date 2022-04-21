@@ -215,6 +215,14 @@ Now start Firefox as user Kali and the extensions we've downloaded:
 
 You'll be prompted to add each one.
 
+For FoxyProxy we can import the settings from the old Kali to save doing them again. First go back to old Kali and export settings:
+
+![fp-export-settings](/assets/images/2022-04-21-22-16-27.png)
+
+Copy that file over to new Kali then import settings:
+
+![fp-import-settings](/assets/images/2022-04-21-22-18-00.png)
+
 ## Find Installed Software
 
 Now a quick look to see if I installed anything on my old host that I also want here. Boot my old Kali host and check it:
@@ -376,6 +384,9 @@ Still on my new Kali we can use scp to pull files to us:
                                                                                                         
 ┌──(root💀kali)-[~]
 └─# sshpass -p "SuperSecretPassword" scp -r root@192.168.0.14:/root/htb/jet htb/jet/
+
+┌──(root㉿kali)-[~]
+└─# sshpass -p "SuperSecretPassword" scp -r root@192.168.0.14:/root/htb ~/ 
 ```
 
 I'm ready to switch to my new Kali install now, with everything set up and transferred across.
