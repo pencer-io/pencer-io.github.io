@@ -20,11 +20,11 @@ tags:
 
 ![secret](/assets/images/2021-11-19-14-47-29.png)
 
-Secret is rated as an easy machine on HackTheBox. We start with a backup found on the website running on the box. In there we find a number of interesting files, which leads us to interacting with an api. Eventually we create a java web token and can perform remote code execution, which we use to get a reverse shell. Escalation to root involves further code review, this time of a c program found on the box. From that we find crashing the program allows us to see the contents of memory via a coredump. And in there we can retrieve the root flag.
+Secret is rated as an easy machine on HackTheBox. We start with a backup found on the website running on the box. In there we find a number of interesting files, which leads us to interacting with an API. Eventually we create a Java Web Token and can perform remote code execution, which we use to get a reverse shell. Escalation to root involves further code review, this time of a c program found on the box. From that we find crashing the program allows us to see the contents of memory via a coredump. And in there we can retrieve the root flag.
 
 <!--more-->
 
-Skills required are web and OS enumeration. Skills learned are XXE exploits and understanding Python scripts to develop an exploit.
+Skills required are a basic understanding of Java code. Skills learned are manipulating Java Web Tokens and inspecting coredumps for sensitive information.
 
 | Details |  |
 | --- | --- |
