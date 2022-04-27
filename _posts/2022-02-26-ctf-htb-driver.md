@@ -31,7 +31,7 @@ Skills required are web and OS enumeration, and knowledge of current exploits. S
 | Details |  |
 | --- | --- |
 | Hosting Site | [HackTheBox](https://www.hackthebox.eu) |
-| Link To Machine | [HTB - Easy - Driver](https://www.hackthebox.eu/home/machines/profile/384) |
+| Link To Machine | [HTB - Easy - Driver](https://www.hackthebox.eu/home/machines/profile/387) |
 | Machine Release Date | 2nd October 2021 |
 | Date I Completed It | 28th October 2021 |
 | Distribution Used | Kali 2021.3 – [Release Info](https://www.kali.org/blog/kali-linux-2021-3-release/) |
