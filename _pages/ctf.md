@@ -23,9 +23,14 @@ These are all retired machines, which you can only access if you have a VIP memb
 | --- | --- | --- | --- | --- | --- |
 | 428 | LogForge | Medium | Linux | 03/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-logforge) |
 | 418 | Union | Medium | Linux | 22/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-union) |
+| 408 | Secret | Easy | Linux | 30/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-secret) |
 | 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
+| 398 | Devzat | Medium | Linux | 16/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-devzat) |
+| 387 | Driver | Easy | Windows | 02/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-driver) |
+| 384 | Bolt | Medium | Linux | 25/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-bolt) |
 | 382 | Validation | Easy | Linux | 06/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-validation) |
 | 376 | Forge | Medium | Linux | 11/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-forge) |
+| 375 | EarlyAccess | Hard | Linux | 04/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-earlyaccess) |
 | 374 | Horizontall | Easy | Linux | 20/08/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-horizontall) |
 | 373 | Previse | Easy | Linux | 07/08/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-previse) |
 | 361 | Writer | Medium | Linux | 31/07/2021 |  [Walk-through](https://pencer.io/ctf/ctf-htb-writer) |
