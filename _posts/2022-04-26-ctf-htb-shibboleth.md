@@ -1,7 +1,7 @@
 ---
 title: "Walk-through of Shibboleth from HackTheBox"
 header:
-  teaser: /assets/images/2021-11-19-15-03-26.png
+  teaser: /assets/images/2021-12-08-21-47-27.png
 toc: true
 toc_sticky: true
 excerpt_separator:  <!--more-->
