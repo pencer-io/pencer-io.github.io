@@ -23,6 +23,8 @@ These are all retired machines, which you can only access if you have a VIP memb
 | --- | --- | --- | --- | --- | --- |
 | 428 | LogForge | Medium | Linux | 03/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-logforge) |
 | 418 | Union | Medium | Linux | 22/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-union) |
+| 416 | Backdoor | Easy | Linux | 20/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-backdoor) |
+| 410 | Shibboleth | Medium | Linux | 13/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-shibboleth) |
 | 408 | Secret | Easy | Linux | 30/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-secret) |
 | 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
 | 398 | Devzat | Medium | Linux | 16/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-devzat) |
