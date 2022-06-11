@@ -21,10 +21,15 @@ These are all retired machines, which you can only access if you have a VIP memb
 
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
+| 471 | OpenSource | Easy | Linux | 21/05/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-opensource-protected) |
+| 467 | Noter | Medium | Linux | 07/05/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-noter-protected) |
 | 428 | LogForge | Medium | Linux | 03/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-logforge) |
+| 423 | Pandora | Easy | Linux | 08/01/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-pandora) |
+| 421 | Timing | Medium | Linux | 11/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-timing) |
 | 418 | Union | Medium | Linux | 22/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-union) |
 | 416 | Backdoor | Easy | Linux | 20/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-backdoor) |
 | 415 | Unicode | Medium | Linux | 27/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-unicode) |
+| 414 | Nunchucks | Easy | Linux | 02/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-nunchucks) |
 | 410 | Shibboleth | Medium | Linux | 13/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-shibboleth) |
 | 408 | Secret | Easy | Linux | 30/10/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-secret) |
 | 401 | Return | Easy | Windows | 27/09/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-return) |
