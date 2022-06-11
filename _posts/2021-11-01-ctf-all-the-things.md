@@ -102,6 +102,21 @@ tomcat@seal:/var/lib/tomcat9$ export TERM=xterm
 tomcat@seal:/var/lib/tomcat9$ stty rows 52 cols 237
 ```
 
+## Bash Port Enumeration
+
+We can scan all ports like this:
+
+```sh
+i=1
+max=65535
+while [ $i -lt $max ]
+do
+    echo "Port: $i"
+    nc -w 1 -v 172.17.0.1 $i </dev/null; echo $?
+    true $(( i++ ))
+done
+```
+
 ## Bash wget
 
 ```sh
