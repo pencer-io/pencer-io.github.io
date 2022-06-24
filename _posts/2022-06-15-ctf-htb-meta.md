@@ -367,7 +367,7 @@ Same as before copy this file to the images folder:
 www-data@meta:/dev/shm$ cp poc.svg /var/www/dev01.artcorp.htb/convert_images/
 ```
 
-Wait a few minutes and our file has arrived
+Wait a few minutes and our file has arrived:
 
 ```text
 www-data@meta:/dev/shm$ ls -lsa
@@ -439,13 +439,15 @@ It's safe to assume this is our escalation path.
 What is Neofetch? From the Gitub repo [here](https://github.com/dylanaraps/neofetch/):
 
 ```text
-Neofetch is a command-line system information tool written in bash 3.2+. Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way.
+Neofetch is a command-line system information tool written in bash 3.2+. 
+Neofetch displays information about your operating system, software and 
+hardware in an aesthetic and visually pleasing way.
 ```
 
 Let's try it:
 
 ```text
-homas@meta:~$ sudo -u root /usr/bin/neofetch \"\"
+thomas@meta:~$ sudo -u root /usr/bin/neofetch \"\"
        _,met$$$$$gg.          root@meta 
     ,g$$$$$$$$$$$$$$$P.       --------- 
   ,g$$P"     """Y$$.".        OS: Debian GNU/Linux 10 (buster) x86_64 
@@ -503,7 +505,9 @@ print_info() {
 The file is really big with hundreds of settings. From the docs it also says:
 
 ```text
-Neofetch will by default create a config file at $HOME/.config/neofetch/config.conf on first run. This file contains options to control all aspects of the output. The config file allows you to keep your customization between versions and allows you to easily share your customization with other people.
+Neofetch will by default create a config file at $HOME/.config/neofetch/config.conf on first run. 
+This file contains options to control all aspects of the output. The config file allows you to
+keep your customization between versions and allows you to easily share your customization with other people.
 ```
 
 So this config file is for thomas, there will also be one for root because when we run neofetch with sudo we are running it as root. We need to find a way to get neofetch to use the config file in the thomas home folder when we run it as root.
@@ -520,7 +524,9 @@ Matching Defaults entries for thomas on meta:
 What is XDG_CONFIG_HOME? I found [this](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) which says:
 
 ```text
-$XDG_CONFIG_HOME defines the base directory relative to which user-specific configuration files should be stored. If $XDG_CONFIG_HOME is either not set or empty, a default equal to $HOME/.config should be used.
+$XDG_CONFIG_HOME defines the base directory relative to which user-specific configuration files
+should be stored. If $XDG_CONFIG_HOME is either not set or empty, a default equal to
+$HOME/.config should be used.
 ```
 
 So we can force neofetch to look in a specific folder for the config file. We can simply do this:
