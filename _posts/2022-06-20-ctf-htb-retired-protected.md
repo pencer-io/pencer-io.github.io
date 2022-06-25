@@ -15,11 +15,6 @@ tags:
   - BOF
   - NX Enabled
   - RELRO
-  - GDB
-  - Peda
-  - ROP
-  - msfvenom
-  - binfmt_rootkit
 ---
 
 [Retired](https://www.hackthebox.com/home/machines/profile/456) is a medium level machine by [uco2KFh](https://www.hackthebox.com/home/users/profile/590762) on [HackTheBox](https://www.hackthebox.com/home). It focuses on binary exploitation and taking advantage of poorly designed scripts and services.
