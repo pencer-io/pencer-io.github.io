@@ -36,7 +36,7 @@ tags:
 
 At the time of publication this box is live so the walkthrough is password protected [here](/assets/pdfs/2022-07-08-ctf-htb-trick.pdf).
 
-The password for this is the Administrator password hash which looks like this:
+The password for this is the root password hash which looks like this:
 
 ```text
 root:$6$l   <<HIDDEN>>   7:::
