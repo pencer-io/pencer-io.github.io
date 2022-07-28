@@ -17,13 +17,26 @@ Putting all my frequently used CTF techniques, tactics and tools here so I can f
 
 ![htb](/assets/images/2020-05-28-23-10-35.png)
 
-These are all retired machines, which you can only access if you have a VIP membership. More info at [HackTheBox](https://www.hackthebox.eu/home).
+Some of these are retired machines, which you can only access if you have a VIP membership. More info at [HackTheBox](https://www.hackthebox.eu/home).
 
 | Number | Name | Difficulty | OS | Release Date | |
 | --- | --- | --- | --- | --- | --- |
+| 483 | Shared | Medium | Linux | 23/07/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-shared-protected) |
+| 481 | RedPanda | Easy | Linux | 09/07/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-redpanda-protected) |
+| 480 | Faculty | Medium | Linux | 02/07/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-faculty-protected) |
+| 477 | Trick | Easy | Linux | 18/06/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-trick-protected) |
+| 476 | Scrambled | Medium | Windows | 11/06/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-scrambled-protected) |
+| 474 | StreamIO | Medium | Windows | 04/06/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-streamio-protected) |
 | 471 | OpenSource | Easy | Linux | 21/05/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-opensource-protected) |
 | 467 | Noter | Medium | Linux | 07/05/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-noter-protected) |
+| 456 | Retired | Medium | Linux | 02/04/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-retired-protected) |
+| 450 | Catch | Medium | Linux | 12/03/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-catch) |
+| 444 | RouterSpace | Easy | Linux | 26/02/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-routerspace) |
+| 439 | Undetected | Medium | Linux | 19/02/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-undetected) |
+| 432 | Paper | Easy | Linux | 05/02/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-paper) |
+| 429 | Meta | Medium | Linux | 22/01/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-meta) |
 | 428 | LogForge | Medium | Linux | 03/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-logforge) |
+| 427 | AdmirerToo | Hard | Linux | 15/01/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-admirertoo) |
 | 423 | Pandora | Easy | Linux | 08/01/2022 | [Walk-through](https://pencer.io/ctf/ctf-htb-pandora) |
 | 421 | Timing | Medium | Linux | 11/12/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-timing) |
 | 418 | Union | Medium | Linux | 22/11/2021 | [Walk-through](https://pencer.io/ctf/ctf-htb-union) |
