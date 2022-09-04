@@ -11,6 +11,9 @@ tags:
   - HTB
   - CTF
   - Linux
+  - Flask
+  - flask-unsign
+  - mysql udf
 ---
 
 Noter is a medium level machine by [kavigihan](https://www.hackthebox.com/home/users/profile/389926) on [HackTheBox](https://www.hackthebox.com/home). It focuses on a poorly written Flask app and exploiting user defined functions in MySQL.
@@ -550,7 +553,7 @@ Let's grab the code using searchsploit:
 
 ```sh
 ┌──(root㉿kali)-[~/htb/noter]
-└─# searchsploit mysql udf                                                                              
+└─# searchsploit mysql udf
 ------------------------------------------------------------------------ ---------------------------------
  Exploit Title                                                          |  Path
 ------------------------------------------------------------------------ ---------------------------------
