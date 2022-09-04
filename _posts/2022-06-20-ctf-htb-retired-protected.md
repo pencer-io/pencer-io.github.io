@@ -33,12 +33,14 @@ tags:
 | Date I Completed It | 25th June 2022 |
 | Distribution Used | Kali 2022.1 – [Release Info](https://www.kali.org/blog/kali-linux-2022-1-release/) |
 
-## Protected Content
+## Box Retired
 
-At time of publication the box is live so walkthrough is password protected [here](/assets/pdfs/2022-06-20-ctf-htb-retired.pdf).
+This box has now been retired. The PDF is still available [here](/assets/pdfs/2022-06-20-ctf-htb-retired.pdf).
 
 The password for this is the root users entry in the /etc/shadow file on the box which looks like this:
 
 ```text
 root:$y$j   <<HIDDEN>>   7:::
 ```
+
+The full walk-through is now available [here](https://pencer.io/ctf/ctf-htb-retired) without a password.
