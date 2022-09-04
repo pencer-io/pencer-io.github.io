@@ -33,10 +33,12 @@ Noter is a medium level machine by [kavigihan](https://www.hackthebox.com/home/u
 
 ## Protected Content
 
-This box is still live so the walkthrough is currently available in a password protected PDF file [here](/assets/pdfs/2022-05-24-ctf-htb-noter.pdf).
+This box has now been retired. The PDF is still available [here](/assets/pdfs/2022-05-24-ctf-htb-noter.pdf).
 
 The password for this is the root users entry in the /etc/shadow file on the box which looks like this:
 
 ```text
 root:$6$0   <<HIDDEN>>   7:::
 ```
+
+The full walk-through is now available [here](https://pencer.io/ctf/ctf-htb-noter) without a password.
