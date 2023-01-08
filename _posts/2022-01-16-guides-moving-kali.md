@@ -215,6 +215,10 @@ Now start Firefox as user Kali and the extensions we've downloaded:
 
 You'll be prompted to add each one.
 
+Now go to Add-ons and Themes (Ctrl+Shift+A) to see the Manage Your Extensions page, from their click the cog top right and chose Check for Updates:
+
+![firefox-addons](/assets/images/2023-01-08-11-43-53.png)
+
 For FoxyProxy we can import the settings from the old Kali to save doing them again. First go back to old Kali and export settings:
 
 ![fp-export-settings](/assets/images/2022-04-21-22-16-27.png)
@@ -222,6 +226,38 @@ For FoxyProxy we can import the settings from the old Kali to save doing them ag
 Copy that file over to new Kali then import settings:
 
 ![fp-import-settings](/assets/images/2022-04-21-22-18-00.png)
+
+Or if you just have Burp set up then do that manually in your new Firefox:
+
+![fp-setup-burp](/assets/images/2023-01-08-11-46-01.png)
+
+We also want to install the Burp certificate. Start Burp and switch Intercept on:
+
+![burp-intercept](/assets/images/2023-01-08-11-48-19.png)
+
+Now back to firefox and go to the Burp local address:
+
+![firefox-burp-cert](/assets/images/2023-01-08-11-48-52.png)
+
+Click the CA Certificate link on the right to save the cert. Then go to Settings and Certificates:
+
+![firefox-certs](/assets/images/2023-01-08-11-54-55.png)
+
+Click the View Certificates button, then on Authorities tab click import and go to Downloads:
+
+![firefox-import-cert](/assets/images/2023-01-08-11-56-35.png)
+
+Select the .cer file we downloaded, make sure to tick the Trust websites control then click ok:
+
+![firefox-trust cert](/assets/images/2023-01-08-11-58-24.png)
+
+[This](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox) guide by PortSwigger also has step by step for installing the cert if you need it.
+
+We can check the certificate is working by making sure Intercept is off in Burp, proxy is enabled in Firefox, then visiting any https site:
+
+![firefox-check-cert](/assets/images/2023-01-08-12-09-19.png)
+
+If there's no errors then it's all good.
 
 ## Find Installed Software
 
@@ -247,7 +283,7 @@ This is a list of packages manually installed via apt. It will most likely be a 
 
 ```sh
 ┌──(root💀kali)-[~]
-└─# history | grep " apt"
+└─# history | grep "apt"
   126  sudo apt install seclists curl enum4linux feroxbuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
   141  sudo apt install python3-venv
   235  sudo apt install poppler-utils
