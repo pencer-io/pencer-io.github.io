@@ -15,9 +15,11 @@ tags:
 
 ![ctf](/assets/images/2021-10-13-21-39-10.png)
 
-# Recon
+I'm starting to move this content to something a bit easier to maintain and read over on Gitbooks [here](https://pencer.gitbook.io/pencer-ctf-all-the-things/).
 
-## Gobuster
+## Recon
+
+### Gobuster
 
 Install:
 
@@ -51,9 +53,9 @@ Specify cookie:
 gobuster dir -u <target url> -w <wordlist> -c 'session=123456'
 ```
 
-# Shell
+## Shell
 
-## Upgrade
+### Upgrade
 
 First job is to upgrade our terminal to something more useable:
 
@@ -102,7 +104,7 @@ tomcat@seal:/var/lib/tomcat9$ export TERM=xterm
 tomcat@seal:/var/lib/tomcat9$ stty rows 52 cols 237
 ```
 
-## Bash Port Enumeration
+### Bash Port Enumeration
 
 We can scan all ports like this:
 
@@ -117,7 +119,7 @@ do
 done
 ```
 
-## Bash wget
+### Bash wget
 
 ```sh
 function __wget() {
@@ -136,7 +138,7 @@ function __wget() {
 }
 ```
 
-## Bash mkdir & cd
+### Bash mkdir & cd
 
 ```sh
 mkcdir ()
@@ -146,7 +148,7 @@ mkcdir ()
 }
 ```
 
-## Look for active services
+### Look for active services
 
 ```sh
 jennifer@admirertoo:~$ systemctl list-units --type=service
@@ -163,7 +165,7 @@ hbase.service                      loaded active running HBase
 ifup@eth0.service                  loaded active exited  ifup for eth0
 ```
 
-## Evil-WinRM
+### Evil-WinRM
 
 Standard connection with user and password, also use SSL:
 
