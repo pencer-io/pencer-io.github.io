@@ -31,14 +31,14 @@ Noter is a medium level machine by [kavigihan](https://www.hackthebox.com/home/u
 | Date I Completed It | 22nd May 2022 |
 | Distribution Used | Kali 2022.1 – [Release Info](https://www.kali.org/blog/kali-linux-2022-1-release/) |
 
-## Protected Content
+## Now Retired
 
 This box has now been retired. The PDF is still available [here](/assets/pdfs/2022-05-24-ctf-htb-noter.pdf).
 
 The password for this is the root users entry in the /etc/shadow file on the box which looks like this:
 
 ```text
-root:$6$0   <<HIDDEN>>   7:::
+root:$6$09RSjU3jIh/2JW1u$8jlcYzW5Oyzgh/TrlTPX5Wq2HMTA6zUooij/9j0.NIttTYp4x0h6wmq8chrcdtvNpZzHlHzwsI8GesOKI3NYn.:18991:0:99999:7:::
 ```
 
 The full walk-through is now available [here](https://pencer.io/ctf/ctf-htb-noter) without a password.
