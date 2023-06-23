@@ -123,6 +123,8 @@ If we paste that in to Google we get a clue that this is probably a NodeJS app:
 
 ![shoppy-google](/assets/images/2023-01-21-16-36-58.png)
 
+## Gobuster
+
 Let's use gobuster to look for hidden subfolders:
 
 ```sh
@@ -163,6 +165,8 @@ We see a few, with login and admin which redirects to login being of interest. L
 ![shoppy-login](/assets/images/2023-01-13-16-24-30.png)
 
 We have a login page. The source code reveals nothing so we can assume this is either brute force or SQL injection. A Google of "nodejs database" shows us it could be MySQL or MongoDB. We've done plenty of SQLi in the past, [Shared](https://pencer.io/ctf/ctf-htb-shared) and [Faculty](https://pencer.io/ctf/ctf-htb-faculty) from last year spring to mind.
+
+## NoSQL Injection
 
 I got no where with SQLi and spent some time looking for resources to attack [MongoDB with NodeJS](https://www.mongodb.com/nodejs-database). [This](https://nullsweep.com/a-nosql-injection-primer-with-mongo/) from Null Sweep turned out to be the one to help. I had a look in seclists:
 
@@ -216,7 +220,7 @@ ID         C.Time  Response  Lines  Word  Chars  Server         Redirect        
 000000012: 0.032s  302       0 L    4 W   28 Ch  nginx/1.23.1   /admin                         "' || 'a'=='a"
 ```
 
-From the Wfuzz output we can see the last payload worked and we were redirected to /admin just like it did with Burp. 
+From the Wfuzz output we can see the last payload worked and we were redirected to /admin just like it did with Burp.
 
 If we login through Firefox we see a simple single page app:
 
@@ -234,7 +238,11 @@ Our NoSQLi bypass also works on the search so we can see all users. This time th
 
 ![shoppy-pass-crack](/assets/images/2023-01-22-15-07-35.png)
 
-Logging in to the app as Josh works, but we there is nothing more to look at in there. Let's go back to more enumeration and look for subdomains with wfuzz:
+Logging in to the app as Josh works, but we there is nothing more to look at in there.
+
+## Mattermost
+
+Let's go back to more enumeration and look for subdomains with wfuzz:
 
 ```sh
 ┌──(root㉿kali)-[~/htb/shoppy]
@@ -265,6 +273,8 @@ Now we are inside [Mattermost](https://mattermost.com/) which is a collaboration
 
 ![shoppy-deploy-creds](/assets/images/2023-01-22-17-01-15.png)
 
+## User Flag
+
 These work if we try to SSH in with jaeger and Sh0ppyBest@pp!:
 
 ```sh
@@ -283,6 +293,8 @@ Let's grab the user flag:
 jaeger@shoppy:~$ cat user.txt 
 c3953863c6dccf6fadc1b32df5dbcd0f
 ```
+
+## Password Manager
 
 Just like we always do, first a few simple checks before we pull LinPEAS or similar over. SUDO is number one, especially on Easy boxes:
 
@@ -375,6 +387,8 @@ username: deploy
 password: Deploying@pp!
 ```
 
+## Deploy User
+
 We have creds for the deploy user, let's drop out of this session and start one as that user:
 
 ```sh
@@ -393,6 +407,8 @@ uid=1001(deploy) gid=1001(deploy) groups=1001(deploy),998(docker)
 ```
 
 That should get your spidey senses tingling!
+
+## Docker
 
 If you need a cheat sheet, [this](https://dockerlabs.collabnix.com/docker/cheatsheet/) is a good one. We can have a look at the installed version of docker, containers and images:
 
@@ -440,6 +456,8 @@ So we can see there are no containers running currently but we have an image cal
 ```sh
 sudo docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 ```
+
+## Root Flag
 
 We don't need sudo because our user already has rights:
 
